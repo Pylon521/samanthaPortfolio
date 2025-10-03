@@ -6,6 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Samantha Pang">
+<meta name="dcterms.date" content="2025-10-01">
 
 <title>US Treasury Par Yield Curve Rates Analysis</title>
 <style>
@@ -58,7 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="WebScrap_US_Treasury_Rate_files/libs/clipboard/clipboard.min.js"></script>
+<script src="WebScrap_US_Treasury_Rate_files/libs/clipboard/clipboard.min.js"></script>
 <script src="WebScrap_US_Treasury_Rate_files/libs/quarto-html/quarto.js" type="module"></script>
 <script src="WebScrap_US_Treasury_Rate_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="WebScrap_US_Treasury_Rate_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -70,9 +72,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="WebScrap_US_Treasury_Rate_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="WebScrap_US_Treasury_Rate_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="WebScrap_US_Treasury_Rate_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -92,7 +91,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Samantha Pang </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 1, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -120,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="extracting-the-data-via-web-scraping">Extracting the Data via Web Scraping</h3>
 <p>Data is scrapped from the <a href="https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics/selected-interest-rates-historical-data">U.S. Department of the Treasury</a>. Date range: 1990 to Present</p>
 <p>Use the first URL to inspect the table structure, and get the table headings, then loop through all the URLs to get the table data.</p>
-<div id="80f0d317" class="cell" data-execution_count="2">
+<div id="80f0d317" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup <span class="im">as</span> BS</span>
@@ -178,349 +189,35 @@ This script is to scrap US Treasury Rate data from 1990 to 2025.</code></pre>
 </section>
 <section id="reviewing-and-cleaning-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="reviewing-and-cleaning-the-data">Reviewing and Cleaning the Data</h3>
-<p>Inspecting dataframe via <code>df.describe()</code>, <code>df.info()</code> and <code>df.head()</code>. First table shows the summary statistics of the numerical columns, while the second table shows the first few rows of the dataframe.</p>
-<div id="c60550fe" class="cell" data-execution_count="17">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>display(df.describe(), df.head())</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># noticed there are space in N/A cell, </span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># print("N/A cell: '", df['20 YR'][0], "'")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Date</th>
-<th data-quarto-table-cell-role="th">20 YR</th>
-<th data-quarto-table-cell-role="th">30 YR</th>
-<th data-quarto-table-cell-role="th">Extrapolation Factor</th>
-<th data-quarto-table-cell-role="th">6 WEEKS BANK DISCOUNT</th>
-<th data-quarto-table-cell-role="th">COUPON EQUIVALENT</th>
-<th data-quarto-table-cell-role="th">8 WEEKS BANK DISCOUNT</th>
-<th data-quarto-table-cell-role="th">COUPON EQUIVALENT</th>
-<th data-quarto-table-cell-role="th">17 WEEKS BANK DISCOUNT</th>
-<th data-quarto-table-cell-role="th">COUPON EQUIVALENT</th>
-<th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">4 Mo</th>
-<th data-quarto-table-cell-role="th">6 Mo</th>
-<th data-quarto-table-cell-role="th">1 Yr</th>
-<th data-quarto-table-cell-role="th">2 Yr</th>
-<th data-quarto-table-cell-role="th">3 Yr</th>
-<th data-quarto-table-cell-role="th">5 Yr</th>
-<th data-quarto-table-cell-role="th">7 Yr</th>
-<th data-quarto-table-cell-role="th">10 Yr</th>
-<th data-quarto-table-cell-role="th">20 Yr</th>
-<th data-quarto-table-cell-role="th">30 Yr</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">count</th>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>...</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">unique</th>
-<td>8941</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>...</td>
-<td>144</td>
-<td>763</td>
-<td>806</td>
-<td>844</td>
-<td>855</td>
-<td>850</td>
-<td>848</td>
-<td>836</td>
-<td>716</td>
-<td>789</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">top</th>
-<td>01/02/1990</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>...</td>
-<td>N/A</td>
-<td>0.06</td>
-<td>0.11</td>
-<td>0.27</td>
-<td>0.35</td>
-<td>1.66</td>
-<td>2.02</td>
-<td>4.27</td>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">freq</th>
-<td>1</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>8941</td>
-<td>...</td>
-<td>8207</td>
-<td>183</td>
-<td>176</td>
-<td>98</td>
-<td>54</td>
-<td>35</td>
-<td>35</td>
-<td>36</td>
-<td>940</td>
-<td>995</td>
-</tr>
-</tbody>
-</table>
-
-<p>4 rows × 26 columns</p>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Date</th>
-<th data-quarto-table-cell-role="th">20 YR</th>
-<th data-quarto-table-cell-role="th">30 YR</th>
-<th data-quarto-table-cell-role="th">Extrapolation Factor</th>
-<th data-quarto-table-cell-role="th">6 WEEKS BANK DISCOUNT</th>
-<th data-quarto-table-cell-role="th">COUPON EQUIVALENT</th>
-<th data-quarto-table-cell-role="th">8 WEEKS BANK DISCOUNT</th>
-<th data-quarto-table-cell-role="th">COUPON EQUIVALENT</th>
-<th data-quarto-table-cell-role="th">17 WEEKS BANK DISCOUNT</th>
-<th data-quarto-table-cell-role="th">COUPON EQUIVALENT</th>
-<th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">4 Mo</th>
-<th data-quarto-table-cell-role="th">6 Mo</th>
-<th data-quarto-table-cell-role="th">1 Yr</th>
-<th data-quarto-table-cell-role="th">2 Yr</th>
-<th data-quarto-table-cell-role="th">3 Yr</th>
-<th data-quarto-table-cell-role="th">5 Yr</th>
-<th data-quarto-table-cell-role="th">7 Yr</th>
-<th data-quarto-table-cell-role="th">10 Yr</th>
-<th data-quarto-table-cell-role="th">20 Yr</th>
-<th data-quarto-table-cell-role="th">30 Yr</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>01/02/1990</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>...</td>
-<td>N/A</td>
-<td>7.89</td>
-<td>7.81</td>
-<td>7.87</td>
-<td>7.90</td>
-<td>7.87</td>
-<td>7.98</td>
-<td>7.94</td>
-<td>N/A</td>
-<td>8.00</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
-<td>01/03/1990</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>...</td>
-<td>N/A</td>
-<td>7.94</td>
-<td>7.85</td>
-<td>7.94</td>
-<td>7.96</td>
-<td>7.92</td>
-<td>8.04</td>
-<td>7.99</td>
-<td>N/A</td>
-<td>8.04</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
-<td>01/04/1990</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>...</td>
-<td>N/A</td>
-<td>7.90</td>
-<td>7.82</td>
-<td>7.92</td>
-<td>7.93</td>
-<td>7.91</td>
-<td>8.02</td>
-<td>7.98</td>
-<td>N/A</td>
-<td>8.04</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">3</th>
-<td>01/05/1990</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>...</td>
-<td>N/A</td>
-<td>7.85</td>
-<td>7.79</td>
-<td>7.90</td>
-<td>7.94</td>
-<td>7.92</td>
-<td>8.03</td>
-<td>7.99</td>
-<td>N/A</td>
-<td>8.06</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">4</th>
-<td>01/08/1990</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>...</td>
-<td>N/A</td>
-<td>7.88</td>
-<td>7.81</td>
-<td>7.90</td>
-<td>7.95</td>
-<td>7.92</td>
-<td>8.05</td>
-<td>8.02</td>
-<td>N/A</td>
-<td>8.09</td>
-</tr>
-</tbody>
-</table>
-
-<p>5 rows × 26 columns</p>
-</div>
-</div>
-</div>
-<p>To-do list: 1. Remove leading and trailing spaces 2. Replace all ‘N/A’ with NaN 3. Drop columns with all NaN values 4. convert the ‘Date’ column to datetime format 5. convert the rest of the columns to float</p>
+<p>Inspecting dataframe via <code>df.describe()</code>, <code>df.info()</code> and <code>df.head()</code>. There are a few things to clean up:</p>
+<ol type="1">
+<li>Remove leading and trailing spaces</li>
+<li>Replace all ‘N/A’ with NaN</li>
+<li>Drop columns with all NaN values</li>
+<li>convert the ‘Date’ column to datetime format</li>
+<li>convert the rest of the columns to float</li>
+</ol>
 <section id="all-done-ready-for-analysis." class="level5">
 <h5 class="anchored" data-anchor-id="all-done-ready-for-analysis.">All done! Ready for analysis.</h5>
-<div id="58ab3431" class="cell" data-execution_count="4">
+<div id="58ab3431" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove all blank spaces in the dataframe, except headers</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>clean_df <span class="op">=</span> df.iloc[:,:].<span class="bu">map</span>(<span class="kw">lambda</span> x:x.strip())</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># converting to lower case, if cell equals to 'n/a', then replace with empty string</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>clean_df <span class="op">=</span> clean_df.<span class="bu">map</span>(<span class="kw">lambda</span> x:np.nan <span class="cf">if</span> (x.lower() <span class="op">==</span> <span class="st">'n/a'</span> <span class="kw">or</span> x <span class="op">==</span><span class="st">''</span>) <span class="cf">else</span> x)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># dropping all columns with all NaN values</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>clean_df.dropna(axis<span class="op">=</span><span class="dv">1</span>, how<span class="op">=</span><span class="st">'all'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># change Date column to datetime and the rest to float</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>clean_df[clean_df.columns[<span class="dv">0</span>]] <span class="op">=</span> pd.to_datetime(clean_df[clean_df.columns[<span class="dv">0</span>]])</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> clean_df.columns[<span class="dv">1</span>:]:</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    clean_df[col] <span class="op">=</span> clean_df[col].astype(<span class="bu">str</span>).astype(<span class="bu">float</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>clean_df.info()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># display(df.describe(), df.head())</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># noticed there are space in N/A cell, </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># print("N/A cell: '", df['20 YR'][0], "'")</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># remove all blank spaces in the dataframe, except headers</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>clean_df <span class="op">=</span> df.iloc[:,:].<span class="bu">map</span>(<span class="kw">lambda</span> x:x.strip())</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># converting to lower case, if cell equals to 'n/a', then replace with empty string</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>clean_df <span class="op">=</span> clean_df.<span class="bu">map</span>(<span class="kw">lambda</span> x:np.nan <span class="cf">if</span> (x.lower() <span class="op">==</span> <span class="st">'n/a'</span> <span class="kw">or</span> x <span class="op">==</span><span class="st">''</span>) <span class="cf">else</span> x)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># dropping all columns with all NaN values</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>clean_df.dropna(axis<span class="op">=</span><span class="dv">1</span>, how<span class="op">=</span><span class="st">'all'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># change Date column to datetime and the rest to float</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>clean_df[clean_df.columns[<span class="dv">0</span>]] <span class="op">=</span> pd.to_datetime(clean_df[clean_df.columns[<span class="dv">0</span>]])</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> clean_df.columns[<span class="dv">1</span>:]:</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    clean_df[col] <span class="op">=</span> clean_df[col].astype(<span class="bu">str</span>).astype(<span class="bu">float</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># clean_df.info()</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># clean_df.head()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
-RangeIndex: 8941 entries, 0 to 8940
-Data columns (total 15 columns):
- #   Column  Non-Null Count  Dtype         
----  ------  --------------  -----         
- 0   Date    8941 non-null   datetime64[ns]
- 1   1 Mo    6041 non-null   float64       
- 2   1.5 Mo  153 non-null    float64       
- 3   2 Mo    1736 non-null   float64       
- 4   3 Mo    8937 non-null   float64       
- 5   4 Mo    734 non-null    float64       
- 6   6 Mo    8940 non-null   float64       
- 7   1 Yr    8940 non-null   float64       
- 8   2 Yr    8940 non-null   float64       
- 9   3 Yr    8940 non-null   float64       
- 10  5 Yr    8940 non-null   float64       
- 11  7 Yr    8940 non-null   float64       
- 12  10 Yr   8940 non-null   float64       
- 13  20 Yr   8001 non-null   float64       
- 14  30 Yr   7946 non-null   float64       
-dtypes: datetime64[ns](1), float64(14)
-memory usage: 1.0 MB</code></pre>
-</div>
 </div>
 </section>
 </section>
@@ -534,25 +231,50 @@ memory usage: 1.0 MB</code></pre>
 <p>Utilizing seaborn and matplotlib, we will visualize the trends and distribution in the U.S. Treasury Par Yield Curve Rates over time.</p>
 <p>Box plots allows us to view the distribution of rates for each maturity period. We can also observe that the short term rates has generally a lower rate than the long term rates, which is expected.</p>
 <p>1.5Mo and 4Mo maturity rate have significantly smaller range of data. Upon review, it appears that the 1.5Mo and 4Mo maturity rates were only added to the dataset in recent years, which has less data points compared to other rates.</p>
-<div id="655fab8f" class="cell">
+<div id="655fab8f" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Melt df to long format</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> clean_df.melt(id_vars<span class="op">=</span><span class="st">'Date'</span>, var_name<span class="op">=</span><span class="st">'Series'</span>, value_name<span class="op">=</span><span class="st">'Value'</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>data.dropna(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">6</span>))</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the orbital period with horizontal boxes, vlag - blue/pink diverging color palette</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>sns.boxplot(</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    data, x<span class="op">=</span><span class="st">"Value"</span>, y<span class="op">=</span><span class="st">"Series"</span>, hue<span class="op">=</span><span class="st">"Series"</span>, palette<span class="op">=</span><span class="st">"vlag"</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"US Treasury Rates (%)"</span>)</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>ax.xaxis.grid(<span class="va">True</span>)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(ylabel<span class="op">=</span><span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Melt df to long format</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> clean_df.melt(id_vars<span class="op">=</span><span class="st">'Date'</span>, var_name<span class="op">=</span><span class="st">'Series'</span>, value_name<span class="op">=</span><span class="st">'Value'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>data.dropna(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">6</span>))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the orbital period with horizontal boxes, vlag - blue/pink diverging color palette</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>sns.boxplot(</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    data, x<span class="op">=</span><span class="st">"Value"</span>, y<span class="op">=</span><span class="st">"Series"</span>, hue<span class="op">=</span><span class="st">"Series"</span>, palette<span class="op">=</span><span class="st">"vlag"</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"US Treasury Rates (%)"</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>ax.xaxis.grid(<span class="va">True</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(ylabel<span class="op">=</span><span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="WebScrap_US_Treasury_Rate_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="trends-over-time" class="level4">
+<h4 class="anchored" data-anchor-id="trends-over-time">Trends Over Time</h4>
+<p>The line chart below shows the trends of different maturity rates from 1990 to 2024 are generally trending down. Unexpected upward spikes starting around 2021, likely due to economic recovery post-pandemic.</p>
+<p>Moreover, the short-term rates (1 month, 3 month, 6 month, 1 year) are more volatile, while the long-term rates (10 year, 20 year, 30 year) are more stable. There are a few period that the short-term rates spike above the long-term rates, indicating an inverted yield curve, which we will explore this further.</p>
+<div id="fc7c3101" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>sns.lineplot(data<span class="op">=</span>data, x<span class="op">=</span><span class="st">'Date'</span>, y<span class="op">=</span><span class="st">'Value'</span>, hue<span class="op">=</span><span class="st">'Series'</span>, palette<span class="op">=</span><span class="st">'crest'</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Data Overview"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"US Treasury Rates (%)"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -563,20 +285,30 @@ memory usage: 1.0 MB</code></pre>
 </div>
 </div>
 </section>
-<section id="trends-over-time" class="level4">
-<h4 class="anchored" data-anchor-id="trends-over-time">Trends Over Time</h4>
-<p>The line chart below shows the trends of different maturity rates from 1990 to 2024 are generally trending down. The more volatile rates are the short-term rates (1 month, 3 month, 6 month, 1 year), while the long-term rates (10 year, 20 year, 30 year) are more stable. There are a few period that the short-term rates spike above the long-term rates, indicating an inverted yield curve, which we will explore this further.</p>
-<div id="fc7c3101" class="cell">
+</section>
+<section id="what-is-inverted-yield-curve" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-inverted-yield-curve">What is Inverted Yield Curve?</h3>
+<p>“When short-term rates are higher than long-term rates.”</p>
+<p>Economists use the yield curve, which compares the interest rates difference bweteen “10-year and 3-month” or “10-year and 2-year” treasury rate, to determine if short-term investments are more profitable than long-term ones. When the yield curve inverts and the difference drops below zero, it serves as a warning sign of an impending recession.</p>
+<p>The assumption of recession is supported by the last 30 years of invasion occurrences. Recession happened in early 2000 (dot-com bubble), 2007-2009 (housing bubble), and 2020 (pendemic). The 3 recessions mentioned experienced a decrease below 0.</p>
+<div id="960e956b" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>sns.lineplot(data<span class="op">=</span>data, x<span class="op">=</span><span class="st">'Date'</span>, y<span class="op">=</span><span class="st">'Value'</span>, hue<span class="op">=</span><span class="st">'Series'</span>, palette<span class="op">=</span><span class="st">'crest'</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Data Overview"</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"US Treasury Rates (%)"</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate the inversed rate</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>clean_df[<span class="st">'10Yr_3Mo'</span>] <span class="op">=</span> clean_df[<span class="st">'10 Yr'</span>]<span class="op">-</span>clean_df[<span class="st">'3 Mo'</span>]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>clean_df[<span class="st">'10Yr_2Yr'</span>] <span class="op">=</span> clean_df[<span class="st">'10 Yr'</span>]<span class="op">-</span>clean_df[<span class="st">'2 Yr'</span>]</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> clean_df.melt(id_vars<span class="op">=</span><span class="st">'Date'</span>, var_name<span class="op">=</span><span class="st">'Series'</span>, value_name<span class="op">=</span><span class="st">'Value'</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>data.dropna(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data[data[<span class="st">'Series'</span>].isin([<span class="st">'10Yr_3Mo'</span>, <span class="st">'10Yr_2Yr'</span>])]</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>sns.lineplot(data<span class="op">=</span>data, x<span class="op">=</span><span class="st">'Date'</span>, y<span class="op">=</span><span class="st">'Value'</span>, hue<span class="op">=</span><span class="st">'Series'</span>, palette<span class="op">=</span><span class="st">'flare'</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"10yr vs 2 Years/ 3 Months' Maturity Rate"</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Inversed Rate (%)"</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">"upper right"</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>plt.axhline(y<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">'grey'</span>,linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -587,29 +319,38 @@ memory usage: 1.0 MB</code></pre>
 </div>
 </div>
 </section>
-</section>
-<section id="what-is-inverted-yield-curve" class="level3">
-<h3 class="anchored" data-anchor-id="what-is-inverted-yield-curve">What is Inverted Yield Curve?</h3>
-<p>“When short-term rates are higher than long-term rates.” Economists use the yield curve, which compares the interest rates difference bweteen “10-year and 3-month” or “10-year and 2-year” treasury rate, to determine if short-term investments are more profitable than long-term ones. When the yield curve inverts and the difference drops below zero, it serves as a warning sign of an impending recession.</p>
-<p>The assumption of recession is supported by the last 30 years of invasion occurrences. Recession happened in early 2000 (dot-com bubble), 2007-2009 (housing bubble), and 2020 (pendemic). The 3 recessions mentioned experienced a decrease below 0.</p>
-<div id="960e956b" class="cell">
+<section id="principal-component-analysis-pca" class="level3">
+<h3 class="anchored" data-anchor-id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h3>
+<section id="standardize-df-and-covariance-matrix-heatmap" class="level4">
+<h4 class="anchored" data-anchor-id="standardize-df-and-covariance-matrix-heatmap">Standardize df and Covariance Matrix Heatmap</h4>
+<p>PCA allows us to reduce the dimensionality of our dataset while retaining most of the variance. This is particularly useful when dealing with datasets that have many correlated variables, as it helps to identify the underlying structure and patterns in the data.</p>
+<p>Viewing the covariance matrix, we can see that the short-term rates (1Mo, 3Mo, 6Mo, 1Yr) are highly correlated with each other, as are the long-term rates (10Yr, 20Yr, 30Yr). However, there is a lower correlation between short-term and long-term rates, which is expected given their different sensitivities to economic conditions.</p>
+<div id="f98c719f" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate the inversed rate</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>clean_df[<span class="st">'10Yr_3Mo'</span>] <span class="op">=</span> clean_df[<span class="st">'10 Yr'</span>]<span class="op">-</span>clean_df[<span class="st">'3 Mo'</span>]</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>clean_df[<span class="st">'10Yr_2Yr'</span>] <span class="op">=</span> clean_df[<span class="st">'10 Yr'</span>]<span class="op">-</span>clean_df[<span class="st">'2 Yr'</span>]</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> clean_df.melt(id_vars<span class="op">=</span><span class="st">'Date'</span>, var_name<span class="op">=</span><span class="st">'Series'</span>, value_name<span class="op">=</span><span class="st">'Value'</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>data.dropna(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data[data[<span class="st">'Series'</span>].isin([<span class="st">'10Yr_3Mo'</span>, <span class="st">'10Yr_2Yr'</span>])]</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>sns.lineplot(data<span class="op">=</span>data, x<span class="op">=</span><span class="st">'Date'</span>, y<span class="op">=</span><span class="st">'Value'</span>, hue<span class="op">=</span><span class="st">'Series'</span>, palette<span class="op">=</span><span class="st">'flare'</span>)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"10yr vs 2 Years/ 3 Months' Maturity Rate"</span>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Inversed Rate (%)"</span>)</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">"upper right"</span>)</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>plt.axhline(y<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">'grey'</span>,linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy.linalg <span class="im">as</span> LA</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> clean_df[[<span class="st">'Date'</span>, <span class="st">'1 Mo'</span>, <span class="st">'3 Mo'</span>, <span class="st">'6 Mo'</span>, <span class="st">'1 Yr'</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'2 Yr'</span>, <span class="st">'3 Yr'</span>, <span class="st">'5 Yr'</span>, <span class="st">'7 Yr'</span>, <span class="st">'10 Yr'</span>, <span class="st">'20 Yr'</span>, <span class="st">'30 Yr'</span>]].copy()</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>data.dropna(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data.set_index(<span class="st">'Date'</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>colnames<span class="op">=</span><span class="bu">list</span>(data.columns)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># standardize df</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>sc<span class="op">=</span>StandardScaler()</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>sc.fit_transform(data)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>pd.DataFrame(data)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>data.columns <span class="op">=</span> colnames</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co"># covariance matrix</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>cov<span class="op">=</span>pd.DataFrame.cov(data)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">8</span>))</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>sns.heatmap(cov, cmap<span class="op">=</span><span class="st">"Spectral"</span>, center<span class="op">=</span><span class="dv">0</span>, annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">".2f"</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Covariance Heatmap"</span>)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -619,7 +360,109 @@ memory usage: 1.0 MB</code></pre>
 </div>
 </div>
 </div>
-<p><del>UNDER CONSTRUCTION</del></p>
+<p>You can see that PC1 and PC2 explain most of the variance in the data (98.7% combined). The majority of the information in the original dataset can be captured in just two dimensions, which is a significant reduction from the original 11 dimensions.</p>
+<p>PC1 has coefficients that are all positive and relatively similar in magnitude (~0.3). It represents a general trend across all maturity rates. In contrast, First 6 of the PC2 coefficients are negative, and the last 5 are positive. This suggests PC2 captures the contrast between short-term and long-term rates.</p>
+<div id="13117930" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span>, evec <span class="op">=</span> LA.eig(cov)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'The PC</span><span class="sc">{}</span><span class="st"> is </span><span class="sc">{}</span><span class="st">, its variance is </span><span class="sc">{}</span><span class="st">, % variance is </span><span class="sc">{}</span><span class="st">%, </span><span class="sc">% c</span><span class="st">umulative variance is </span><span class="sc">{}</span><span class="st">% '</span>.<span class="bu">format</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        i<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        , np.<span class="bu">round</span>(evec[:, i],<span class="dv">2</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        , <span class="bu">round</span>(<span class="bu">eval</span>[i],<span class="dv">2</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        , <span class="bu">round</span>(<span class="bu">eval</span>[i]<span class="op">/</span><span class="bu">eval</span>.<span class="bu">sum</span>()<span class="op">*</span><span class="dv">100</span>,<span class="dv">2</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        , <span class="bu">round</span>(<span class="bu">eval</span>[:i<span class="op">+</span><span class="dv">1</span>].<span class="bu">sum</span>()<span class="op">/</span><span class="bu">eval</span>.<span class="bu">sum</span>()<span class="op">*</span><span class="dv">100</span>,<span class="dv">2</span>)))</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>The PC1 is [0.3  0.3  0.31 0.31 0.31 0.32 0.32 0.31 0.3  0.27 0.26], its variance is 9.61, % variance is 87.34%, % cumulative variance is 87.34% 
+The PC2 is [-0.29 -0.29 -0.28 -0.26 -0.2  -0.12  0.06  0.19  0.33  0.46  0.52], its variance is 1.25, % variance is 11.37%, % cumulative variance is 98.71% 
+The PC3 is [ 0.44  0.33  0.19  0.01 -0.25 -0.38 -0.41 -0.31 -0.07  0.19  0.38], its variance is 0.12, % variance is 1.06%, % cumulative variance is 99.77% 
+The PC4 is [ 0.54  0.13 -0.25 -0.44 -0.31 -0.08  0.27  0.38  0.14 -0.29 -0.13], its variance is 0.01, % variance is 0.13%, % cumulative variance is 99.89% 
+The PC5 is [-0.05 -0.06 -0.06  0.03  0.15  0.11  0.01 -0.04 -0.05 -0.7   0.68], its variance is 0.01, % variance is 0.05%, % cumulative variance is 99.95% </code></pre>
+</div>
+</div>
+</section>
+<section id="pca-biplot" class="level4">
+<h4 class="anchored" data-anchor-id="pca-biplot">PCA Biplot</h4>
+<p>We will analyze are 2 main components in the biplot: the arrows vs the points. The arrows represent the original variables (maturities), while the points represent the observations (dates).</p>
+<div id="3f7aa58d" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>PCs <span class="op">=</span> np.dot(data, evec[:, :<span class="dv">2</span>])  <span class="co"># matrix multiplication: 11 variables (maturities) * weights (PC1, PC2)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> clean_df[[<span class="st">'Date'</span>, <span class="st">'1 Mo'</span>, <span class="st">'3 Mo'</span>, <span class="st">'6 Mo'</span>, <span class="st">'1 Yr'</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'2 Yr'</span>, <span class="st">'3 Yr'</span>, <span class="st">'5 Yr'</span>, <span class="st">'7 Yr'</span>, <span class="st">'10 Yr'</span>, <span class="st">'20 Yr'</span>, <span class="st">'30 Yr'</span>]].copy()</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>data1.dropna(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> data1[[<span class="st">'Date'</span>]]</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>data1[<span class="st">'Year'</span>] <span class="op">=</span> clean_df[<span class="st">'Date'</span>].dt.year</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>data1.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>pc_df <span class="op">=</span> pd.DataFrame(PCs, columns<span class="op">=</span>[<span class="st">'PC1'</span>, <span class="st">'PC2'</span>])</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>pc_df <span class="op">=</span> pd.concat([data1, pc_df], axis <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">6</span>))</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data <span class="op">=</span> pc_df, x<span class="op">=</span><span class="st">'PC1'</span>, y<span class="op">=</span><span class="st">'PC2'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, hue <span class="op">=</span> <span class="st">'Year'</span>, palette<span class="op">=</span><span class="st">'coolwarm'</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Add arrows for variable loadings</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, var <span class="kw">in</span> <span class="bu">enumerate</span>(data.columns):</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">#arrow start from 0,0, expand at the direction of PC1 and 2 for each maturity, *5 to make the arrows visible </span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    plt.arrow(<span class="dv">0</span>, <span class="dv">0</span>, evec[i,<span class="dv">0</span>]<span class="op">*</span><span class="dv">5</span>, evec[i,<span class="dv">1</span>]<span class="op">*</span><span class="dv">5</span>, color<span class="op">=</span><span class="st">'r'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, head_width<span class="op">=</span><span class="fl">0.05</span>)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    plt.text(evec[i,<span class="dv">0</span>]<span class="op">*</span><span class="fl">5.2</span>, evec[i,<span class="dv">1</span>]<span class="op">*</span><span class="fl">5.2</span>, var, color<span class="op">=</span><span class="st">'r'</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 87.3% data explained by PC1 and 11.4% explained by PC2</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"PC1 (</span><span class="sc">%.1f%%</span><span class="st">)"</span> <span class="op">%</span> (<span class="bu">eval</span>[<span class="dv">0</span>]<span class="op">/</span><span class="bu">eval</span>.<span class="bu">sum</span>()<span class="op">*</span><span class="dv">100</span>))</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"PC2 (</span><span class="sc">%.1f%%</span><span class="st">)"</span> <span class="op">%</span> (<span class="bu">eval</span>[<span class="dv">1</span>]<span class="op">/</span><span class="bu">eval</span>.<span class="bu">sum</span>()<span class="op">*</span><span class="dv">100</span>))</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="co"># horizontal and vertical lines at 0, y and x</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'grey'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'grey'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"PCA Biplot"</span>)</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="WebScrap_US_Treasury_Rate_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="points-and-clusters" class="level5">
+<h5 class="anchored" data-anchor-id="points-and-clusters">Points and Clusters</h5>
+<p>Each point is weighted value of PC1 and PC2 for each observation (date). The position of the points indicates how the observations relate to the PC. The points are colored by year with a gradient from blue (earlier years) to red (later years). Each year has a distinct cluster, and the clusters allow us to observe how the observations change over time in relation to the PC.</p>
+</section>
+<section id="arrows-loadings" class="level5">
+<h5 class="anchored" data-anchor-id="arrows-loadings">Arrows (Loadings)</h5>
+<p>The arrows (loadings) represents the original variables (maturities). The arrows are pinned at the origin (0,0). The direction represents how each variable contributes to the PC, while the length indicates the strength of the contribution.</p>
+<section id="length-of-arrows" class="level6">
+<h6 class="anchored" data-anchor-id="length-of-arrows">Length of Arrows</h6>
+<p>The length of the arrows provides insight into the importance of each variable in explaining the variance captured by the PC. 30Yr has the longest arrow, indicating that the strongest influence on the PC1. In contrast, 5Yr has a shorter arrow, suggesting that lesser contribution to the variance.</p>
+</section>
+<section id="angles-of-arrows" class="level6">
+<h6 class="anchored" data-anchor-id="angles-of-arrows">Angles of Arrows</h6>
+<p>The arrows for 1Mo, 3Mo, 6Mo, and 1Yr are close together, indicating that these short-term rates are highly correlated, same as arrows of 10Yr, 20Yr, and 30Yr for long-term rates. The arrows for 1Mo and 30Yr point in nearly opposite directions, suggesting a negative correlation between short-term and long-term rates. The arrows for 10Yr and 3Yr are nearly perpendicular, which indicates that the variables are uncorrelated.</p>
+</section>
+<section id="direction-of-arrows" class="level6">
+<h6 class="anchored" data-anchor-id="direction-of-arrows">Direction of Arrows</h6>
+<!-- Bottom axis: PC1 score.
+Left axis: PC2 score.
+Top axis: loadings on PC1.
+Right axis: loadings on PC2. -->
+<p>20Yr and 30Yr have high positive loadings on PC1 as they are closer to top axis/ loadings of PC1. 1Mo and 3Mo have lower loadings on PC1 smaller impact on the overall level of interest rates. None of the maturities have high loadings on PC2, indicating that PC2 captures the contrast between short-term and long-term rates rather than being dominated by any single maturity.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<!-- ### Conclusion
+to do list 
+- make interactive plot with plotly for biplot
+- write conclusion
+- quarto website
+- deploy to github pages
+- how to make it look cute? -->
 </section>
 
 </main>
