@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Samantha Pang">
-<meta name="dcterms.date" content="2025-10-01">
 
-<title>US Treasury Par Yield Curve Rates Analysis</title>
+<title>Let’s get started!</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,39 +69,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="WebScrap_US_Treasury_Rate_files/libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="WebScrap_US_Treasury_Rate_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="WebScrap_US_Treasury_Rate_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="WebScrap_US_Treasury_Rate_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="WebScrap_US_Treasury_Rate_files/libs/bootstrap/bootstrap-4d7f0bce1131f3e5f9547cd857cfbfc8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="quarto-light">
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#extracting-the-data-via-web-scraping" id="toc-extracting-the-data-via-web-scraping" class="nav-link active" data-scroll-target="#extracting-the-data-via-web-scraping">Extracting the Data via Web Scraping</a></li>
+  <li><a href="#reviewing-and-cleaning-the-data" id="toc-reviewing-and-cleaning-the-data" class="nav-link" data-scroll-target="#reviewing-and-cleaning-the-data">Reviewing and Cleaning the Data</a></li>
+  <li><a href="#initial-observations" id="toc-initial-observations" class="nav-link" data-scroll-target="#initial-observations">Initial observations</a>
+  <ul class="collapse">
+  <li><a href="#i-choose-you-seaborn-and-matplotlib" id="toc-i-choose-you-seaborn-and-matplotlib" class="nav-link" data-scroll-target="#i-choose-you-seaborn-and-matplotlib">I choose you, Seaborn and Matplotlib!</a></li>
+  <li><a href="#data-distribution" id="toc-data-distribution" class="nav-link" data-scroll-target="#data-distribution">Data Distribution</a></li>
+  <li><a href="#trends-over-time" id="toc-trends-over-time" class="nav-link" data-scroll-target="#trends-over-time">Trends Over Time</a></li>
+  </ul></li>
+  <li><a href="#inverted-yield-curve" id="toc-inverted-yield-curve" class="nav-link" data-scroll-target="#inverted-yield-curve">Inverted Yield Curve</a></li>
+  <li><a href="#principal-component-analysis-pca" id="toc-principal-component-analysis-pca" class="nav-link" data-scroll-target="#principal-component-analysis-pca">Principal Component Analysis (PCA)</a>
+  <ul class="collapse">
+  <li><a href="#sklearn-here-we-go" id="toc-sklearn-here-we-go" class="nav-link" data-scroll-target="#sklearn-here-we-go">Sklearn, Here we go!</a></li>
+  <li><a href="#standardize-df-and-covariance-matrix-heatmap" id="toc-standardize-df-and-covariance-matrix-heatmap" class="nav-link" data-scroll-target="#standardize-df-and-covariance-matrix-heatmap">Standardize df and Covariance Matrix Heatmap</a></li>
+  <li><a href="#pca-biplot" id="toc-pca-biplot" class="nav-link" data-scroll-target="#pca-biplot">PCA Biplot</a></li>
+  </ul></li>
+  <li><a href="#so-whats-the-takeaway" id="toc-so-whats-the-takeaway" class="nav-link" data-scroll-target="#so-whats-the-takeaway">So, What’s the takeaway?</a></li>
+  </ul>
+</nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">US Treasury Par Yield Curve Rates Analysis</h1>
+<h1 class="title">Let’s get started!</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Samantha Pang </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">October 1, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -113,8 +123,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="lets-get-started" class="level2">
-<h2 class="anchored" data-anchor-id="lets-get-started">Let’s get started!</h2>
 <p>This analysis is performed using Python in a Jupyter Notebook environment. Ensure you have the following libraries installed:</p>
 <ul>
 <li>pandas</li>
@@ -219,7 +227,6 @@ This script is to scrap US Treasury Rate data from 1990 to 2025.</code></pre>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># clean_df.head()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-</section>
 </section>
 </section>
 <section id="initial-observations" class="level2">
