@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Samantha Pang">
+<meta name="dcterms.date" content="2025-10-01">
 
-<title>Let’s get started!</title>
+<title>US Treasury Par Yield Curve Rates Analysis – My Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,62 +60,136 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="WebScrap_US_Treasury_Rate_files/libs/clipboard/clipboard.min.js"></script>
-<script src="WebScrap_US_Treasury_Rate_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="WebScrap_US_Treasury_Rate_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="WebScrap_US_Treasury_Rate_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="WebScrap_US_Treasury_Rate_files/libs/quarto-html/popper.min.js"></script>
-<script src="WebScrap_US_Treasury_Rate_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="WebScrap_US_Treasury_Rate_files/libs/quarto-html/anchor.min.js"></script>
-<link href="WebScrap_US_Treasury_Rate_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="WebScrap_US_Treasury_Rate_files/libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="WebScrap_US_Treasury_Rate_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="WebScrap_US_Treasury_Rate_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="WebScrap_US_Treasury_Rate_files/libs/bootstrap/bootstrap-4d7f0bce1131f3e5f9547cd857cfbfc8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-  <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#extracting-the-data-via-web-scraping" id="toc-extracting-the-data-via-web-scraping" class="nav-link active" data-scroll-target="#extracting-the-data-via-web-scraping">Extracting the Data via Web Scraping</a></li>
-  <li><a href="#reviewing-and-cleaning-the-data" id="toc-reviewing-and-cleaning-the-data" class="nav-link" data-scroll-target="#reviewing-and-cleaning-the-data">Reviewing and Cleaning the Data</a></li>
-  <li><a href="#initial-observations" id="toc-initial-observations" class="nav-link" data-scroll-target="#initial-observations">Initial observations</a>
-  <ul class="collapse">
-  <li><a href="#i-choose-you-seaborn-and-matplotlib" id="toc-i-choose-you-seaborn-and-matplotlib" class="nav-link" data-scroll-target="#i-choose-you-seaborn-and-matplotlib">I choose you, Seaborn and Matplotlib!</a></li>
-  <li><a href="#data-distribution" id="toc-data-distribution" class="nav-link" data-scroll-target="#data-distribution">Data Distribution</a></li>
-  <li><a href="#trends-over-time" id="toc-trends-over-time" class="nav-link" data-scroll-target="#trends-over-time">Trends Over Time</a></li>
-  </ul></li>
-  <li><a href="#inverted-yield-curve" id="toc-inverted-yield-curve" class="nav-link" data-scroll-target="#inverted-yield-curve">Inverted Yield Curve</a></li>
-  <li><a href="#principal-component-analysis-pca" id="toc-principal-component-analysis-pca" class="nav-link" data-scroll-target="#principal-component-analysis-pca">Principal Component Analysis (PCA)</a>
-  <ul class="collapse">
-  <li><a href="#sklearn-here-we-go" id="toc-sklearn-here-we-go" class="nav-link" data-scroll-target="#sklearn-here-we-go">Sklearn, Here we go!</a></li>
-  <li><a href="#standardize-df-and-covariance-matrix-heatmap" id="toc-standardize-df-and-covariance-matrix-heatmap" class="nav-link" data-scroll-target="#standardize-df-and-covariance-matrix-heatmap">Standardize df and Covariance Matrix Heatmap</a></li>
-  <li><a href="#pca-biplot" id="toc-pca-biplot" class="nav-link" data-scroll-target="#pca-biplot">PCA Biplot</a></li>
-  </ul></li>
-  <li><a href="#so-whats-the-takeaway" id="toc-so-whats-the-takeaway" class="nav-link" data-scroll-target="#so-whats-the-takeaway">So, What’s the takeaway?</a></li>
-  </ul>
-</nav>
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">My Portfolio</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../analysis.html"> 
+<span class="menu-text">Analysis</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Pylon521/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/samantha-p5221/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
 </div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Let’s get started!</h1>
+<h1 class="title">US Treasury Par Yield Curve Rates Analysis</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Samantha Pang </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 1, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -123,6 +199,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="lets-get-started" class="level2">
+<h2 class="anchored" data-anchor-id="lets-get-started">Let’s get started!</h2>
 <p>This analysis is performed using Python in a Jupyter Notebook environment. Ensure you have the following libraries installed:</p>
 <ul>
 <li>pandas</li>
@@ -140,8 +218,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Data is scrapped from the <a href="https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics/selected-interest-rates-historical-data">U.S. Department of the Treasury</a>. Date range: 1990 to Present</p>
 <p>Use the first URL to inspect the table structure, and get the table headings, then loop through all the URLs to get the table data.</p>
 <div id="80f0d317" class="cell" data-execution_count="1">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup <span class="im">as</span> BS</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests <span class="im">as</span> req</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datetime</span>
@@ -188,7 +264,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>pd.DataFrame(data<span class="op">=</span>all_rows, columns<span class="op">=</span>headings)</span>
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="co"># df.to_csv('raw_US_Treasury_Rates.csv', index=False)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Scrapping from website: Resource Center | U.S. Department of the Treasury
 This script is to scrap US Treasury Rate data from 1990 to 2025.</code></pre>
@@ -208,8 +283,6 @@ This script is to scrap US Treasury Rate data from 1990 to 2025.</code></pre>
 <section id="all-done-ready-for-analysis." class="level5">
 <h5 class="anchored" data-anchor-id="all-done-ready-for-analysis.">All done! Ready for analysis.</h5>
 <div id="58ab3431" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># display(df.describe(), df.head())</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># noticed there are space in N/A cell, </span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># print("N/A cell: '", df['20 YR'][0], "'")</span></span>
@@ -225,8 +298,8 @@ This script is to scrap US Treasury Rate data from 1990 to 2025.</code></pre>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    clean_df[col] <span class="op">=</span> clean_df[col].astype(<span class="bu">str</span>).astype(<span class="bu">float</span>)</span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># clean_df.info()</span></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># clean_df.head()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
+</section>
 </section>
 </section>
 <section id="initial-observations" class="level2">
@@ -238,8 +311,6 @@ This script is to scrap US Treasury Rate data from 1990 to 2025.</code></pre>
 <h3 class="anchored" data-anchor-id="data-distribution">Data Distribution</h3>
 <p>Utilizing seaborn and matplotlib, we will visualize the trends and distribution in the U.S. Treasury Par Yield Curve Rates over time.</p>
 <div id="655fab8f" class="cell" data-execution_count="3">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -256,7 +327,6 @@ This script is to scrap US Treasury Rate data from 1990 to 2025.</code></pre>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"US Treasury Rates (%)"</span>)</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>ax.xaxis.grid(<span class="va">True</span>)</span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(ylabel<span class="op">=</span><span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -271,8 +341,6 @@ This script is to scrap US Treasury Rate data from 1990 to 2025.</code></pre>
 <section id="trends-over-time" class="level3">
 <h3 class="anchored" data-anchor-id="trends-over-time">Trends Over Time</h3>
 <div id="fc7c3101" class="cell" data-execution_count="4">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
@@ -281,7 +349,6 @@ This script is to scrap US Treasury Rate data from 1990 to 2025.</code></pre>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"US Treasury Rates (%)"</span>)</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -299,8 +366,6 @@ This script is to scrap US Treasury Rate data from 1990 to 2025.</code></pre>
 <p>“When short-term rates are higher than long-term rates.”</p>
 <p>Economists use the yield curve, which compares the interest rates difference bweteen “10-year and 3-month” or “10-year and 2-year” treasury rate, to determine if short-term investments are more profitable than long-term ones. When the yield curve inverts and the difference drops below zero, it serves as a warning sign of an impending recession.</p>
 <div id="960e956b" class="cell" data-execution_count="5">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate the inversed rate</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>clean_df[<span class="st">'10Yr_3Mo'</span>] <span class="op">=</span> clean_df[<span class="st">'10 Yr'</span>]<span class="op">-</span>clean_df[<span class="st">'3 Mo'</span>]</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>clean_df[<span class="st">'10Yr_2Yr'</span>] <span class="op">=</span> clean_df[<span class="st">'10 Yr'</span>]<span class="op">-</span>clean_df[<span class="st">'2 Yr'</span>]</span>
@@ -316,7 +381,6 @@ This script is to scrap US Treasury Rate data from 1990 to 2025.</code></pre>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">"upper right"</span>)</span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>plt.axhline(y<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">'grey'</span>,linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -336,8 +400,6 @@ This script is to scrap US Treasury Rate data from 1990 to 2025.</code></pre>
 <h3 class="anchored" data-anchor-id="standardize-df-and-covariance-matrix-heatmap">Standardize df and Covariance Matrix Heatmap</h3>
 <p>PCA allows us to reduce the dimensionality of our dataset while retaining most of the variance. This is particularly useful when dealing with datasets that have many correlated variables, as it helps to identify the underlying structure and patterns in the data.</p>
 <div id="f98c719f" class="cell" data-execution_count="6">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy.linalg <span class="im">as</span> LA</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -361,7 +423,6 @@ This script is to scrap US Treasury Rate data from 1990 to 2025.</code></pre>
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Covariance Heatmap"</span>)</span>
 <span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -372,8 +433,6 @@ This script is to scrap US Treasury Rate data from 1990 to 2025.</code></pre>
 </div>
 <p>Viewing the covariance matrix, we can see that the short-term rates (1Mo, 3Mo, 6Mo, 1Yr) are highly correlated with each other, as are the long-term rates (10Yr, 20Yr, 30Yr). However, there is a lower correlation between short-term and long-term rates, which is expected given their different sensitivities to economic conditions.</p>
 <div id="13117930" class="cell" data-execution_count="7">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span>, evec <span class="op">=</span> LA.eig(cov)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'The PC</span><span class="sc">{}</span><span class="st"> is </span><span class="sc">{}</span><span class="st">, its variance is </span><span class="sc">{}</span><span class="st">, % variance is </span><span class="sc">{}</span><span class="st">%, </span><span class="sc">% c</span><span class="st">umulative variance is </span><span class="sc">{}</span><span class="st">% '</span>.<span class="bu">format</span>(</span>
@@ -394,7 +453,6 @@ This script is to scrap US Treasury Rate data from 1990 to 2025.</code></pre>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>EigenValues <span class="op">=</span> <span class="bu">eval</span></span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>ax.bar(PCs,EigenValues)</span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>plt.show()    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>The PC1 is [0.3  0.3  0.31 0.31 0.31 0.32 0.32 0.31 0.3  0.27 0.26], its variance is 9.61, % variance is 87.34%, % cumulative variance is 87.34% 
 The PC2 is [-0.29 -0.29 -0.28 -0.26 -0.2  -0.12  0.06  0.19  0.33  0.46  0.52], its variance is 1.25, % variance is 11.37%, % cumulative variance is 98.71% 
@@ -415,8 +473,6 @@ The PC3 is [ 0.44  0.33  0.19  0.   -0.25 -0.38 -0.41 -0.31 -0.07  0.19  0.38], 
 <h3 class="anchored" data-anchor-id="pca-biplot">PCA Biplot</h3>
 <p>To further analyze PC1 and PC2, we will review are 2 main components in the biplot: arrows and points. The arrows represent the original variables (maturities), while the points represent the observations (dates).</p>
 <div id="3f7aa58d" class="cell" data-execution_count="8">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>PCs <span class="op">=</span> np.dot(data1, evec[:, :<span class="dv">2</span>])  <span class="co"># matrix multiplication: 11 variables (maturities) * weights (PC1, PC2)</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> clean_df[[<span class="st">'Date'</span>, <span class="st">'1 Mo'</span>, <span class="st">'3 Mo'</span>, <span class="st">'6 Mo'</span>, <span class="st">'1 Yr'</span>,</span>
@@ -446,7 +502,6 @@ The PC3 is [ 0.44  0.33  0.19  0.   -0.25 -0.38 -0.41 -0.31 -0.07  0.19  0.38], 
 <span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"PCA Biplot"</span>)</span>
 <span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
 <span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -492,10 +547,11 @@ to do list
 - quarto website
 - deploy to github pages
 - how to make it look cute? -->
+
+
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

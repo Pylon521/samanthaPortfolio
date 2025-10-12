@@ -1,0 +1,21 @@
+---
+title: "My Portfolio"
+---
+
+# Welcome!
+
+Glad you are here! I am Sam, and I would like to showcase my skills and passions through this site. Ultimately, I hope to inspire you to pursue what you love, aka being in the flow! 
+
+*"The flow state, often called “being in the zone,” is a mental state where you are fully absorbed in an activity, and losing track of time."*
+
+See my latest completed project:
+US Treasury Rate Review
+
+* collecting data via beautiful soul (web scraper)
+- Data source: [U.S. Treasury](https://home.treasury.gov/)
+- Initial ETL
+- Review Data Structure / Distribution
+- Learn about PCA and yield dynamics
+
+<!-- [Check out my Analysis →](analysis.qmd) -->
+<!-- (USTreasuryRatesScrapper/WebScrap_US_Treasury_Rate.html) -->

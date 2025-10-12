@@ -1,0 +1,26 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "The Flow"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: analysis.qmd
+        text: Analysis
+      # - href: about.qmd
+      #   text: About
+    right:
+      - icon: github
+        href: https://github.com/Pylon521/
+        target: _blank
+      - icon: linkedin
+        href: https://www.linkedin.com/in/samantha-p5221/
+        target: _blank
+        
+format:
+  html:
+    theme: flatly
+    css: styles.css

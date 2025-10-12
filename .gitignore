@@ -9,3 +9,5 @@ __pycache__/
 *.zip
 *.pdf
 *.sav
+/.quarto/
+**/*.quarto_ipynb

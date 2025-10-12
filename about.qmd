@@ -1,0 +1,15 @@
+---
+title: "About"
+---
+
+# About Me
+
+Hi! I’m **Samantha P**
+
+# Connect
+
+You can find me here:
+
+- 💼 [LinkedIn](https://www.linkedin.com/in/yourprofile/)
+- 🧑‍💻 [GitHub](https://github.com/yourusername)
+- ✉️ Contact: [your.email@example.com](mailto:your.email@example.com)
