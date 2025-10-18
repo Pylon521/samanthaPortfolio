@@ -14,6 +14,12 @@ format:
     # css: styles.css    # optional custom styling
 ---
 
+## Preview: 
+* collecting data via beautiful soul (web scraper)
+- Data source: [U.S. Department of the Treasury](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2025)
+- Initial ETL
+- Review Data Structure / Distribution
+- Learn about PCA and yield dynamics
 
 ## Let's get started!
 This analysis is performed using Python in a Jupyter Notebook environment. Ensure you have the following libraries installed:
@@ -311,11 +317,4 @@ The U.S. Treasury Par Yield Curve Rates have shown a general downward trend over
 
 With covariance matrix heatmap and PCA analysis, we can see the strong correlations among short-term rates and among long-term rates, as well as the distinct patterns in how these rates have evolved over time. The PCA biplot provides a clear visualization of that relationships, emphasizing the contrast between short-term and long-term rates and their respective contributions to the overall variance in the dataset. The main source of variation in the yield curve comes from changes in long-term interest rates. In other words, the overall movement in the data is largely driven by the behavior of 20Yr and 30Yr bonds. In other words, the long bonds set the tone: when they move, the whole curve follows.
 
-<!-- ### Conclusion
-to do list 
-- make interactive plot with plotly for biplot
-- write conclusion
-- quarto website
-- deploy to github pages
-- how to make it look cute? -->
-
+<!-- - make interactive plot with plotly for biplot -->

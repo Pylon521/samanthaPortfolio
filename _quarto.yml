@@ -3,15 +3,15 @@ project:
   output-dir: docs
 
 website:
-  title: "The Flow"
+  title: "Sam P"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - href: analysis.qmd
-        text: Analysis
-      # - href: about.qmd
-      #   text: About
+        text: US Treasury Bond Analysis
+      - href: about.qmd
+        text: Connect
     right:
       - icon: github
         href: https://github.com/Pylon521/
@@ -24,3 +24,4 @@ format:
   html:
     theme: flatly
     css: styles.css
+    output-dir: docs

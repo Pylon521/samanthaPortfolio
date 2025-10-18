@@ -1,15 +1,12 @@
 ---
-title: "About"
+title: "Let's Connect"
 ---
 
-# About Me
+### You can find me here:
 
-Hi! I’m **Samantha P**
-
-# Connect
-
-You can find me here:
+[![](media\PXL_20250505_134003081~3.jpg "@Grand Canyon, AZ")](https://www.linkedin.com/in/yourprofile/)
 
 - 💼 [LinkedIn](https://www.linkedin.com/in/yourprofile/)
 - 🧑‍💻 [GitHub](https://github.com/yourusername)
-- ✉️ Contact: [your.email@example.com](mailto:your.email@example.com)
+<!-- - 😎 [Instagram](https://www.instagram.com/365bench/) -->
+- ✉️ Contact: [theflow365@emailhub.kr](mailto:theflow365@emailhub.kr)
