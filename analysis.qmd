@@ -12,9 +12,10 @@ format:
     toc: true            # show table of contents
     code-fold: true      # collapsible code
     # css: styles.css    # optional custom styling
+    output-dir: docs
 ---
 
-## Preview: 
+## Preview
 * collecting data via beautiful soul (web scraper)
 - Data source: [U.S. Department of the Treasury](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2025)
 - Initial ETL
