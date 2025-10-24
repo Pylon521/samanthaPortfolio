@@ -1,66 +1,22 @@
 ---
-title: "US Treasury Par Yield Curve Rates Analysis"
-author: "Samantha Pang"
-date: "Oct 2025"
+title: US Treasury Par Yield Curve Rates PCA
+author: Samantha Pang
+date: Oct 2025
 jupyter: python3
-execute:
-  cache: true
-
-# format:
-#   html:
-#     theme: flatly        # try 'flatly', 'litera', 'minty', 'darkly', etc.
-#     toc: true            # show table of contents
-#     code-fold: true      # collapsible code
-#     # css: styles.css    # optional custom styling
-#     output-dir: docs
 ---
 
-## Preview
-* collecting data via beautiful soul (web scraper)
-- Data source: [U.S. Department of the Treasury](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2025)
-- Initial ETL
-- Review Data Structure / Distribution
-- Learn about PCA and yield dynamics
 
 ## Let's get started!
 This analysis is performed using Python in a Jupyter Notebook environment. Ensure you have the following libraries installed:
 
 * pandas
-* datetime
 * numpy
-* requests
-* matplotlib
-* beautifulsoup4
 * seaborn
 * matplotlib
 * sklearn
 
-## Inverted Yield Curve
-
-"When short-term rates are higher than long-term rates."
-
-Economists use the yield curve, which compares the interest rates difference bweteen "10-year and 3-month" or "10-year and 2-year" treasury rate, to determine if short-term investments are more profitable than long-term ones. When the yield curve inverts and the difference drops below zero, it serves as a warning sign of an impending recession.
-
-```{python}
-#calculate the inversed rate
-clean_df['10Yr_3Mo'] = clean_df['10 Yr']-clean_df['3 Mo']
-clean_df['10Yr_2Yr'] = clean_df['10 Yr']-clean_df['2 Yr']
-
-data = clean_df.melt(id_vars='Date', var_name='Series', value_name='Value')
-data.dropna(inplace=True)
-data = data[data['Series'].isin(['10Yr_3Mo', '10Yr_2Yr'])]
-
-plt.figure(figsize=(12, 6))
-sns.lineplot(data=data, x='Date', y='Value', hue='Series', palette='flare')
-plt.title("10yr vs 2 Years/ 3 Months' Maturity Rate")
-plt.ylabel("Inversed Rate (%)")
-plt.legend(loc="upper right")
-plt.axhline(y=0, color='grey',linestyle='--')
-plt.show()
-```
-
-The assumption of recession is supported by the last 30 years of invasion occurrences.
-Recession happened in early 2000 (dot-com bubble), 2007-2009 (housing bubble), and 2020 (pendemic). The 3 recessions mentioned experienced a decrease below 0, as shown in the chart above.
+### ETL Web Scraped Data from US Treasury
+Data was scraped from [US Treasury's Resource Center](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2024) using BeautifulSoup and Requests, see previous analysis for full ETL code.
 
 ## Principal Component Analysis (PCA) 
 ### Sklearn, Here we go!
@@ -69,8 +25,15 @@ Recession happened in early 2000 (dot-com bubble), 2007-2009 (housing bubble), a
 PCA allows us to reduce the dimensionality of our dataset while retaining most of the variance. This is particularly useful when dealing with datasets that have many correlated variables, as it helps to identify the underlying structure and patterns in the data.
 
 ```{python}
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler 
 import numpy.linalg as LA
+
+clean_df = pd.read_csv('clean_US_Treasury_Rates.csv')
+clean_df['Date'] = pd.to_datetime(clean_df['Date'])
 
 data = clean_df[['Date', '1 Mo', '3 Mo', '6 Mo', '1 Yr',
                  '2 Yr', '3 Yr', '5 Yr', '7 Yr', '10 Yr', '20 Yr', '30 Yr']].copy()
@@ -182,8 +145,14 @@ Right axis: loadings on PC2. -->
 None of the maturities have high loadings on PC2, indicating that PC2 captures the contrast between short-term and long-term rates rather than being dominated by any single maturity.
 
 ## So, What's the takeaway?
-The U.S. Treasury Par Yield Curve Rates have shown a general downward trend over the past few decades, with notable volatility in short-term rates. The occurrence of inverted yield curves has historically been a precursor to recessions, highlighting the importance of monitoring these rates for economic forecasting. As of October 2025, we are seeing yield curve returning to normal after the recent inversion in 2024, indicating potential economic recovery.
 
-With covariance matrix heatmap and PCA analysis, we can see the strong correlations among short-term rates and among long-term rates, as well as the distinct patterns in how these rates have evolved over time. The PCA biplot provides a clear visualization of that relationships, emphasizing the contrast between short-term and long-term rates and their respective contributions to the overall variance in the dataset. The main source of variation in the yield curve comes from changes in long-term interest rates. In other words, the overall movement in the data is largely driven by the behavior of 20Yr and 30Yr bonds. In other words, the long bonds set the tone: when they move, the whole curve follows.
+With covariance matrix heatmap and PCA analysis, we see the strong correlations among short-term rates and among long-term rates, as well as the distinct patterns in how these rates have evolved over time. The PCA biplot provides a clear visualization of that relationships, emphasizing the contrast between short-term and long-term rates and their respective contributions to the overall variance in the dataset. The main source of variation in the yield curve comes from changes in long-term interest rates. In other words, the overall movement in the data is largely driven by the behavior of 20Yr and 30Yr bonds. In other words, the long bonds set the tone: when they move, the whole curve follows.
 
-<!-- - make interactive plot with plotly for biplot -->
+<!-- ### Conclusion
+to do list 
+- make interactive plot with plotly for biplot
+- write conclusion
+- quarto website
+- deploy to github pages
+- how to make it look cute? -->
+

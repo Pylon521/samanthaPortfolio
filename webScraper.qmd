@@ -151,20 +151,3 @@ We can also observe that the short term rates has generally a lower rate than th
 
 1.5Mo and 4Mo maturity rate have significantly smaller range of data. Upon review, it appears that the 1.5Mo and 4Mo maturity rates were only added to the dataset in recent years, which has less data points compared to other rates. 
 
-### Trends Over Time
-
-```{python}
-sns.set_theme(style="whitegrid")
-
-plt.figure(figsize=(12, 6))
-sns.lineplot(data=data, x='Date', y='Value', hue='Series', palette='crest')
-plt.title("Data Overview")
-plt.ylabel("US Treasury Rates (%)")
-# plt.
-plt.show()
-```
-
-The line chart below shows the trends of different maturity rates from 1990 to 2024 are generally trending down. Unexpected upward spikes starting around 2021, likely due to economic recovery post-pandemic.
-
-Moreover, the short-term rates (1 month, 3 month, 6 month, 1 year) are more volatile, while the long-term rates (10 year, 20 year, 30 year) are more stable. There are a few period that the short-term rates spike above the long-term rates, indicating an inverted yield curve, which we will explore this further in the next analysis notebook.
-
