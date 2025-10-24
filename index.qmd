@@ -2,16 +2,22 @@
 title: "Hi"
 ---
 
-### I am Samantha. 
-#### Coder/ Analyst/ Plant Lover
+#### I am Sam. 😊
+##### Data Science & Analytics / Plant Lover / Reader
 
 [![](media/PXL_20251016_035631338.TS_exported_0~2.jpg "@Garden by the Bay, SG")](about.qmd)
 
-Glad you are here! This page is to showcase my skills and passions. Ultimately, I hope to inspire you to pursue what you love, aka being in the flow! 
+Glad you are here! This page is to showcase my skills and passions. 
 
-*"The flow state, often called “being in the zone,” is a mental state where you are fully absorbed in an activity, and losing track of time."*
+Ultimately, I hope to inspire you to pursue what you love, aka being in the flow! 
 
-<!-- ### Area of Interest -->
+*"*
 
-### See my latest completed project:
-[![US Treasury Bond Web Scraper/ PCA](media/cell-9-output-1.png){fig-align="left" width=50%}](analysis.qmd)
+*The flow state, often called “being in the zone,” *
+*is a mental state where you are fully absorbed in an activity,* 
+*and losing track of time.*
+
+*"*
+
+#### Area of Interest
+

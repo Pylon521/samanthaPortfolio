@@ -1,0 +1,170 @@
+---
+title: US Treasury Bond Web Scrapper
+author: Samantha Pang
+date: Oct 2025
+jupyter: python3
+execute:
+  cache: true
+---
+
+
+## Preview
+* collecting data via Beautiful Soup (web scraper)
+* Data source: [U.S. Department of the Treasury](https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics)
+* Initial ETL
+* Review Data Structure & Distribution
+
+## Let's Get Started!
+This analysis is performed using Python in a Jupyter Notebook environment.
+Make sure you have the following libraries installed:
+* pandas
+* datetime
+* numpy
+* requests
+* matplotlib
+* beautifulsoup4
+* seaborn
+
+### Review URL
+Recently, I stumbled upon a government website that lists daily Treasury rates by year and maturity. I noticed that the data could be accessed simply by changing the last four digits of the URL, so I built a scraper to pull every year’s data from 1990 all the way to today.
+
+Try it yourself, change "xxxx" to the desired year: 
+ https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=xxxx
+
+### Inspecting HTML
+Use the latest URL (current year) to inspect the HTML table structure: headings and rows. You’ll notice there are 26 headings. The heading text looks clean, so we can store them to generate a DataFrame later.
+Within the table rows, there’s quite a bit of blank space in each cell, which is represented as text 'N/A'. We’ll need to clean that up shortly.
+
+```{python}
+from bs4 import BeautifulSoup as BS
+import requests as req
+import datetime
+import pandas as pd
+import numpy as np
+
+urls=[]
+url = "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=xxxx"
+
+start_year = 1990
+end_year = datetime.date.today().year
+
+years = [str(yr) for yr in range(start_year, end_year+1)]
+
+for year in years:
+    urls.append(url.replace('xxxx', year))
+
+# inspect the last URL to get the table headings
+html_text = req.get(urls[-1]).text
+soup=BS(html_text, 'html.parser')
+
+print('Scrapping from website:', soup.title.text)
+print(f'This script is to scrape US Treasury Rate data from {start_year} to {end_year}.')
+
+# table = soup.find_all('tr') 
+
+# column headings
+headings = []
+for item in soup.find_all('th'):
+    headings.append(item.text)
+print('Table headings <th>:', headings)
+print('Number of headings:', len(headings))
+
+# data rows
+all_rows = []
+for item in soup.find_all('td'):
+    all_rows.append(item.text)
+print('Table data <td>:', all_rows[:26])
+```
+
+After reviewing the table structure, we can iterate through all the URLs to extract the complete dataset. All data is stored in a dataframe and exported as a CSV file for further analysis.
+
+```{python}
+# now scrape all the table data/ td from all the URLs
+all_rows = []
+for url in urls:
+    html_text = req.get(url).text
+    soup = BS(html_text, 'html.parser')
+    table_rows = soup.find_all('tr')               
+    for tr in table_rows[1:]:
+        td = tr.find_all('td')
+        row=[i.text.strip('\n') for i in td]       #i is each td element, i.text is to find all text in that i, .strip to remove entries starts with \n
+        all_rows.append(row)
+df=pd.DataFrame(data=all_rows, columns=headings)
+df.to_csv('raw_US_Treasury_Rates.csv', index=False)
+df.head()
+```
+
+### Reviewing and Cleaning the Dataframe
+
+Inspecting dataframe via `df.describe()`, `df.info()` and `df.head()`. There are a few things to clean up:
+
+1. Remove leading and trailing spaces
+2. Replace all 'N/A' with NaN
+3. Drop columns with all NaN values
+4. convert the 'Date' column to datetime format
+5. convert the rest of the columns to float
+
+```{python}
+# remove all blank spaces in the dataframe, except headers
+clean_df = df.iloc[:,:].map(lambda x:x.strip())
+# converting to lower case, if cell equals to 'n/a', then replace with empty string
+clean_df = clean_df.map(lambda x:np.nan if (x.lower() == 'n/a' or x =='') else x)
+# dropping all columns with all NaN values
+clean_df.dropna(axis=1, how='all', inplace=True)
+# change Date column to datetime and the rest to float
+clean_df[clean_df.columns[0]] = pd.to_datetime(clean_df[clean_df.columns[0]])
+for col in clean_df.columns[1:]:
+    clean_df[col] = clean_df[col].astype(str).astype(float)
+clean_df.to_csv('clean_US_Treasury_Rates.csv', index=False)
+clean_df.info()
+```
+
+##### All done! Ready for analysis.
+## Initial observations
+### I choose you, Seaborn and Matplotlib!
+
+Utilizing seaborn and matplotlib, we can visualize the trends and distribution in the U.S. Treasury Par Yield Curve Rates over time.
+
+### Data Distribution
+
+```{python}
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Melt df to long format
+data = clean_df.melt(id_vars='Date', var_name='Series', value_name='Value')
+data.dropna(inplace=True)
+
+f, ax = plt.subplots(figsize=(7, 6))
+# Plot the orbital period with horizontal boxes, vlag - blue/pink diverging color palette
+sns.boxplot(
+    data, x="Value", y="Series", hue="Series", palette="vlag"
+)
+
+ax.set_xlabel("US Treasury Rates (%)")
+ax.xaxis.grid(True)
+ax.set(ylabel="")
+```
+
+Box plots allows us to view the distribution of rates for each maturity period.
+We can also observe that the short term rates has generally a lower rate than the long term rates, which is expected.
+
+1.5Mo and 4Mo maturity rate have significantly smaller range of data. Upon review, it appears that the 1.5Mo and 4Mo maturity rates were only added to the dataset in recent years, which has less data points compared to other rates. 
+
+### Trends Over Time
+
+```{python}
+sns.set_theme(style="whitegrid")
+
+plt.figure(figsize=(12, 6))
+sns.lineplot(data=data, x='Date', y='Value', hue='Series', palette='crest')
+plt.title("Data Overview")
+plt.ylabel("US Treasury Rates (%)")
+# plt.
+plt.show()
+```
+
+The line chart below shows the trends of different maturity rates from 1990 to 2024 are generally trending down. Unexpected upward spikes starting around 2021, likely due to economic recovery post-pandemic.
+
+Moreover, the short-term rates (1 month, 3 month, 6 month, 1 year) are more volatile, while the long-term rates (10 year, 20 year, 30 year) are more stable. There are a few period that the short-term rates spike above the long-term rates, indicating an inverted yield curve, which we will explore this further in the next analysis notebook.
+
