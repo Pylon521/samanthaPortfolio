@@ -180,9 +180,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#review-url" id="toc-review-url" class="nav-link" data-scroll-target="#review-url">Review URL</a></li>
   <li><a href="#inspecting-html" id="toc-inspecting-html" class="nav-link" data-scroll-target="#inspecting-html">Inspecting HTML</a></li>
-  <li><a href="#reviewing-and-cleaning-the-dataframe" id="toc-reviewing-and-cleaning-the-dataframe" class="nav-link" data-scroll-target="#reviewing-and-cleaning-the-dataframe">Reviewing and Cleaning the Dataframe</a></li>
   </ul></li>
-  <li><a href="#initial-observations" id="toc-initial-observations" class="nav-link" data-scroll-target="#initial-observations">Initial Observations</a>
+  <li><a href="#reviewing-and-cleaning-the-dataframe" id="toc-reviewing-and-cleaning-the-dataframe" class="nav-link" data-scroll-target="#reviewing-and-cleaning-the-dataframe">Reviewing and Cleaning the Dataframe</a></li>
+  <li><a href="#observations" id="toc-observations" class="nav-link" data-scroll-target="#observations">Observations</a>
   <ul class="collapse">
   <li><a href="#i-choose-you-seaborn-and-matplotlib" id="toc-i-choose-you-seaborn-and-matplotlib" class="nav-link" data-scroll-target="#i-choose-you-seaborn-and-matplotlib">I choose you, Seaborn and Matplotlib!</a></li>
   <li><a href="#data-distribution" id="toc-data-distribution" class="nav-link" data-scroll-target="#data-distribution">Data Distribution</a></li>
@@ -294,7 +294,7 @@ Number of headings: 26
 Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A          ', 'N/A          ', 'N/A          ', 'N/A          ', 'N/A          ', 'N/A          ', 'N/A          ', 'N/A          ', 'N/A          ', '4.45          ', 'N/A          ', '4.36          ', '4.36          ', '4.31          ', '4.25          ', '4.17          ', '4.25          ', '4.29          ', '4.38          ', '4.47          ', '4.57          ', '4.86          ', '4.79          ']</code></pre>
 </div>
 </div>
-<p>After reviewing the table structure, we can iterate through all the URLs to extract the complete dataset. All data is stored in a dataframe and exported as a CSV file for further analysis.</p>
+<p>After reviewing the table structure, we can iterate through all the URLs to extract the complete dataset. All data is stored in a dataframe and exported as a CSV file for further analysis. ## Scraper Block</p>
 <div id="1d382ed5" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
@@ -472,8 +472,9 @@ Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A  
 </div>
 </div>
 </section>
-<section id="reviewing-and-cleaning-the-dataframe" class="level3">
-<h3 class="anchored" data-anchor-id="reviewing-and-cleaning-the-dataframe">Reviewing and Cleaning the Dataframe</h3>
+</section>
+<section id="reviewing-and-cleaning-the-dataframe" class="level2">
+<h2 class="anchored" data-anchor-id="reviewing-and-cleaning-the-dataframe">Reviewing and Cleaning the Dataframe</h2>
 <p>Inspecting dataframe via <code>df.describe()</code>, <code>df.info()</code> and <code>df.head()</code>. There are a few things to clean up:</p>
 <ol type="1">
 <li>Remove leading and trailing spaces</li>
@@ -523,13 +524,10 @@ dtypes: datetime64[ns](1), float64(14)
 memory usage: 1.0 MB</code></pre>
 </div>
 </div>
-<section id="all-done-ready-for-analysis." class="level5">
-<h5 class="anchored" data-anchor-id="all-done-ready-for-analysis.">All done! Ready for analysis.</h5>
+<p>All done! Ready for analysis!</p>
 </section>
-</section>
-</section>
-<section id="initial-observations" class="level2">
-<h2 class="anchored" data-anchor-id="initial-observations">Initial Observations</h2>
+<section id="observations" class="level2">
+<h2 class="anchored" data-anchor-id="observations">Observations</h2>
 <section id="i-choose-you-seaborn-and-matplotlib" class="level3">
 <h3 class="anchored" data-anchor-id="i-choose-you-seaborn-and-matplotlib">I choose you, Seaborn and Matplotlib!</h3>
 <p>Utilizing seaborn and matplotlib, we can visualize the trends and distribution in the U.S. Treasury Par Yield Curve Rates over time.</p>

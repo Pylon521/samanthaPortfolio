@@ -1,6 +1,9 @@
 project:
   type: website
   output-dir: docs
+  preview:
+    watch-inputs: true
+    browser: true
 
 website:
   title: "Sam P"

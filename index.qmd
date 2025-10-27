@@ -2,7 +2,7 @@
 title: "Hi"
 ---
 
-#### I am Sam. 😊
+#### Samantha Pang
 ##### Data Science & Analytics / Plant Lover / Reader
 
 [![](media/PXL_20251016_035631338.TS_exported_0~2.jpg "@Garden by the Bay, SG")](about.qmd)

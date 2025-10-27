@@ -73,7 +73,7 @@ print('Table data <td>:', all_rows[:26])
 ```
 
 After reviewing the table structure, we can iterate through all the URLs to extract the complete dataset. All data is stored in a dataframe and exported as a CSV file for further analysis.
-
+## Scraper Block
 ```{python}
 # now scrape all the table data/ td from all the URLs
 all_rows = []
@@ -90,7 +90,7 @@ df.to_csv('raw_US_Treasury_Rates.csv', index=False)
 df.head()
 ```
 
-### Reviewing and Cleaning the Dataframe
+## Reviewing and Cleaning the Dataframe
 
 Inspecting dataframe via `df.describe()`, `df.info()` and `df.head()`. There are a few things to clean up:
 
@@ -115,8 +115,9 @@ clean_df.to_csv('clean_US_Treasury_Rates.csv', index=False)
 clean_df.info()
 ```
 
-##### All done! Ready for analysis.
-## Initial Observations
+All done! Ready for analysis!
+
+## Observations
 ### I choose you, Seaborn and Matplotlib!
 
 Utilizing seaborn and matplotlib, we can visualize the trends and distribution in the U.S. Treasury Par Yield Curve Rates over time.

@@ -1,12 +1,15 @@
 ---
-title: US Treasury Par Yield Curve Rates PCA
+title: US Treasury Par Yield Curve Rates Principal Component Analysis (PCA) 
 author: Samantha Pang
 date: Oct 2025
 ---
 
 
-## Let's get started!
-This analysis is performed using Python in a Jupyter Notebook environment. Ensure you have the following libraries installed:
+## Prereq!
+### ETL Web Scraped Data from US Treasury
+Data was scraped from [US Treasury's Resource Center](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2024) using BeautifulSoup and Requests, see previous analysis for full ETL code.
+
+### Libraries needed
 
 * pandas
 * numpy
@@ -14,12 +17,8 @@ This analysis is performed using Python in a Jupyter Notebook environment. Ensur
 * matplotlib
 * sklearn
 
-### ETL Web Scraped Data from US Treasury
-Data was scraped from [US Treasury's Resource Center](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2024) using BeautifulSoup and Requests, see previous analysis for full ETL code.
-
-## Principal Component Analysis (PCA) 
+## Standardize df and Covariance Matrix Heatmap
 ### Sklearn, Here we go!
-### Standardize df and Covariance Matrix Heatmap
 
 PCA allows us to reduce the dimensionality of our dataset while retaining most of the variance. This is particularly useful when dealing with datasets that have many correlated variables, as it helps to identify the underlying structure and patterns in the data.
 
@@ -85,7 +84,7 @@ You can see that PC1 and PC2 explain most of the variance in the data (98.7% com
 
 PC1 has coefficients that are all positive and relatively similar in magnitude (~0.3). It represents a general trend across all maturity rates. In contrast, First 6 of the PC2 coefficients are negative, and the last 5 are positive. This suggests PC2 captures the contrast between short-term and long-term rates.
 
-### PCA Biplot
+## PCA Biplot
 To further analyze PC1 and PC2, we will review are 2 main components in the biplot: arrows and points.
 The arrows represent the original variables (maturities), while the points represent the observations (dates).
 
@@ -121,21 +120,21 @@ plt.grid(True)
 plt.show()
 ```
 
-#### Points and Clusters
+### Points and Clusters
 Each point is weighted value of PC1 and PC2 for each observation (date). The position of the points indicates how the observations relate to the PC. The  points are colored by year with a gradient from blue (earlier years) to red (later years). Each year has a distinct cluster, and the clusters allow us to observe how the observations change over time in relation to the PC. 
 
-#### Arrows (Loadings)
+### Arrows (Loadings)
 The arrows (loadings) represents the original variables (maturities). The arrows are pinned at the origin (0,0). The direction represents how each variable contributes to the PC, while the length indicates the strength of the contribution.
 
-##### Length of Arrows
+### Length of Arrows
 The length of the arrows provides insight into the importance of each variable in explaining the variance captured by the PC. 30Yr has the longest arrow, indicating that the strongest influence on the PC1. In contrast, 5Yr has a shorter arrow, suggesting that lesser contribution to the variance.
 
-##### Angles of Arrows 
+### Angles of Arrows 
 The arrows for 1Mo, 3Mo, 6Mo, and 1Yr are close together, indicating that these short-term rates are highly correlated, same as arrows of 10Yr, 20Yr, and 30Yr for long-term rates. 
 The arrows for 1Mo and 30Yr point in nearly opposite directions, suggesting a negative correlation between short-term and long-term rates.
 The arrows for 10Yr and 3Yr are nearly perpendicular, which indicates that the variables are uncorrelated.
 
-##### Direction of Arrows
+### Direction of Arrows
 <!-- Bottom axis: PC1 score.
 Left axis: PC2 score.
 Top axis: loadings on PC1.
@@ -146,12 +145,3 @@ None of the maturities have high loadings on PC2, indicating that PC2 captures t
 ## So, What's the takeaway?
 
 With covariance matrix heatmap and PCA analysis, we see the strong correlations among short-term rates and among long-term rates, as well as the distinct patterns in how these rates have evolved over time. The PCA biplot provides a clear visualization of that relationships, emphasizing the contrast between short-term and long-term rates and their respective contributions to the overall variance in the dataset. The main source of variation in the yield curve comes from changes in long-term interest rates. In other words, the overall movement in the data is largely driven by the behavior of 20Yr and 30Yr bonds. In other words, the long bonds set the tone: when they move, the whole curve follows.
-
-<!-- ### Conclusion
-to do list 
-- make interactive plot with plotly for biplot
-- write conclusion
-- quarto website
-- deploy to github pages
-- how to make it look cute? -->
-

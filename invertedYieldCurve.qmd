@@ -6,15 +6,16 @@ date: Oct 2025
 
 
 ### Prereq!
-Libraries needed:
+#### ETL Web Scraped Data from US Treasury
+Data was scraped from [US Treasury's Resource Center](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2024) using BeautifulSoup and Requests, see previous analysis for full ETL code.
+
+#### Libraries needed:
 
 * pandas
 * seaborn
 * matplotlib
 * plotly
 
-### ETL Web Scraped Data from US Treasury
-Data was scraped from [US Treasury's Resource Center](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2024) using BeautifulSoup and Requests, see previous analysis for full ETL code.
 
 ### Trends Over Time
 
@@ -41,7 +42,7 @@ The line chart shows the trends of different maturity rates from 1990 to 2025 ar
 
 Moreover, the short-term rates (light blue lines) are more volatile, while the long-term rates (dark blue lines) are more stable. There are a few periods that the short-term rates spike above the long-term rates, indicating an inverted yield curve.
 
-## Inverted Yield Curve
+### Inverted Yield Curve
 
 "When short-term rates are higher than long-term rates."
 
@@ -68,6 +69,7 @@ plt.show()
 The assumption of recession is supported by the last 30 years of invasion occurrences.
 Recession happened in early 2000 (dot-com bubble), 2007-2009 (housing bubble), and 2020 (pendemic). The 3 recessions mentioned experienced a decrease below 0.
 
+#### Interactive Viz via Plotly
 Unusual Trend Observed between 2022-2024 with significant inverted rates. Let's take a closer look using interactive visualization via Plotly.
 
 ```{python}
@@ -86,8 +88,8 @@ fig.add_hline(y=0, line_dash='dash', line_color='gray')
 
 # Improve layout and interactivity
 fig.update_layout(
-    width=1000,
-    height=700,
+    # width=1000,
+    # height=700,
     yaxis_title="Inversed Rate (%)",
     # legend_title="Series",
     hovermode="x unified",
@@ -114,12 +116,3 @@ Huge inversions happened between 2022-2024, with the spread dropping well below 
 
 ### Conclusion
 The U.S. Treasury Par Yield Curve Rates have shown a general downward trend over the past few decades, with notable volatility in short-term rates. The occurrence of inverted yield curves has historically been a precursor to recessions, highlighting the importance of monitoring these rates for economic forecasting. As of October 2025, we are seeing yield curve returning to normal after the recent inversion. Nonetheless, this has continued raised concerns over potential recession risks.
-
-<!-- ### Conclusion
-to do list 
-- make interactive plot with plotly for biplot
-- write conclusion
-- quarto website
-- deploy to github pages
-- how to make it look cute? -->
-

@@ -1,4 +1,12 @@
 #### See my latest projects:
-[![US Treasury Bond Web Scraper](media/cell-4-output-1.png){fig-align="left" width=50%}](webScraper.qmd)
-[![US Treasury Bond Inverted Yield Curve](media/cell-5-output-1.png){fig-align="middle" width=50%}](invertedYieldCurve.qmd)
-[![US Treasury Bond PCA](media/cell-9-output-1.png){fig-align="right" width=50%}](PCA.qmd)
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 40px">
+
+[![US Treasury Bond Web Scraper](media/cell-4-output-1.png){width=45%}](webScraper.qmd)
+**US Treasury Bond Web Scraper**
+[![US Treasury Bond Inverted Yield Curve](media/cell-5-output-1.png){width=45%}](invertedYieldCurve.qmd)
+**US Treasury Bond Inverted Yield Curve**
+[![US Treasury Bond PCA](media/cell-9-output-1.png){width=45%}](PCA.qmd)
+**US Treasury Bond PCA**
+
+</div>
