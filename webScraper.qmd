@@ -2,11 +2,7 @@
 title: US Treasury Bond Web Scrapper
 author: Samantha Pang
 date: Oct 2025
-jupyter: python3
-execute:
-  cache: true
 ---
-
 
 ## Preview
 * collecting data via Beautiful Soup (web scraper)
@@ -120,7 +116,7 @@ clean_df.info()
 ```
 
 ##### All done! Ready for analysis.
-## Initial observations
+## Initial Observations
 ### I choose you, Seaborn and Matplotlib!
 
 Utilizing seaborn and matplotlib, we can visualize the trends and distribution in the U.S. Treasury Par Yield Curve Rates over time.

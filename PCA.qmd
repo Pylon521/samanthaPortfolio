@@ -2,7 +2,6 @@
 title: US Treasury Par Yield Curve Rates PCA
 author: Samantha Pang
 date: Oct 2025
-jupyter: python3
 ---
 
 

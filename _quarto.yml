@@ -9,7 +9,7 @@ website:
       - href: index.qmd
         text: Home
       - href: analysis.qmd
-        text: US Treasury Bond Analysis
+        text: Projects
       - href: about.qmd
         text: Connect
     right:
@@ -25,3 +25,10 @@ format:
     theme: flatly
     css: styles.css
     output-dir: docs
+    toc: true
+    code-fold: true
+
+execute:
+  cache: true
+  echo: true
+  warning: false
