@@ -7,9 +7,9 @@ date: Oct 2025
 
 ### Prereq!
 #### ETL Web Scraped Data from US Treasury
-Data was scraped from [US Treasury's Resource Center](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2024) using BeautifulSoup and Requests, see previous analysis for full ETL code.
+Data was scraped from [US Treasury's Resource Center](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2024) using BeautifulSoup and Requests, see previous [analysis](webScraper.qmd) for full ETL code.
 
-#### Libraries needed:
+#### Libraries needed
 
 * pandas
 * seaborn
@@ -116,3 +116,7 @@ Huge inversions happened between 2022-2024, with the spread dropping well below 
 
 ### Conclusion
 The U.S. Treasury Par Yield Curve Rates have shown a general downward trend over the past few decades, with notable volatility in short-term rates. The occurrence of inverted yield curves has historically been a precursor to recessions, highlighting the importance of monitoring these rates for economic forecasting. As of October 2025, we are seeing yield curve returning to normal after the recent inversion. Nonetheless, this has continued raised concerns over potential recession risks.
+
+### What's Next?
+[![US Treasury Bond PCA](media/cell-9-output-1.png){width=45%}](PCA.qmd)
+**US Treasury Bond PCA**

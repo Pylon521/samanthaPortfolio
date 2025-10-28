@@ -191,6 +191,7 @@ if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.M
   <li><a href="#trends-over-time" id="toc-trends-over-time" class="nav-link" data-scroll-target="#trends-over-time">Trends Over Time</a></li>
   <li><a href="#inverted-yield-curve" id="toc-inverted-yield-curve" class="nav-link" data-scroll-target="#inverted-yield-curve">Inverted Yield Curve</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#whats-next" id="toc-whats-next" class="nav-link" data-scroll-target="#whats-next">What’s Next?</a></li>
   </ul>
 </nav>
     </div>
@@ -232,10 +233,10 @@ if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.M
 <h3 class="anchored" data-anchor-id="prereq">Prereq!</h3>
 <section id="etl-web-scraped-data-from-us-treasury" class="level4">
 <h4 class="anchored" data-anchor-id="etl-web-scraped-data-from-us-treasury">ETL Web Scraped Data from US Treasury</h4>
-<p>Data was scraped from <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value=2024">US Treasury’s Resource Center</a> using BeautifulSoup and Requests, see previous analysis for full ETL code.</p>
+<p>Data was scraped from <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value=2024">US Treasury’s Resource Center</a> using BeautifulSoup and Requests, see previous <a href="./webScraper.html">analysis</a> for full ETL code.</p>
 </section>
 <section id="libraries-needed" class="level4">
-<h4 class="anchored" data-anchor-id="libraries-needed">Libraries needed:</h4>
+<h4 class="anchored" data-anchor-id="libraries-needed">Libraries needed</h4>
 <ul>
 <li>pandas</li>
 <li>seaborn</li>
@@ -246,7 +247,7 @@ if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.M
 </section>
 <section id="trends-over-time" class="level3">
 <h3 class="anchored" data-anchor-id="trends-over-time">Trends Over Time</h3>
-<div id="91756e9f" class="cell" data-execution_count="1">
+<div id="91756e9f" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -281,7 +282,7 @@ if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.M
 <h3 class="anchored" data-anchor-id="inverted-yield-curve">Inverted Yield Curve</h3>
 <p>“When short-term rates are higher than long-term rates.”</p>
 <p>Economists use the yield curve, which compares the interest rates difference bweteen “10-year and 3-month” or “10-year and 2-year” treasury rate, to determine if short-term investments are more profitable than long-term ones. When the yield curve inverts and the difference drops below zero, it serves as a warning sign of an impending recession.</p>
-<div id="4f32088d" class="cell" data-execution_count="2">
+<div id="4f32088d" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate the inversed rate</span></span>
@@ -312,7 +313,7 @@ if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.M
 <section id="interactive-viz-via-plotly" class="level4">
 <h4 class="anchored" data-anchor-id="interactive-viz-via-plotly">Interactive Viz via Plotly</h4>
 <p>Unusual Trend Observed between 2022-2024 with significant inverted rates. Let’s take a closer look using interactive visualization via Plotly.</p>
-<div id="2ca059ea" class="cell" data-execution_count="3">
+<div id="2ca059ea" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
@@ -388,6 +389,10 @@ if (outputEl) {{
 <section id="conclusion" class="level3">
 <h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
 <p>The U.S. Treasury Par Yield Curve Rates have shown a general downward trend over the past few decades, with notable volatility in short-term rates. The occurrence of inverted yield curves has historically been a precursor to recessions, highlighting the importance of monitoring these rates for economic forecasting. As of October 2025, we are seeing yield curve returning to normal after the recent inversion. Nonetheless, this has continued raised concerns over potential recession risks.</p>
+</section>
+<section id="whats-next" class="level3">
+<h3 class="anchored" data-anchor-id="whats-next">What’s Next?</h3>
+<p><a href="./PCA.html"><img src="media/cell-9-output-1.png" class="img-fluid" style="width:45.0%" alt="US Treasury Bond PCA"></a> <strong>US Treasury Bond PCA</strong></p>
 
 
 </section>

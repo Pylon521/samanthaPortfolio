@@ -187,6 +187,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#i-choose-you-seaborn-and-matplotlib" id="toc-i-choose-you-seaborn-and-matplotlib" class="nav-link" data-scroll-target="#i-choose-you-seaborn-and-matplotlib">I choose you, Seaborn and Matplotlib!</a></li>
   <li><a href="#data-distribution" id="toc-data-distribution" class="nav-link" data-scroll-target="#data-distribution">Data Distribution</a></li>
   </ul></li>
+  <li><a href="#whats-next" id="toc-whats-next" class="nav-link" data-scroll-target="#whats-next">What’s Next?</a></li>
   </ul>
 </nav>
     </div>
@@ -227,7 +228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="preview" class="level2">
 <h2 class="anchored" data-anchor-id="preview">Preview</h2>
 <ul>
-<li>collecting data via Beautiful Soup (web scraper)</li>
+<li>Web scrap data via BeautifulSoup</li>
 <li>Data source: <a href="https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics">U.S. Department of the Treasury</a></li>
 <li>Initial ETL</li>
 <li>Review Data Structure &amp; Distribution</li>
@@ -235,11 +236,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="lets-get-started" class="level2">
 <h2 class="anchored" data-anchor-id="lets-get-started">Let’s Get Started!</h2>
-<p>This analysis is performed using Python in a Jupyter Notebook environment. Make sure you have the following libraries installed: * pandas * datetime * numpy * requests * matplotlib * beautifulsoup4 * seaborn</p>
+<p>This analysis is performed using Python in a Jupyter Notebook environment. Make sure you have the following libraries installed:</p>
+<ul>
+<li>pandas</li>
+<li>datetime</li>
+<li>numpy</li>
+<li>requests</li>
+<li>matplotlib</li>
+<li>beautifulsoup4</li>
+<li>seaborn</li>
+</ul>
 <section id="review-url" class="level3">
 <h3 class="anchored" data-anchor-id="review-url">Review URL</h3>
 <p>Recently, I stumbled upon a government website that lists daily Treasury rates by year and maturity. I noticed that the data could be accessed simply by changing the last four digits of the URL, so I built a scraper to pull every year’s data from 1990 all the way to today.</p>
-<p>Try it yourself, change “xxxx” to the desired year: https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value=xxxx</p>
+<p>Try it yourself, change “xxxx” to the desired year:</p>
+<p><code>https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value=xxxx</code></p>
 </section>
 <section id="inspecting-html" class="level3">
 <h3 class="anchored" data-anchor-id="inspecting-html">Inspecting HTML</h3>
@@ -564,9 +575,13 @@ memory usage: 1.0 MB</code></pre>
 </div>
 <p>Box plots allows us to view the distribution of rates for each maturity period. We can also observe that the short term rates has generally a lower rate than the long term rates, which is expected.</p>
 <p>1.5Mo and 4Mo maturity rate have significantly smaller range of data. Upon review, it appears that the 1.5Mo and 4Mo maturity rates were only added to the dataset in recent years, which has less data points compared to other rates.</p>
-
-
 </section>
+</section>
+<section id="whats-next" class="level2">
+<h2 class="anchored" data-anchor-id="whats-next">What’s Next?</h2>
+<p><a href="./invertedYieldCurve.html"><img src="media/cell-5-output-1.png" class="img-fluid" alt="US Treasury Bond Inverted Yield Curve"></a> <strong>US Treasury Bond Inverted Yield Curve</strong></p>
+
+
 </section>
 
 </main> <!-- /main -->

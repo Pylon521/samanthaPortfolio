@@ -1,11 +1,11 @@
 ---
 title: US Treasury Bond Web Scrapper
 author: Samantha Pang
-date: Oct 2025
+date: Oct 1 2025
 ---
 
 ## Preview
-* collecting data via Beautiful Soup (web scraper)
+* Web scrap data via BeautifulSoup
 * Data source: [U.S. Department of the Treasury](https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics)
 * Initial ETL
 * Review Data Structure & Distribution
@@ -13,6 +13,7 @@ date: Oct 2025
 ## Let's Get Started!
 This analysis is performed using Python in a Jupyter Notebook environment.
 Make sure you have the following libraries installed:
+
 * pandas
 * datetime
 * numpy
@@ -25,7 +26,8 @@ Make sure you have the following libraries installed:
 Recently, I stumbled upon a government website that lists daily Treasury rates by year and maturity. I noticed that the data could be accessed simply by changing the last four digits of the URL, so I built a scraper to pull every year’s data from 1990 all the way to today.
 
 Try it yourself, change "xxxx" to the desired year: 
- https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=xxxx
+
+`https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=xxxx`
 
 ### Inspecting HTML
 Use the latest URL (current year) to inspect the HTML table structure: headings and rows. You’ll notice there are 26 headings. The heading text looks clean, so we can store them to generate a DataFrame later.
@@ -148,3 +150,6 @@ We can also observe that the short term rates has generally a lower rate than th
 
 1.5Mo and 4Mo maturity rate have significantly smaller range of data. Upon review, it appears that the 1.5Mo and 4Mo maturity rates were only added to the dataset in recent years, which has less data points compared to other rates. 
 
+## What's Next?
+[![US Treasury Bond Inverted Yield Curve](media/cell-5-output-1.png)](invertedYieldCurve.qmd)
+**US Treasury Bond Inverted Yield Curve**
