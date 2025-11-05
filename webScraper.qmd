@@ -1,5 +1,5 @@
 ---
-title: US Treasury Bond Web Scrapper
+title: US Treasury Bond Web Scraper
 author: Samantha Pang
 date: Oct 1 2025
 ---
