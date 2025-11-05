@@ -32,6 +32,7 @@ format:
     code-fold: true
 
 execute:
+# true to disable reruning
   cache: true
   echo: true
   warning: false

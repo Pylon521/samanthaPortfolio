@@ -151,5 +151,5 @@ We can also observe that the short term rates has generally a lower rate than th
 1.5Mo and 4Mo maturity rate have significantly smaller range of data. Upon review, it appears that the 1.5Mo and 4Mo maturity rates were only added to the dataset in recent years, which has less data points compared to other rates. 
 
 ## What's Next?
-[![US Treasury Bond Inverted Yield Curve](media/cell-5-output-1.png)](invertedYieldCurve.qmd)
-**US Treasury Bond Inverted Yield Curve**
+In the next analysis, we will explore the dataset in depth and understand what an ‘inverted yield curve’ is.
+([US Treasury Bond Inverted Yield Curve](invertedYieldCurve.qmd))

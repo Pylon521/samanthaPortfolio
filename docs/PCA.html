@@ -186,7 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#angles-of-arrows" id="toc-angles-of-arrows" class="nav-link" data-scroll-target="#angles-of-arrows">Angles of Arrows</a></li>
   <li><a href="#direction-of-arrows" id="toc-direction-of-arrows" class="nav-link" data-scroll-target="#direction-of-arrows">Direction of Arrows</a></li>
   </ul></li>
-  <li><a href="#so-whats-the-takeaway" id="toc-so-whats-the-takeaway" class="nav-link" data-scroll-target="#so-whats-the-takeaway">So, What’s the takeaway?</a></li>
+  <li><a href="#whats-the-takeaway" id="toc-whats-the-takeaway" class="nav-link" data-scroll-target="#whats-the-takeaway">What’s the takeaway?</a></li>
   </ul>
 </nav>
     </div>
@@ -228,7 +228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="prereq">Prereq!</h2>
 <section id="etl-web-scraped-data-from-us-treasury" class="level3">
 <h3 class="anchored" data-anchor-id="etl-web-scraped-data-from-us-treasury">ETL Web Scraped Data from US Treasury</h3>
-<p>Data was scraped from <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value=2024">US Treasury’s Resource Center</a> using BeautifulSoup and Requests, see previous <a href="./webScraper.html">analysis</a> for full ETL code.</p>
+<p>Data was scraped from <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value=2024">US Treasury’s Resource Center</a> using BeautifulSoup and Requests, see <a href="./webScraper.html">previous analysis</a> for full ETL code.</p>
 </section>
 <section id="libraries-needed" class="level3">
 <h3 class="anchored" data-anchor-id="libraries-needed">Libraries needed</h3>
@@ -399,8 +399,8 @@ Right axis: loadings on PC2. -->
 <p>20Yr and 30Yr have high positive loadings on PC1 as they are closer to top axis/ loadings of PC1. 1Mo and 3Mo have lower loadings on PC1 smaller impact on the overall level of interest rates. None of the maturities have high loadings on PC2, indicating that PC2 captures the contrast between short-term and long-term rates rather than being dominated by any single maturity.</p>
 </section>
 </section>
-<section id="so-whats-the-takeaway" class="level2">
-<h2 class="anchored" data-anchor-id="so-whats-the-takeaway">So, What’s the takeaway?</h2>
+<section id="whats-the-takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="whats-the-takeaway">What’s the takeaway?</h2>
 <p>With covariance matrix heatmap and PCA analysis, we see the strong correlations among short-term rates and among long-term rates, as well as the distinct patterns in how these rates have evolved over time. The PCA biplot provides a clear visualization of that relationships, emphasizing the contrast between short-term and long-term rates and their respective contributions to the overall variance in the dataset. The main source of variation in the yield curve comes from changes in long-term interest rates. In other words, the overall movement in the data is largely driven by the behavior of 20Yr and 30Yr bonds. In other words, the long bonds set the tone: when they move, the whole curve follows.</p>
 
 

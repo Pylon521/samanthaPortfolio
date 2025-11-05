@@ -7,7 +7,7 @@ date: Oct 2025
 
 ## Prereq!
 ### ETL Web Scraped Data from US Treasury
-Data was scraped from [US Treasury's Resource Center](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2024) using BeautifulSoup and Requests, see previous [analysis](webScraper.qmd) for full ETL code.
+Data was scraped from [US Treasury's Resource Center](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2024) using BeautifulSoup and Requests, see [previous analysis](webScraper.qmd) for full ETL code.
 
 ### Libraries needed
 
@@ -142,6 +142,6 @@ Right axis: loadings on PC2. -->
 20Yr and 30Yr have high positive loadings on PC1 as they are closer to top axis/ loadings of PC1. 1Mo and 3Mo have lower loadings on PC1 smaller impact on the overall level of interest rates.
 None of the maturities have high loadings on PC2, indicating that PC2 captures the contrast between short-term and long-term rates rather than being dominated by any single maturity.
 
-## So, What's the takeaway?
+## What's the takeaway?
 
 With covariance matrix heatmap and PCA analysis, we see the strong correlations among short-term rates and among long-term rates, as well as the distinct patterns in how these rates have evolved over time. The PCA biplot provides a clear visualization of that relationships, emphasizing the contrast between short-term and long-term rates and their respective contributions to the overall variance in the dataset. The main source of variation in the yield curve comes from changes in long-term interest rates. In other words, the overall movement in the data is largely driven by the behavior of 20Yr and 30Yr bonds. In other words, the long bonds set the tone: when they move, the whole curve follows.

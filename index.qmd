@@ -11,4 +11,5 @@ title: "Home"
 Glad you are here! This page is to showcase my skills and passions. 
 Ultimately, I hope to inspire you to pursue what you love, aka being in the flow! 
 
+See [Projects](analyis.qmd) tab for latest work.
 <!-- #### Area of Interest -->
