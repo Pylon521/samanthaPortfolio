@@ -47,19 +47,19 @@ title: "Projects"
 <a href="webScraper.qmd" class="project-card">
   <img src="media/cell-4-output-1.png">
   <div class="project-card-title">US Treasury Bond Web Scraper</div>
-  <div class="project-card-date">Last updated: Oct 2025</div>
+  <div class="project-card-date">Published: Oct 2025</div>
 </a>
 
 <a href="invertedYieldCurve.qmd" class="project-card">
   <img src="media/cell-5-output-1.png">
   <div class="project-card-title">Inverted Yield Curve Analysis</div>
-  <div class="project-card-date">Last updated: Oct 2025</div>
+  <div class="project-card-date">Published: Oct 2025</div>
 </a>
 
 <a href="PCA.qmd" class="project-card">
   <img src="media/cell-9-output-1.png">
   <div class="project-card-title">PCA of Treasury Yields</div>
-  <div class="project-card-date">Last updated: Oct 2025</div>
+  <div class="project-card-date">Published: Oct 2025</div>
 </a>
 
 </div>
