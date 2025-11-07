@@ -9,7 +9,7 @@
 <meta name="author" content="Samantha Pang">
 <meta name="dcterms.date" content="2025-10-01">
 
-<title>US Treasury Bond Web Scrapper – Sam P</title>
+<title>US Treasury Bond Web Scraper – Sam P</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -193,7 +193,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">US Treasury Bond Web Scrapper</h1>
+<h1 class="title">US Treasury Bond Web Scraper</h1>
 </div>
 
 
@@ -214,6 +214,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">November 7, 2025</p>
+    </div>
+  </div>
     
   </div>
   
@@ -252,7 +258,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="inspecting-html" class="level3">
 <h3 class="anchored" data-anchor-id="inspecting-html">Inspecting HTML</h3>
 <p>Use the latest URL (current year) to inspect the HTML table structure: headings and rows. You’ll notice there are 26 headings. The heading text looks clean, so we can store them to generate a DataFrame later. Within the table rows, there’s quite a bit of blank space in each cell, which is represented as text ‘N/A’. We’ll need to clean that up shortly.</p>
-<div id="3837a029" class="cell" data-execution_count="2">
+<div id="83656d60" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup <span class="im">as</span> BS</span>
@@ -303,7 +309,7 @@ Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A  
 </div>
 </div>
 <p>After reviewing the table structure, we can iterate through all the URLs to extract the complete dataset. All data is stored in a dataframe and exported as a CSV file for further analysis. ## Scraper Block</p>
-<div id="1d382ed5" class="cell" data-execution_count="3">
+<div id="f5198d99" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># now scrape all the table data/ td from all the URLs</span></span>
@@ -491,7 +497,7 @@ Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A  
 <li>convert the ‘Date’ column to datetime format</li>
 <li>convert the rest of the columns to float</li>
 </ol>
-<div id="59dfd0f3" class="cell" data-execution_count="4">
+<div id="19081990" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove all blank spaces in the dataframe, except headers</span></span>
@@ -509,25 +515,25 @@ Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A  
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
-RangeIndex: 8960 entries, 0 to 8959
+RangeIndex: 8970 entries, 0 to 8969
 Data columns (total 15 columns):
  #   Column  Non-Null Count  Dtype         
 ---  ------  --------------  -----         
- 0   Date    8960 non-null   datetime64[ns]
- 1   1 Mo    6060 non-null   float64       
- 2   1.5 Mo  172 non-null    float64       
- 3   2 Mo    1755 non-null   float64       
- 4   3 Mo    8956 non-null   float64       
- 5   4 Mo    753 non-null    float64       
- 6   6 Mo    8959 non-null   float64       
- 7   1 Yr    8959 non-null   float64       
- 8   2 Yr    8959 non-null   float64       
- 9   3 Yr    8959 non-null   float64       
- 10  5 Yr    8959 non-null   float64       
- 11  7 Yr    8959 non-null   float64       
- 12  10 Yr   8959 non-null   float64       
- 13  20 Yr   8020 non-null   float64       
- 14  30 Yr   7965 non-null   float64       
+ 0   Date    8970 non-null   datetime64[ns]
+ 1   1 Mo    6070 non-null   float64       
+ 2   1.5 Mo  182 non-null    float64       
+ 3   2 Mo    1765 non-null   float64       
+ 4   3 Mo    8966 non-null   float64       
+ 5   4 Mo    763 non-null    float64       
+ 6   6 Mo    8969 non-null   float64       
+ 7   1 Yr    8969 non-null   float64       
+ 8   2 Yr    8969 non-null   float64       
+ 9   3 Yr    8969 non-null   float64       
+ 10  5 Yr    8969 non-null   float64       
+ 11  7 Yr    8969 non-null   float64       
+ 12  10 Yr   8969 non-null   float64       
+ 13  20 Yr   8030 non-null   float64       
+ 14  30 Yr   7975 non-null   float64       
 dtypes: datetime64[ns](1), float64(14)
 memory usage: 1.0 MB</code></pre>
 </div>
@@ -542,7 +548,7 @@ memory usage: 1.0 MB</code></pre>
 </section>
 <section id="data-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="data-distribution">Data Distribution</h3>
-<div id="39311cdf" class="cell" data-execution_count="5">
+<div id="69634936" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>

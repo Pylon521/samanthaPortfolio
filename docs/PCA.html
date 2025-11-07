@@ -216,6 +216,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">November 7, 2025</p>
+    </div>
+  </div>
     
   </div>
   
@@ -246,7 +252,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="sklearn-here-we-go" class="level3">
 <h3 class="anchored" data-anchor-id="sklearn-here-we-go">Sklearn, Here we go!</h3>
 <p>PCA allows us to reduce the dimensionality of our dataset while retaining most of the variance. This is particularly useful when dealing with datasets that have many correlated variables, as it helps to identify the underlying structure and patterns in the data.</p>
-<div id="3882b9df" class="cell" data-execution_count="2">
+<div id="601f414b" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -289,7 +295,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Viewing the covariance matrix, we can see that the short-term rates (1Mo, 3Mo, 6Mo, 1Yr) are highly correlated with each other, as are the long-term rates (10Yr, 20Yr, 30Yr). However, there is a lower correlation between short-term and long-term rates, which is expected given their different sensitivities to economic conditions.</p>
-<div id="cf90717a" class="cell" data-execution_count="3">
+<div id="7b57b941" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span>, evec <span class="op">=</span> LA.eig(cov)</span>
@@ -314,9 +320,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>plt.show()    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>The PC1 is [0.3  0.3  0.31 0.31 0.31 0.32 0.32 0.31 0.3  0.27 0.26], its variance is 9.61, % variance is 87.37%, % cumulative variance is 87.37% 
-The PC2 is [-0.28 -0.29 -0.28 -0.26 -0.2  -0.12  0.06  0.19  0.33  0.46  0.52], its variance is 1.25, % variance is 11.33%, % cumulative variance is 98.71% 
-The PC3 is [ 0.44  0.33  0.19  0.   -0.25 -0.38 -0.41 -0.31 -0.07  0.19  0.38], its variance is 0.12, % variance is 1.06%, % cumulative variance is 99.77% </code></pre>
+<pre><code>The PC1 is [0.3  0.3  0.31 0.31 0.31 0.32 0.32 0.31 0.3  0.27 0.26], its variance is 9.62, % variance is 87.4%, % cumulative variance is 87.4% 
+The PC2 is [-0.28 -0.29 -0.28 -0.26 -0.2  -0.12  0.06  0.19  0.33  0.46  0.52], its variance is 1.24, % variance is 11.31%, % cumulative variance is 98.71% 
+The PC3 is [ 0.44  0.33  0.18  0.   -0.25 -0.38 -0.41 -0.31 -0.07  0.19  0.38], its variance is 0.12, % variance is 1.06%, % cumulative variance is 99.77% </code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -333,7 +339,7 @@ The PC3 is [ 0.44  0.33  0.19  0.   -0.25 -0.38 -0.41 -0.31 -0.07  0.19  0.38], 
 <section id="pca-biplot" class="level2">
 <h2 class="anchored" data-anchor-id="pca-biplot">PCA Biplot</h2>
 <p>To further analyze PC1 and PC2, we will review are 2 main components in the biplot: arrows and points. The arrows represent the original variables (maturities), while the points represent the observations (dates).</p>
-<div id="badcff42" class="cell" data-execution_count="4">
+<div id="36811543" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>PCs <span class="op">=</span> np.dot(data1, evec[:, :<span class="dv">2</span>])  <span class="co"># matrix multiplication: 11 variables (maturities) * weights (PC1, PC2)</span></span>
