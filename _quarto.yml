@@ -25,7 +25,7 @@ website:
         
 format:
   html:
-    theme: default #flatly
+    theme: flatly
     css: styles.css
     output-dir: docs
     toc: true
