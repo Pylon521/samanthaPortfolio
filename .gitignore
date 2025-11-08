@@ -13,5 +13,5 @@ __pycache__/
 **/*.quarto_ipynb
 /.jupyter_cache/
 /.ipynb_checkpoints/
-*.csv
+# *.csv
 *.quarto_ipynb

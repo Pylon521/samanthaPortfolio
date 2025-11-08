@@ -77,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ffa9a6279353761231ec249df0a7fdd3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1d4f84655f446305ac42a8f1abcf7405.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -252,7 +252,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="sklearn-here-we-go" class="level3">
 <h3 class="anchored" data-anchor-id="sklearn-here-we-go">Sklearn, Here we go!</h3>
 <p>PCA allows us to reduce the dimensionality of our dataset while retaining most of the variance. This is particularly useful when dealing with datasets that have many correlated variables, as it helps to identify the underlying structure and patterns in the data.</p>
-<div id="601f414b" class="cell" data-execution_count="1">
+<div id="98dfa637" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -295,7 +295,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Viewing the covariance matrix, we can see that the short-term rates (1Mo, 3Mo, 6Mo, 1Yr) are highly correlated with each other, as are the long-term rates (10Yr, 20Yr, 30Yr). However, there is a lower correlation between short-term and long-term rates, which is expected given their different sensitivities to economic conditions.</p>
-<div id="7b57b941" class="cell" data-execution_count="2">
+<div id="d1702e5b" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span>, evec <span class="op">=</span> LA.eig(cov)</span>
@@ -339,7 +339,7 @@ The PC3 is [ 0.44  0.33  0.18  0.   -0.25 -0.38 -0.41 -0.31 -0.07  0.19  0.38], 
 <section id="pca-biplot" class="level2">
 <h2 class="anchored" data-anchor-id="pca-biplot">PCA Biplot</h2>
 <p>To further analyze PC1 and PC2, we will review are 2 main components in the biplot: arrows and points. The arrows represent the original variables (maturities), while the points represent the observations (dates).</p>
-<div id="36811543" class="cell" data-execution_count="3">
+<div id="6d3352a6" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>PCs <span class="op">=</span> np.dot(data1, evec[:, :<span class="dv">2</span>])  <span class="co"># matrix multiplication: 11 variables (maturities) * weights (PC1, PC2)</span></span>

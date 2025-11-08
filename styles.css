@@ -1,1 +1,60 @@
-body { font-family: sans-serif; }
+body {
+    font-family: sans-serif;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column; /* Stack projects vertically */
+  gap: 2rem; /* Space between project rows */
+}
+
+.project-item {
+  display: flex; /* Image and text side-by-side */
+  /* border: 1px solid #ddd; */
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background: #fafafa;
+  transition: box-shadow 0.2s ease;
+  max-width: 800px; /* Optional: Constrain the width of the project item */
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.project-item:hover {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+.project-item img {
+  width: 35%; /* Control the image width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover;
+}
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* optional: vertically balance text */
+  padding: 1rem;
+  width: 65%;
+}
+
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.project-date {
+  font-size: 0.85rem;
+  color: #777;
+  margin: 0 0 1rem 0;
+}
+
+.project-summary {
+    font-size: 1rem;
+    color: #444;
+    margin: 0;
+}

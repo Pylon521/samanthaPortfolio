@@ -1,65 +1,37 @@
 ---
-title: "Projects"
-# format: html
+title: "Latest Projects"
+format: html
 ---
 
-<style>
-/* paste the CSS styles here */
-.project-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-.project-card {
-  width: 280px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  text-decoration: none;
-  color: inherit;
-  background: #fafafa;
-  transition: box-shadow 0.2s ease;
-}
-.project-card:hover {
-  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-}
-.project-card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-}
-.project-card-title {
-  font-size: 1.05rem;
-  font-weight: 600;
-  margin: 0.75rem 1rem 0;
-}
-.project-card-date {
-  font-size: 0.85rem;
-  color: #777;
-  margin: 0.25rem 1rem 1rem;
-}
-</style>
+<!-- #### See my latest projects: -->
 
-#### See my latest projects:
+<div class="project-list">
 
-<div class="project-grid">
-
-<a href="webScraper.qmd" class="project-card">
-  <img src="media/cell-4-output-1.png">
-  <div class="project-card-title">US Treasury Bond Web Scraper</div>
-  <div class="project-card-date">Published: Oct 2025</div>
+<a href="webScraper.qmd" class="project-item">
+  <img src="media/cell-4-output-1.png" alt="US Treasury Bond Web Scraper project image">
+  <div class="project-content">
+  <div class="project-title">US Treasury Bond Web Scraper</div>
+  <div class="project-date">Published: Oct 2025</div>
+  <div class="project-summary">Web scraping US Treasury Rate site with step by step ETL.</div>
+  </div>
 </a>
 
-<a href="invertedYieldCurve.qmd" class="project-card">
-  <img src="media/cell-5-output-1.png">
-  <div class="project-card-title">Inverted Yield Curve Analysis</div>
-  <div class="project-card-date">Published: Oct 2025</div>
+<a href="invertedYieldCurve.qmd" class="project-item">
+  <img src="media/cell-3-output-1.png" alt="Inverted Yield Curve Analysis project image">
+  <div class="project-content">
+  <div class="project-title">Inverted Yield Curve Analysis</div>
+  <div class="project-date">Published: Oct 2025</div>
+  <div class="project-summary">Analyzing historical inverted yield curve data to explore its correlation with past economic recessions and predict future trends.</div>
+  </div>
 </a>
 
-<a href="PCA.qmd" class="project-card">
-  <img src="media/cell-9-output-1.png">
-  <div class="project-card-title">PCA of Treasury Yields</div>
-  <div class="project-card-date">Published: Oct 2025</div>
+<a href="PCA.qmd" class="project-item">
+  <img src="media/cell-9-output-1.png" alt="PCA of Treasury Yields project image">
+  <div class="project-content">
+  <div class="project-title">Treasury Yields PCA</div>
+  <div class="project-date">Published: Oct 2025</div>
+  <div class="project-summary">Applying Principal Component Analysis (PCA) to treasury yields to identify primary drivers of yield curve movements, such as level, slope, and curvature.</div>
+  </div>
 </a>
 
 </div>
