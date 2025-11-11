@@ -67,7 +67,7 @@
     "href": "index.html",
     "title": "Sam P",
     "section": "",
-    "text": "Samantha’s Latest Projects:\n\n \n\n\nUS Treasury Bond Web Scraper\n\n\nPublished: Oct 2025\n\n\nWeb scraping US Treasury Rate site with step by step ETL.\n\n\n\n \n\n\nInverted Yield Curve Analysis\n\n\nPublished: Oct 2025\n\n\nAnalyzing historical inverted yield curve data to explore its correlation with past economic recessions and predict future trends.\n\n\n\n \n\n\nTreasury Yields PCA\n\n\nPublished: Oct 2025\n\n\nApplying Principal Component Analysis (PCA) to treasury yields to identify primary drivers of yield curve movements, such as level, slope, and curvature."
+    "text": "Samantha’s Latest Projects:\n\n \n\n\nTreasury Yields PCA\n\n\nPublished: Oct 2025\n\n\nApplying Principal Component Analysis (PCA) to treasury yields to identify primary drivers of yield curve movements, such as level, slope, and curvature.\n\n\n\n \n\n\nInverted Yield Curve Analysis\n\n\nPublished: Oct 2025\n\n\nAnalyzing historical inverted yield curve data to explore its correlation with past economic recessions and predict future trends.\n\n\n\n \n\n\nUS Treasury Bond Web Scraper\n\n\nPublished: Oct 2025\n\n\nWeb scraping US Treasury Rate site with step by step ETL."
   },
   {
     "objectID": "PCA.html",

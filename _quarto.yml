@@ -8,6 +8,7 @@ project:
 website:
   title: "Sam P"
   navbar:
+    search: false
     left:
       # - text: Home
         # href: index.qmd
@@ -32,6 +33,7 @@ website:
       - icon: github
         href: https://github.com/Pylon521/
         target: _blank
+
   # sidebar: 
   #   style: "floating"        # or "floating"
   #   logo: media\PXL_20251016_035631338.TS_exported_0~2.jpg

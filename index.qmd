@@ -8,12 +8,12 @@ title: "Home"
 
 <div class="project-list">
 
-<a href="webScraper.qmd" class="project-item">
-  <img src="media/cell-4-output-1.png" alt="US Treasury Bond Web Scraper project image">
+<a href="PCA.qmd" class="project-item">
+  <img src="media/cell-9-output-1.png" alt="PCA of Treasury Yields project image">
   <div class="project-content">
-  <div class="project-title">US Treasury Bond Web Scraper</div>
+  <div class="project-title">Treasury Yields PCA</div>
   <div class="project-date">Published: Oct 2025</div>
-  <div class="project-summary">Web scraping US Treasury Rate site with step by step ETL.</div>
+  <div class="project-summary">Applying Principal Component Analysis (PCA) to treasury yields to identify primary drivers of yield curve movements, such as level, slope, and curvature.</div>
   </div>
 </a>
 
@@ -26,12 +26,12 @@ title: "Home"
   </div>
 </a>
 
-<a href="PCA.qmd" class="project-item">
-  <img src="media/cell-9-output-1.png" alt="PCA of Treasury Yields project image">
+<a href="webScraper.qmd" class="project-item">
+  <img src="media/cell-4-output-1.png" alt="US Treasury Bond Web Scraper project image">
   <div class="project-content">
-  <div class="project-title">Treasury Yields PCA</div>
+  <div class="project-title">US Treasury Bond Web Scraper</div>
   <div class="project-date">Published: Oct 2025</div>
-  <div class="project-summary">Applying Principal Component Analysis (PCA) to treasury yields to identify primary drivers of yield curve movements, such as level, slope, and curvature.</div>
+  <div class="project-summary">Web scraping US Treasury Rate site with step by step ETL.</div>
   </div>
 </a>
 
