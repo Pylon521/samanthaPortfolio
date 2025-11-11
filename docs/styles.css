@@ -5,13 +5,13 @@ body {
 .project-list {
   display: flex;
   flex-direction: column; /* Stack projects vertically */
-  gap: 2rem; /* Space between project rows */
+  gap: .5rem; /* Space between project rows */
 }
 
 .project-item {
   display: flex; /* Image and text side-by-side */
-  /* border: 1px solid #ddd; */
-  border: none;
+  border: 1px solid #ddd;
+  /* border: none; */
   border-radius: 8px;
   overflow: hidden;
   text-decoration: none;

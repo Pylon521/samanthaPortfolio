@@ -1,15 +1,38 @@
---- 
+<!-- --- 
 title: "Home"
----
+--- -->
 
-[![](media/PXL_20251016_035631338.TS_exported_0~2.jpg "@Garden by the Bay, SG")](about.qmd)
-
-#### **Samantha Pang**
-##### ***Data Science & Analytics / Plant Lover / Reader***
-*"The flow state, often called “being in the zone,” is a mental state where you are fully absorbed in an activity,and losing track of time."*
-
-Glad you are here! This page is to showcase my skills and passions. 
-Ultimately, I hope to inspire you to pursue what you love, aka being in the flow! 
-
-See [Projects](analysis.qmd) tab for latest work.
+<!-- See [Projects](analysis.qmd) tab for latest work. -->
 <!-- #### Area of Interest -->
+### Samantha's Latest Projects:
+
+<div class="project-list">
+
+<a href="webScraper.qmd" class="project-item">
+  <img src="media/cell-4-output-1.png" alt="US Treasury Bond Web Scraper project image">
+  <div class="project-content">
+  <div class="project-title">US Treasury Bond Web Scraper</div>
+  <div class="project-date">Published: Oct 2025</div>
+  <div class="project-summary">Web scraping US Treasury Rate site with step by step ETL.</div>
+  </div>
+</a>
+
+<a href="invertedYieldCurve.qmd" class="project-item">
+  <img src="media/cell-3-output-1.png" alt="Inverted Yield Curve Analysis project image">
+  <div class="project-content">
+  <div class="project-title">Inverted Yield Curve Analysis</div>
+  <div class="project-date">Published: Oct 2025</div>
+  <div class="project-summary">Analyzing historical inverted yield curve data to explore its correlation with past economic recessions and predict future trends.</div>
+  </div>
+</a>
+
+<a href="PCA.qmd" class="project-item">
+  <img src="media/cell-9-output-1.png" alt="PCA of Treasury Yields project image">
+  <div class="project-content">
+  <div class="project-title">Treasury Yields PCA</div>
+  <div class="project-date">Published: Oct 2025</div>
+  <div class="project-summary">Applying Principal Component Analysis (PCA) to treasury yields to identify primary drivers of yield curve movements, such as level, slope, and curvature.</div>
+  </div>
+</a>
+
+</div>

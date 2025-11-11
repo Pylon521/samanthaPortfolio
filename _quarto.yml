@@ -9,27 +9,51 @@ website:
   title: "Sam P"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - href: analysis.qmd
-        text: Projects
+      # - text: Home
+        # href: index.qmd
+      - text: Projects
+        # href: analysis.qmd
+        menu: 
+          - href: webScraper.qmd
+            text: US Treasury Bond Web Scraper
+          - href: invertedYieldCurve.qmd
+            text: Inverted Yield Curve Analysis
+          - href: PCA.qmd
+            text: Treasury Yields PCA
       - href: about.qmd
-        text: Connect
+        text: About
+
     right:
-      - icon: github
-        href: https://github.com/Pylon521/
-        target: _blank
+      - icon: envelope-fill
+        href: mailto:theflow365@emailhub.kr
       - icon: linkedin
         href: https://www.linkedin.com/in/samantha-p5221/
         target: _blank
-        
+      - icon: github
+        href: https://github.com/Pylon521/
+        target: _blank
+  # sidebar: 
+  #   style: "floating"        # or "floating"
+  #   logo: media\PXL_20251016_035631338.TS_exported_0~2.jpg
+  #   background: light      # light | dark | auto
+  #   contents:
+  #     - text: |
+  #         Glad you are here! This page is to showcase my skills and passions. Ultimately, I hope to inspire you to pursue what you love, aka being in the flow! 
+  #   tools:
+  #     - icon: github
+  #       href: https://github.com/
+
+  page-footer:
+    center:
+      - text: "© 2025 Sam P"
+
 format:
   html:
     theme: flatly
     css: styles.css
     output-dir: docs
-    toc: true
-    code-fold: true
+    # toc: false
+    # code-fold: true
 
 execute:
 # true to disable reruning

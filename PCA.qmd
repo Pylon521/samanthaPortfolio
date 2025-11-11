@@ -3,6 +3,10 @@ title: US Treasury Par Yield Curve Rates Principal Component Analysis (PCA)
 author: Samantha Pang
 date: 2025-10-01
 date-modified: last-modified 
+format: 
+    html: 
+        toc: true
+        code-fold: true
 ---
 
 

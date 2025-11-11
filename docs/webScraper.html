@@ -132,27 +132,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Home</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Projects</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
+        <li>
+    <a class="dropdown-item" href="./webScraper.html">
+ <span class="dropdown-text">US Treasury Bond Web Scraper</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./analysis.html"> 
-<span class="menu-text">Projects</span></a>
+        <li>
+    <a class="dropdown-item" href="./invertedYieldCurve.html">
+ <span class="dropdown-text">Inverted Yield Curve Analysis</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./PCA.html">
+ <span class="dropdown-text">Treasury Yields PCA</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
-<span class="menu-text">Connect</span></a>
+<span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/Pylon521/" target="_blank"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="mailto:theflow365@emailhub.kr"> <i class="bi bi-envelope-fill" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://www.linkedin.com/in/samantha-p5221/" target="_blank"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Pylon521/" target="_blank"> <i class="bi bi-github" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -217,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">November 7, 2025</p>
+      <p class="date-modified">November 11, 2025</p>
     </div>
   </div>
     
@@ -258,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="inspecting-html" class="level3">
 <h3 class="anchored" data-anchor-id="inspecting-html">Inspecting HTML</h3>
 <p>Use the latest URL (current year) to inspect the HTML table structure: headings and rows. You’ll notice there are 26 headings. The heading text looks clean, so we can store them to generate a DataFrame later. Within the table rows, there’s quite a bit of blank space in each cell, which is represented as text ‘N/A’. We’ll need to clean that up shortly.</p>
-<div id="1cffdfe2" class="cell" data-execution_count="2">
+<div id="4e6a5341" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup <span class="im">as</span> BS</span>
@@ -309,7 +325,7 @@ Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A  
 </div>
 </div>
 <p>After reviewing the table structure, we can iterate through all the URLs to extract the complete dataset. All data is stored in a dataframe and exported as a CSV file for further analysis. ## Scraper Block</p>
-<div id="e68f8566" class="cell" data-execution_count="3">
+<div id="d3b09eec" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># now scrape all the table data/ td from all the URLs</span></span>
@@ -497,7 +513,7 @@ Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A  
 <li>convert the ‘Date’ column to datetime format</li>
 <li>convert the rest of the columns to float</li>
 </ol>
-<div id="9567053c" class="cell" data-execution_count="4">
+<div id="eaaea721" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove all blank spaces in the dataframe, except headers</span></span>
@@ -515,25 +531,25 @@ Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A  
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
-RangeIndex: 8971 entries, 0 to 8970
+RangeIndex: 8972 entries, 0 to 8971
 Data columns (total 15 columns):
  #   Column  Non-Null Count  Dtype         
 ---  ------  --------------  -----         
- 0   Date    8971 non-null   datetime64[ns]
- 1   1 Mo    6071 non-null   float64       
- 2   1.5 Mo  183 non-null    float64       
- 3   2 Mo    1766 non-null   float64       
- 4   3 Mo    8967 non-null   float64       
- 5   4 Mo    764 non-null    float64       
- 6   6 Mo    8970 non-null   float64       
- 7   1 Yr    8970 non-null   float64       
- 8   2 Yr    8970 non-null   float64       
- 9   3 Yr    8970 non-null   float64       
- 10  5 Yr    8970 non-null   float64       
- 11  7 Yr    8970 non-null   float64       
- 12  10 Yr   8970 non-null   float64       
- 13  20 Yr   8031 non-null   float64       
- 14  30 Yr   7976 non-null   float64       
+ 0   Date    8972 non-null   datetime64[ns]
+ 1   1 Mo    6072 non-null   float64       
+ 2   1.5 Mo  184 non-null    float64       
+ 3   2 Mo    1767 non-null   float64       
+ 4   3 Mo    8968 non-null   float64       
+ 5   4 Mo    765 non-null    float64       
+ 6   6 Mo    8971 non-null   float64       
+ 7   1 Yr    8971 non-null   float64       
+ 8   2 Yr    8971 non-null   float64       
+ 9   3 Yr    8971 non-null   float64       
+ 10  5 Yr    8971 non-null   float64       
+ 11  7 Yr    8971 non-null   float64       
+ 12  10 Yr   8971 non-null   float64       
+ 13  20 Yr   8032 non-null   float64       
+ 14  30 Yr   7977 non-null   float64       
 dtypes: datetime64[ns](1), float64(14)
 memory usage: 1.0 MB</code></pre>
 </div>
@@ -548,7 +564,7 @@ memory usage: 1.0 MB</code></pre>
 </section>
 <section id="data-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="data-distribution">Data Distribution</h3>
-<div id="95f02fe0" class="cell" data-execution_count="5">
+<div id="b0c727cd" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -989,6 +1005,23 @@ memory usage: 1.0 MB</code></pre>
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ © 2025 Sam P
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 
