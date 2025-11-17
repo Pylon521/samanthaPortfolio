@@ -10,8 +10,8 @@ website:
   navbar:
     search: false
     left:
-      # - text: Home
-        # href: index.qmd
+      - text: Home
+        href: index.qmd
       - text: Projects
         # href: analysis.qmd
         menu: 
