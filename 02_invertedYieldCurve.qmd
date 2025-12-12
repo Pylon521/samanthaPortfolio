@@ -10,9 +10,9 @@ format:
 ---
 
 
-### Prereq!
+### Prerequisite!
 #### ETL Web Scraped Data from US Treasury
-Data was scraped from [US Treasury's Resource Center](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2024) using BeautifulSoup and Requests, see [previous analysis](webScraper.qmd) for full ETL code.
+Data was scraped from [US Treasury's Resource Center](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2024) using BeautifulSoup and Requests, see [previous analysis](webScraper.qmd) for the full ETL code.
 
 #### Libraries needed
 
@@ -43,15 +43,15 @@ plt.ylabel("US Treasury Rates (%)")
 plt.show()
 ```
 
-The line chart shows the trends of different maturity rates from 1990 to 2025 are generally trending down. Unexpected upward spikes starting around 2021, likely due to economic recovery post-pandemic.
+The line chart shows that most maturity rates from 1990 to 2025 trend downward, with sharp upward spikes beginning around 2021—likely tied to post-pandemic economic recovery.
 
-Moreover, the short-term rates (light blue lines) are more volatile, while the long-term rates (dark blue lines) are more stable. There are a few periods that the short-term rates spike above the long-term rates, indicating an inverted yield curve.
+Short-term rates (light blue) are more volatile, while long-term rates (dark blue) remain relatively stable. There are several periods where short-term rates rise above long-term rates, indicating an inverted yield curve.
 
 ### Inverted Yield Curve
 
 "When short-term rates are higher than long-term rates."
 
-Economists use the yield curve, which compares the interest rates difference bweteen "10-year and 3-month" or "10-year and 2-year" treasury rate, to determine if short-term investments are more profitable than long-term ones. When the yield curve inverts and the difference drops below zero, it serves as a warning sign of an impending recession.
+Economists use the yield curve, which compares the interest rates difference bewteen "10-year and 3-month" or "10-year and 2-year" Treasury rate, to determine if short-term investments offer higher returns than long-term ones.. When the yield curve inverts and the difference drops below zero, it serves as a warning sign of an impending recession.
 
 ```{python}
 #calculate the inversed rate
@@ -120,7 +120,7 @@ fig.show()
 Huge inversions happened between 2022-2024, with the spread dropping well below zero throughout the years. This trend heightened concerns about future economic growth. The spread is trending upwards and above zero starting in early 2025, indicating a potential economic recovery. 
 
 ### Conclusion
-The U.S. Treasury Par Yield Curve Rates have shown a general downward trend over the past few decades, with notable volatility in short-term rates. The occurrence of inverted yield curves has historically been a precursor to recessions, highlighting the importance of monitoring these rates for economic forecasting. As of October 2025, we are seeing yield curve returning to normal after the recent inversion. Nonetheless, this has continued raised concerns over potential recession risks.
+The U.S. Treasury Par Yield Curve Rates have shown a general downward trend over the past few decades, with notable volatility in short-term rates. The occurrence of inverted yield curves has historically been a precursor to recessions, highlighting the importance of monitoring these rates for economic forecasting. As of October 2025, we are seeing yield curve returning to normal after the recent inversion. Nonetheless, concerns about potential recession risks remain.
 
 ### What's Next?
-See the next analysis to understand what Principal Component Analysis (PCA) is and which maturity drives the overall trend. ([US Treasury Bond PCA](PCA.qmd))
+See the next analysis to understand what Principal Component Analysis (PCA) is and which maturities drive the overall trend. ([US Treasury Bond PCA](PCA.qmd))

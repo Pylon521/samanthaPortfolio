@@ -123,28 +123,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title">Sam P</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Projects</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
         <li>
-    <a class="dropdown-item" href="./webScraper.html">
- <span class="dropdown-text">US Treasury Bond Web Scraper</span></a>
+    <a class="dropdown-item" href="./03_PCA.html">
+ <span class="dropdown-text">Treasury Yields PCA</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./invertedYieldCurve.html">
+    <a class="dropdown-item" href="./02_invertedYieldCurve.html">
  <span class="dropdown-text">Inverted Yield Curve Analysis</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./PCA.html">
- <span class="dropdown-text">Treasury Yields PCA</span></a>
+    <a class="dropdown-item" href="./01_webScraper.html">
+ <span class="dropdown-text">US Treasury Bond Web Scraper</span></a>
   </li>  
     </ul>
   </li>
@@ -235,7 +238,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">November 11, 2025</p>
+      <p class="date-modified">December 12, 2025</p>
     </div>
   </div>
     
@@ -250,7 +253,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="prereq">Prereq!</h2>
 <section id="etl-web-scraped-data-from-us-treasury" class="level3">
 <h3 class="anchored" data-anchor-id="etl-web-scraped-data-from-us-treasury">ETL Web Scraped Data from US Treasury</h3>
-<p>Data was scraped from <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value=2024">US Treasury’s Resource Center</a> using BeautifulSoup and Requests, see <a href="./webScraper.html">previous analysis</a> for full ETL code.</p>
+<p>Data was scraped from <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value=2024">US Treasury’s Resource Center</a> using BeautifulSoup and Requests, see <a href="webScraper.qmd">previous analysis</a> for full ETL code.</p>
 </section>
 <section id="libraries-needed" class="level3">
 <h3 class="anchored" data-anchor-id="libraries-needed">Libraries needed</h3>
@@ -267,8 +270,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="standardize-df-and-covariance-matrix-heatmap">Standardize df and Covariance Matrix Heatmap</h2>
 <section id="sklearn-here-we-go" class="level3">
 <h3 class="anchored" data-anchor-id="sklearn-here-we-go">Sklearn, Here we go!</h3>
-<p>PCA allows us to reduce the dimensionality of our dataset while retaining most of the variance. This is particularly useful when dealing with datasets that have many correlated variables, as it helps to identify the underlying structure and patterns in the data.</p>
-<div id="d253b379" class="cell" data-execution_count="1">
+<p>PCA allows us to reduce the dimensionality of the dataset while retaining most of its variance. This is particularly useful when dealing with datasets that have many correlated variables, as it identifies the underlying structure and patterns in the data.</p>
+<div id="1fde63bf" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -305,13 +308,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="PCA_files/figure-html/cell-2-output-1.png" width="869" height="653" class="figure-img"></p>
+<p><img src="03_PCA_files/figure-html/cell-2-output-1.png" width="872" height="653" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Viewing the covariance matrix, we can see that the short-term rates (1Mo, 3Mo, 6Mo, 1Yr) are highly correlated with each other, as are the long-term rates (10Yr, 20Yr, 30Yr). However, there is a lower correlation between short-term and long-term rates, which is expected given their different sensitivities to economic conditions.</p>
-<div id="2fee1017" class="cell" data-execution_count="2">
+<p>Viewing the covariance matrix, we can see that the short-term rates (1Mo, 3Mo, 6Mo, 1Yr) are highly correlated with each other, as are the long-term rates (10Yr, 20Yr, 30Yr). However, the correlation between short-term and long-term rates are noticeably lower, which is expected given their different sensitivities to economic conditions.</p>
+<div id="900736fe" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span>, evec <span class="op">=</span> LA.eig(cov)</span>
@@ -336,26 +339,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>plt.show()    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>The PC1 is [0.3  0.3  0.3  0.31 0.31 0.32 0.32 0.31 0.3  0.27 0.26], its variance is 9.62, % variance is 87.4%, % cumulative variance is 87.4% 
-The PC2 is [-0.28 -0.29 -0.28 -0.26 -0.2  -0.12  0.06  0.19  0.33  0.46  0.52], its variance is 1.24, % variance is 11.31%, % cumulative variance is 98.71% 
-The PC3 is [ 0.44  0.33  0.18  0.   -0.25 -0.38 -0.41 -0.31 -0.07  0.19  0.38], its variance is 0.12, % variance is 1.06%, % cumulative variance is 99.77% </code></pre>
+<pre><code>The PC1 is [0.32 0.33 0.34 0.36 0.39 0.39 0.35 0.29 0.19 0.09 0.03], its variance is 6.24, % variance is 56.61%, % cumulative variance is 56.61% 
+The PC2 is [ 0.18  0.25  0.25  0.21  0.07 -0.04 -0.22 -0.33 -0.43 -0.47 -0.48], its variance is 4.15, % variance is 37.72%, % cumulative variance is 94.33% 
+The PC3 is [-0.65 -0.35 -0.11  0.11  0.29  0.33  0.25  0.12 -0.08 -0.26 -0.29], its variance is 0.48, % variance is 4.36%, % cumulative variance is 98.69% </code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="PCA_files/figure-html/cell-3-output-2.png" width="717" height="522" class="figure-img"></p>
+<p><img src="03_PCA_files/figure-html/cell-3-output-2.png" width="709" height="522" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>You can see that PC1 and PC2 explain most of the variance in the data (98.7% combined). The majority of the information in the original dataset can be captured in just two dimensions, which is a significant reduction from the original 11 dimensions.</p>
-<p>PC1 has coefficients that are all positive and relatively similar in magnitude (~0.3). It represents a general trend across all maturity rates. In contrast, First 6 of the PC2 coefficients are negative, and the last 5 are positive. This suggests PC2 captures the contrast between short-term and long-term rates.</p>
+<p>You can see that PC1 and PC2 explain most of the variance in the data (98.7% combined). This means the majority of the information in the original dataset can be captured in just two dimensions, which is a substantial reduction from the original 11 dimensions.</p>
+<p>PC1 has coefficients that are all positive and relatively similar in magnitude (~0.3). It represents a general trend across all maturities. In contrast, First 6 of the PC2 coefficients are negative, and the last 5 are positive, indicating PC2 captures the contrast between short-term and long-term rates.</p>
 </section>
 </section>
 <section id="pca-biplot" class="level2">
 <h2 class="anchored" data-anchor-id="pca-biplot">PCA Biplot</h2>
-<p>To further analyze PC1 and PC2, we will review are 2 main components in the biplot: arrows and points. The arrows represent the original variables (maturities), while the points represent the observations (dates).</p>
-<div id="2bbd3ac0" class="cell" data-execution_count="3">
+<p>To further analyze PC1 and PC2, we will review are the 2 main components in the biplot: arrows and points. The arrows represent the original variables (maturities), while the points represent the observations (dates).</p>
+<div id="c60a2f56" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>PCs <span class="op">=</span> np.dot(data1, evec[:, :<span class="dv">2</span>])  <span class="co"># matrix multiplication: 11 variables (maturities) * weights (PC1, PC2)</span></span>
@@ -391,18 +394,18 @@ The PC3 is [ 0.44  0.33  0.18  0.   -0.25 -0.38 -0.41 -0.31 -0.07  0.19  0.38], 
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="PCA_files/figure-html/cell-4-output-1.png" width="662" height="523" class="figure-img"></p>
+<p><img src="03_PCA_files/figure-html/cell-4-output-1.png" width="662" height="523" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <section id="points-and-clusters" class="level3">
 <h3 class="anchored" data-anchor-id="points-and-clusters">Points and Clusters</h3>
-<p>Each point is weighted value of PC1 and PC2 for each observation (date). The position of the points indicates how the observations relate to the PC. The points are colored by year with a gradient from blue (earlier years) to red (later years). Each year has a distinct cluster, and the clusters allow us to observe how the observations change over time in relation to the PC.</p>
+<p>Each point shows weighted values of PC1 and PC2 for each observation (date). The position of the points indicates how the observations relate to the PCs. The points are colored by year with a gradient from blue (earlier years) to red (later years). Each year has a distinct cluster, and the clusters allow us to observe how the observations change over time in relation to the PC.</p>
 </section>
 <section id="arrows-loadings" class="level3">
 <h3 class="anchored" data-anchor-id="arrows-loadings">Arrows (Loadings)</h3>
-<p>The arrows (loadings) represents the original variables (maturities). The arrows are pinned at the origin (0,0). The direction represents how each variable contributes to the PC, while the length indicates the strength of the contribution.</p>
+<p>The arrows (loadings) represent the original variables (maturities). The arrows are pinned at the origin (0,0). The direction represents how each variable contributes to the PC, while the length indicates the strength of the contribution.</p>
 </section>
 <section id="length-of-arrows" class="level3">
 <h3 class="anchored" data-anchor-id="length-of-arrows">Length of Arrows</h3>
@@ -418,12 +421,12 @@ The PC3 is [ 0.44  0.33  0.18  0.   -0.25 -0.38 -0.41 -0.31 -0.07  0.19  0.38], 
 Left axis: PC2 score.
 Top axis: loadings on PC1.
 Right axis: loadings on PC2. -->
-<p>20Yr and 30Yr have high positive loadings on PC1 as they are closer to top axis/ loadings of PC1. 1Mo and 3Mo have lower loadings on PC1 smaller impact on the overall level of interest rates. None of the maturities have high loadings on PC2, indicating that PC2 captures the contrast between short-term and long-term rates rather than being dominated by any single maturity.</p>
+<p>20Yr and 30Yr have high positive loadings on PC1 because they sit near the top axis, reflecting a stronger influence on the overall level of interest rates. In contrast, 1Mo and 3Mo have lower loadings on PC1, indicating a smaller impact. None of the maturities have high loadings on PC2, showing that PC2 captures the contrast between short-term and long-term rates rather than being driven by any single maturity.</p>
 </section>
 </section>
 <section id="whats-the-takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="whats-the-takeaway">What’s the takeaway?</h2>
-<p>With covariance matrix heatmap and PCA analysis, we see the strong correlations among short-term rates and among long-term rates, as well as the distinct patterns in how these rates have evolved over time. The PCA biplot provides a clear visualization of that relationships, emphasizing the contrast between short-term and long-term rates and their respective contributions to the overall variance in the dataset. The main source of variation in the yield curve comes from changes in long-term interest rates. In other words, the overall movement in the data is largely driven by the behavior of 20Yr and 30Yr bonds. In other words, the long bonds set the tone: when they move, the whole curve follows.</p>
+<p>From the covariance matrix heatmap and the PCA results, we see strong correlations within short-term rates and within long-term rates, along with clear patterns in how these rates change over time. The PCA biplot highlights these relationships, emphasizing the contrast between short-term and long-term rates and their contributions to overall variance. The main source of variation in the yield curve comes from movements in long-term interest rates—particularly the 20Yr and 30Yr bonds. When they shift, the rest of the curve tends to follow.</p>
 
 
 </section>
