@@ -253,7 +253,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="prereq">Prereq!</h2>
 <section id="etl-web-scraped-data-from-us-treasury" class="level3">
 <h3 class="anchored" data-anchor-id="etl-web-scraped-data-from-us-treasury">ETL Web Scraped Data from US Treasury</h3>
-<p>Data was scraped from <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value=2024">US Treasury’s Resource Center</a> using BeautifulSoup and Requests, see <a href="webScraper.qmd">previous analysis</a> for full ETL code.</p>
+<p>Data was scraped from <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value=2024">US Treasury’s Resource Center</a> using BeautifulSoup and Requests, see <a href="./01_webScraper.html">previous analysis</a> for full ETL code.</p>
 </section>
 <section id="libraries-needed" class="level3">
 <h3 class="anchored" data-anchor-id="libraries-needed">Libraries needed</h3>
@@ -271,7 +271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="sklearn-here-we-go" class="level3">
 <h3 class="anchored" data-anchor-id="sklearn-here-we-go">Sklearn, Here we go!</h3>
 <p>PCA allows us to reduce the dimensionality of the dataset while retaining most of its variance. This is particularly useful when dealing with datasets that have many correlated variables, as it identifies the underlying structure and patterns in the data.</p>
-<div id="1fde63bf" class="cell" data-execution_count="1">
+<div id="9db57cf6" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -314,7 +314,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Viewing the covariance matrix, we can see that the short-term rates (1Mo, 3Mo, 6Mo, 1Yr) are highly correlated with each other, as are the long-term rates (10Yr, 20Yr, 30Yr). However, the correlation between short-term and long-term rates are noticeably lower, which is expected given their different sensitivities to economic conditions.</p>
-<div id="900736fe" class="cell" data-execution_count="2">
+<div id="029acbb5" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span>, evec <span class="op">=</span> LA.eig(cov)</span>
@@ -358,7 +358,7 @@ The PC3 is [-0.65 -0.35 -0.11  0.11  0.29  0.33  0.25  0.12 -0.08 -0.26 -0.29], 
 <section id="pca-biplot" class="level2">
 <h2 class="anchored" data-anchor-id="pca-biplot">PCA Biplot</h2>
 <p>To further analyze PC1 and PC2, we will review are the 2 main components in the biplot: arrows and points. The arrows represent the original variables (maturities), while the points represent the observations (dates).</p>
-<div id="c60a2f56" class="cell" data-execution_count="3">
+<div id="0cb74988" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>PCs <span class="op">=</span> np.dot(data1, evec[:, :<span class="dv">2</span>])  <span class="co"># matrix multiplication: 11 variables (maturities) * weights (PC1, PC2)</span></span>

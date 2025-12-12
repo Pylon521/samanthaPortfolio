@@ -158,4 +158,4 @@ We can also observe that the short term rates has generally a lower rate than th
 
 ## What's Next?
 In the next analysis, we will explore the dataset in depth and understand what an ‘inverted yield curve’ is.
-([US Treasury Bond Inverted Yield Curve](invertedYieldCurve.qmd))
+([US Treasury Bond Inverted Yield Curve](02_invertedYieldCurve.qmd))

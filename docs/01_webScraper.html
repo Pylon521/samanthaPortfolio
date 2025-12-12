@@ -278,7 +278,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="inspecting-html" class="level3">
 <h3 class="anchored" data-anchor-id="inspecting-html">Inspecting HTML</h3>
 <p>Use the latest URL (for the current year) to inspect the HTML table structure: headings and rows. You’ll notice there are 26 headings. The heading text is clean, so we can store it to create a DataFrame later. Within the table rows, many cells contain blank spaces and the text ‘N/A’, which we will clean that up shortly.</p>
-<div id="7d899ad3" class="cell" data-execution_count="1">
+<div id="721dc66d" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup <span class="im">as</span> BS</span>
@@ -333,7 +333,7 @@ Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A  
 </section>
 <section id="scraper-block" class="level2">
 <h2 class="anchored" data-anchor-id="scraper-block">Scraper Block</h2>
-<div id="866ddba4" class="cell" data-execution_count="2">
+<div id="eadb2190" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># now scrape all the table data/ td from all the URLs</span></span>
@@ -520,7 +520,7 @@ Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A  
 <li>convert the ‘Date’ column to datetime format</li>
 <li>convert the rest of the columns to float</li>
 </ol>
-<div id="8e71f8fd" class="cell" data-execution_count="3">
+<div id="a26e3394" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove all blank spaces in the dataframe, except headers</span></span>
@@ -571,7 +571,7 @@ memory usage: 86.5 KB</code></pre>
 </section>
 <section id="data-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="data-distribution">Data Distribution</h3>
-<div id="850b53f3" class="cell" data-execution_count="4">
+<div id="fb031dc3" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -605,7 +605,7 @@ memory usage: 86.5 KB</code></pre>
 </section>
 <section id="whats-next" class="level2">
 <h2 class="anchored" data-anchor-id="whats-next">What’s Next?</h2>
-<p>In the next analysis, we will explore the dataset in depth and understand what an ‘inverted yield curve’ is. (<a href="invertedYieldCurve.qmd">US Treasury Bond Inverted Yield Curve</a>)</p>
+<p>In the next analysis, we will explore the dataset in depth and understand what an ‘inverted yield curve’ is. (<a href="./02_invertedYieldCurve.html">US Treasury Bond Inverted Yield Curve</a>)</p>
 
 
 </section>
