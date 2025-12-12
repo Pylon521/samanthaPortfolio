@@ -141,16 +141,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
         <li>
-    <a class="dropdown-item" href="./03_PCA.html">
- <span class="dropdown-text">Treasury Yields PCA</span></a>
+    <a class="dropdown-item" href="./webScraper.html">
+ <span class="dropdown-text">US Treasury Bond Web Scraper</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./02_invertedYieldCurve.html">
+    <a class="dropdown-item" href="./invertedYieldCurve.html">
  <span class="dropdown-text">Inverted Yield Curve Analysis</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./01_webScraper.html">
- <span class="dropdown-text">US Treasury Bond Web Scraper</span></a>
+    <a class="dropdown-item" href="./PCA.html">
+ <span class="dropdown-text">Treasury Yields PCA</span></a>
   </li>  
     </ul>
   </li>
@@ -197,7 +197,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#review-url" id="toc-review-url" class="nav-link" data-scroll-target="#review-url">Review URL</a></li>
   <li><a href="#inspecting-html" id="toc-inspecting-html" class="nav-link" data-scroll-target="#inspecting-html">Inspecting HTML</a></li>
   </ul></li>
-  <li><a href="#scraper-block" id="toc-scraper-block" class="nav-link" data-scroll-target="#scraper-block">Scraper Block</a></li>
   <li><a href="#reviewing-and-cleaning-the-dataframe" id="toc-reviewing-and-cleaning-the-dataframe" class="nav-link" data-scroll-target="#reviewing-and-cleaning-the-dataframe">Reviewing and Cleaning the Dataframe</a></li>
   <li><a href="#observations" id="toc-observations" class="nav-link" data-scroll-target="#observations">Observations</a>
   <ul class="collapse">
@@ -251,10 +250,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="preview" class="level2">
 <h2 class="anchored" data-anchor-id="preview">Preview</h2>
 <ul>
-<li>Web scraping data via BeautifulSoup</li>
+<li>Web scrap data via BeautifulSoup</li>
 <li>Data source: <a href="https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics">U.S. Department of the Treasury</a></li>
-<li>The initial ETL</li>
-<li>Reviewing Data Structure &amp; Distribution</li>
+<li>Initial ETL</li>
+<li>Review Data Structure &amp; Distribution</li>
 </ul>
 </section>
 <section id="lets-get-started" class="level2">
@@ -278,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="inspecting-html" class="level3">
 <h3 class="anchored" data-anchor-id="inspecting-html">Inspecting HTML</h3>
 <p>Use the latest URL (for the current year) to inspect the HTML table structure: headings and rows. You’ll notice there are 26 headings. The heading text is clean, so we can store it to create a DataFrame later. Within the table rows, many cells contain blank spaces and the text ‘N/A’, which we will clean that up shortly.</p>
-<div id="721dc66d" class="cell" data-execution_count="1">
+<div id="1cffdfe2" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup <span class="im">as</span> BS</span>
@@ -321,19 +320,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Table data &lt;td&gt;:'</span>, all_rows[:<span class="dv">26</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Scrapping from website: Daily Treasury Rates | U.S. Department of the Treasury
+<pre><code>Scrapping from website: Resource Center | U.S. Department of the Treasury
 This script is to scrape US Treasury Rate data from 1990 to 2025.
 Table headings &lt;th&gt;: ['Date', '20 YR', '30 YR', 'Extrapolation Factor', '6 WEEKS BANK DISCOUNT', 'COUPON EQUIVALENT', '8 WEEKS BANK DISCOUNT', 'COUPON EQUIVALENT', '17 WEEKS BANK DISCOUNT', 'COUPON EQUIVALENT', '52 WEEKS BANK DISCOUNT', ' COUPON EQUIVALENT', '1 Mo', '1.5 Mo', '2 Mo', '3 Mo', '4 Mo', '6 Mo', '1 Yr', '2 Yr', '3 Yr', '5 Yr', '7 Yr', '10 Yr', '20 Yr', '30 Yr']
 Number of headings: 26
 Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A          ', 'N/A          ', 'N/A          ', 'N/A          ', 'N/A          ', 'N/A          ', 'N/A          ', 'N/A          ', 'N/A          ', '4.45          ', 'N/A          ', '4.36          ', '4.36          ', '4.31          ', '4.25          ', '4.17          ', '4.25          ', '4.29          ', '4.38          ', '4.47          ', '4.57          ', '4.86          ', '4.79          ']</code></pre>
 </div>
 </div>
-<p>After reviewing the table structure, we can iterate through all the URLs to extract the full dataset. All data is stored in a dataframe and exported as a CSV file for further analysis.</p>
-</section>
-</section>
-<section id="scraper-block" class="level2">
-<h2 class="anchored" data-anchor-id="scraper-block">Scraper Block</h2>
-<div id="eadb2190" class="cell" data-execution_count="2">
+<p>After reviewing the table structure, we can iterate through all the URLs to extract the complete dataset. All data is stored in a dataframe and exported as a CSV file for further analysis. ## Scraper Block</p>
+<div id="e68f8566" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># now scrape all the table data/ td from all the URLs</span></span>
@@ -384,7 +379,7 @@ Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A  
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">0</th>
-<td>01/03/2023</td>
+<td>01/02/1990</td>
 <td>N/A</td>
 <td>N/A</td>
 <td>N/A</td>
@@ -395,20 +390,20 @@ Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A  
 <td>N/A</td>
 <td>N/A</td>
 <td>...</td>
-<td>4.70</td>
-<td>4.77</td>
-<td>4.72</td>
-<td>4.40</td>
-<td>4.18</td>
-<td>3.94</td>
-<td>3.89</td>
-<td>3.79</td>
-<td>4.06</td>
-<td>3.88</td>
+<td>N/A</td>
+<td>7.89</td>
+<td>7.81</td>
+<td>7.87</td>
+<td>7.90</td>
+<td>7.87</td>
+<td>7.98</td>
+<td>7.94</td>
+<td>N/A</td>
+<td>8.00</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">1</th>
-<td>01/04/2023</td>
+<td>01/03/1990</td>
 <td>N/A</td>
 <td>N/A</td>
 <td>N/A</td>
@@ -419,20 +414,20 @@ Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A  
 <td>N/A</td>
 <td>N/A</td>
 <td>...</td>
-<td>4.69</td>
-<td>4.77</td>
-<td>4.71</td>
-<td>4.36</td>
-<td>4.11</td>
-<td>3.85</td>
-<td>3.79</td>
-<td>3.69</td>
-<td>3.97</td>
-<td>3.81</td>
+<td>N/A</td>
+<td>7.94</td>
+<td>7.85</td>
+<td>7.94</td>
+<td>7.96</td>
+<td>7.92</td>
+<td>8.04</td>
+<td>7.99</td>
+<td>N/A</td>
+<td>8.04</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">2</th>
-<td>01/05/2023</td>
+<td>01/04/1990</td>
 <td>N/A</td>
 <td>N/A</td>
 <td>N/A</td>
@@ -443,20 +438,20 @@ Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A  
 <td>N/A</td>
 <td>N/A</td>
 <td>...</td>
-<td>4.75</td>
-<td>4.81</td>
-<td>4.78</td>
-<td>4.45</td>
-<td>4.18</td>
-<td>3.90</td>
-<td>3.82</td>
-<td>3.71</td>
-<td>3.96</td>
-<td>3.78</td>
+<td>N/A</td>
+<td>7.90</td>
+<td>7.82</td>
+<td>7.92</td>
+<td>7.93</td>
+<td>7.91</td>
+<td>8.02</td>
+<td>7.98</td>
+<td>N/A</td>
+<td>8.04</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">3</th>
-<td>01/06/2023</td>
+<td>01/05/1990</td>
 <td>N/A</td>
 <td>N/A</td>
 <td>N/A</td>
@@ -467,20 +462,20 @@ Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A  
 <td>N/A</td>
 <td>N/A</td>
 <td>...</td>
-<td>4.74</td>
-<td>4.79</td>
-<td>4.71</td>
-<td>4.24</td>
-<td>3.96</td>
-<td>3.69</td>
-<td>3.63</td>
-<td>3.55</td>
-<td>3.84</td>
-<td>3.67</td>
+<td>N/A</td>
+<td>7.85</td>
+<td>7.79</td>
+<td>7.90</td>
+<td>7.94</td>
+<td>7.92</td>
+<td>8.03</td>
+<td>7.99</td>
+<td>N/A</td>
+<td>8.06</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">4</th>
-<td>01/09/2023</td>
+<td>01/08/1990</td>
 <td>N/A</td>
 <td>N/A</td>
 <td>N/A</td>
@@ -491,16 +486,16 @@ Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A  
 <td>N/A</td>
 <td>N/A</td>
 <td>...</td>
-<td>4.74</td>
-<td>4.83</td>
-<td>4.69</td>
-<td>4.19</td>
-<td>3.93</td>
-<td>3.66</td>
-<td>3.60</td>
-<td>3.53</td>
-<td>3.83</td>
-<td>3.66</td>
+<td>N/A</td>
+<td>7.88</td>
+<td>7.81</td>
+<td>7.90</td>
+<td>7.95</td>
+<td>7.92</td>
+<td>8.05</td>
+<td>8.02</td>
+<td>N/A</td>
+<td>8.09</td>
 </tr>
 </tbody>
 </table>
@@ -509,6 +504,7 @@ Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A  
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="reviewing-and-cleaning-the-dataframe" class="level2">
 <h2 class="anchored" data-anchor-id="reviewing-and-cleaning-the-dataframe">Reviewing and Cleaning the Dataframe</h2>
@@ -520,7 +516,7 @@ Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A  
 <li>convert the ‘Date’ column to datetime format</li>
 <li>convert the rest of the columns to float</li>
 </ol>
-<div id="a26e3394" class="cell" data-execution_count="3">
+<div id="9567053c" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove all blank spaces in the dataframe, except headers</span></span>
@@ -538,27 +534,27 @@ Table data &lt;td&gt;: ['01/02/2025\n', 'N/A          ', 'N/A          ', 'N/A  
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
-RangeIndex: 737 entries, 0 to 736
+RangeIndex: 8971 entries, 0 to 8970
 Data columns (total 15 columns):
  #   Column  Non-Null Count  Dtype         
 ---  ------  --------------  -----         
- 0   Date    737 non-null    datetime64[ns]
- 1   1 Mo    737 non-null    float64       
- 2   1.5 Mo  206 non-null    float64       
- 3   2 Mo    737 non-null    float64       
- 4   3 Mo    737 non-null    float64       
- 5   4 Mo    737 non-null    float64       
- 6   6 Mo    737 non-null    float64       
- 7   1 Yr    737 non-null    float64       
- 8   2 Yr    737 non-null    float64       
- 9   3 Yr    737 non-null    float64       
- 10  5 Yr    737 non-null    float64       
- 11  7 Yr    737 non-null    float64       
- 12  10 Yr   737 non-null    float64       
- 13  20 Yr   737 non-null    float64       
- 14  30 Yr   737 non-null    float64       
+ 0   Date    8971 non-null   datetime64[ns]
+ 1   1 Mo    6071 non-null   float64       
+ 2   1.5 Mo  183 non-null    float64       
+ 3   2 Mo    1766 non-null   float64       
+ 4   3 Mo    8967 non-null   float64       
+ 5   4 Mo    764 non-null    float64       
+ 6   6 Mo    8970 non-null   float64       
+ 7   1 Yr    8970 non-null   float64       
+ 8   2 Yr    8970 non-null   float64       
+ 9   3 Yr    8970 non-null   float64       
+ 10  5 Yr    8970 non-null   float64       
+ 11  7 Yr    8970 non-null   float64       
+ 12  10 Yr   8970 non-null   float64       
+ 13  20 Yr   8031 non-null   float64       
+ 14  30 Yr   7976 non-null   float64       
 dtypes: datetime64[ns](1), float64(14)
-memory usage: 86.5 KB</code></pre>
+memory usage: 1.0 MB</code></pre>
 </div>
 </div>
 <p>All done! Ready for analysis!</p>
@@ -571,7 +567,7 @@ memory usage: 86.5 KB</code></pre>
 </section>
 <section id="data-distribution" class="level3">
 <h3 class="anchored" data-anchor-id="data-distribution">Data Distribution</h3>
-<div id="fb031dc3" class="cell" data-execution_count="4">
+<div id="95f02fe0" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -594,7 +590,7 @@ memory usage: 86.5 KB</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="01_webScraper_files/figure-html/cell-5-output-1.png" width="594" height="503" class="figure-img"></p>
+<p><img src="webScraper_files/figure-html/cell-5-output-1.png" width="594" height="503" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -605,7 +601,7 @@ memory usage: 86.5 KB</code></pre>
 </section>
 <section id="whats-next" class="level2">
 <h2 class="anchored" data-anchor-id="whats-next">What’s Next?</h2>
-<p>In the next analysis, we will explore the dataset in depth and understand what an ‘inverted yield curve’ is. (<a href="./02_invertedYieldCurve.html">US Treasury Bond Inverted Yield Curve</a>)</p>
+<p>In the next analysis, we will explore the dataset in depth and understand what an “inverted yield curve” is. (<a href="./invertedYieldCurve.html">US Treasury Bond Inverted Yield Curve</a>)</p>
 
 
 </section>

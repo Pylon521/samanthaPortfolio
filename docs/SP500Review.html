@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Samantha Pang">
+<meta name="dcterms.date" content="2025-12-01">
 
-<title>Latest Projects – Sam P</title>
+<title>SP500 Review – Sam P</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -73,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -146,21 +183,41 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Latest Projects</h1>
+<h1 class="title">SP500 Review</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Samantha Pang </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 1, 2025</p>
+    </div>
+  </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">December 12, 2025</p>
+    </div>
+  </div>
     
   </div>
   
@@ -169,48 +226,54 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- #### See my latest projects: -->
-<div class="project-list">
-<a href="./webScraper.html" class="project-item"> <img src="media/cell-4-output-1.png" alt="US Treasury Bond Web Scraper project image">
-<div class="project-content">
-<div class="project-title">
-US Treasury Bond Web Scraper
+<div id="f7ea3838" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># SP500 index</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> yf.download(<span class="st">"^GSPC"</span>, period<span class="op">=</span><span class="st">"1y"</span>)[<span class="st">"Close"</span>]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># today/yesterday price ratio / gross return</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># log returns turn multiplicative processes into additive processes, making them easier to analyze statistically</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>returns <span class="op">=</span> np.log(df<span class="op">/</span>df.shift(<span class="dv">1</span>)).dropna()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
-<div class="project-date">
-Published: Oct 2025
-</div>
-<div class="project-summary">
-Web scraping US Treasury Rate site with step by step ETL.
-</div>
-</div>
-</a><p><a href="./webScraper.html" class="project-item"></a></p>
-<a href="./invertedYieldCurve.html" class="project-item"> <img src="media/cell-3-output-1.png" alt="Inverted Yield Curve Analysis project image">
-<div class="project-content">
-<div class="project-title">
-Inverted Yield Curve Analysis
-</div>
-<div class="project-date">
-Published: Oct 2025
-</div>
-<div class="project-summary">
-Analyzing historical inverted yield curve data to explore its correlation with past economic recessions and predict future trends.
-</div>
-</div>
-</a><p><a href="./invertedYieldCurve.html" class="project-item"></a></p>
-<a href="./PCA.html" class="project-item"> <img src="media/cell-9-output-1.png" alt="PCA of Treasury Yields project image">
-<div class="project-content">
-<div class="project-title">
-Treasury Yields PCA
-</div>
-<div class="project-date">
-Published: Oct 2025
-</div>
-<div class="project-summary">
-Applying Principal Component Analysis (PCA) to treasury yields to identify primary drivers of yield curve movements, such as level, slope, and curvature.
+<div id="6088881b" class="cell" data-execution_count="31">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>sns.histplot(data<span class="op">=</span>returns, kde<span class="op">=</span><span class="va">True</span>, bins<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Histogram of Daily Log Returns"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Log Return"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Frequency"</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="SP500Review_files/figure-html/cell-3-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
 </div>
-</a><p><a href="./PCA.html" class="project-item"></a></p>
 </div>
+<p>Histogram shows a normal distribution of the logarithm return of SP500 over 1 year, which provides an insight into SP500’s performance and volatility. Majority of returns cluster around the mean indicates smaller data movement. probability of extreme returns (both positive and negative) is low, suggesting limited risk of significant losses or gains within this period. Overall, the histogram suggests that SP500 has relatively stable performance with moderate volatility over the year.</p>
+<div id="c2fdf90a" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>returns.columns <span class="op">=</span> [<span class="st">"Log Return"</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Approximate total return over past 1 year: '</span>,returns[<span class="st">'Log Return'</span>].<span class="bu">sum</span>().<span class="bu">round</span>(<span class="dv">4</span>))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Annualizing volatility: '</span>, (returns[<span class="st">'Log Return'</span>].std() <span class="op">*</span> np.sqrt(<span class="dv">252</span>)).<span class="bu">round</span>(<span class="dv">4</span>))  <span class="co"># 252 trading days in a year/ sample size</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Approximate total return over past 1 year:  0.1239
+Annualizing volatility:  0.1895</code></pre>
+</div>
+</div>
+<p>since the distribution appears normal, we can use mean and standard deviation to summarize the data. ~68% of daily returns fall within ±1 × std() of the mean ~95% within ±2 × std() ~99.7% within ±3 × std()</p>
+<p>Annualized volatility (daily × √252) Low: 5–10% → bonds, very stable ETFs Medium: 15–20% → S&amp;P 500 historically High: 30–80% → tech stocks, small-cap, crypto</p>
 
 
 

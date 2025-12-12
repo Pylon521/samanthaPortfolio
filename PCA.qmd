@@ -12,7 +12,7 @@ format:
 
 ## Prereq!
 ### ETL Web Scraped Data from US Treasury
-Data was scraped from [US Treasury's Resource Center](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2024) using BeautifulSoup and Requests, see [previous analysis](01_webScraper.qmd) for full ETL code.
+Data was scraped from [US Treasury's Resource Center](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2024) using BeautifulSoup and Requests, see [previous analysis](webScraper.qmd) for full ETL code.
 
 ### Libraries needed
 
@@ -90,7 +90,7 @@ You can see that PC1 and PC2 explain most of the variance in the data (98.7% com
 PC1 has coefficients that are all positive and relatively similar in magnitude (~0.3). It represents a general trend across all maturities. In contrast, First 6 of the PC2 coefficients are negative, and the last 5 are positive, indicating PC2 captures the contrast between short-term and long-term rates.
 
 ## PCA Biplot
-To further analyze PC1 and PC2, we will review are the 2 main components in the biplot: arrows and points.
+To further analyze PC1 and PC2, we will review are the 2 main components in the biplot: arrows and points. 
 The arrows represent the original variables (maturities), while the points represent the observations (dates).
 
 ```{python}
@@ -126,7 +126,7 @@ plt.show()
 ```
 
 ### Points and Clusters
-Each point shows weighted values of PC1 and PC2 for each observation (date). The position of the points indicates how the observations relate to the PCs. The  points are colored by year with a gradient from blue (earlier years) to red (later years). Each year has a distinct cluster, and the clusters allow us to observe how the observations change over time in relation to the PC. 
+Each point shows weighted values of PC1 and PC2 for each observation (date). The position of the points indicates how the observations relate to the PCs. The points are colored by year with a gradient from blue (earlier years) to red (later years). Each year has a distinct cluster, and the clusters allow us to observe how the observations change over time in relation to the PC.
 
 ### Arrows (Loadings)
 The arrows (loadings) represent the original variables (maturities). The arrows are pinned at the origin (0,0). The direction represents how each variable contributes to the PC, while the length indicates the strength of the contribution.
@@ -135,9 +135,7 @@ The arrows (loadings) represent the original variables (maturities). The arrows 
 The length of the arrows provides insight into the importance of each variable in explaining the variance captured by the PC. 30Yr has the longest arrow, indicating that the strongest influence on the PC1. In contrast, 5Yr has a shorter arrow, suggesting that lesser contribution to the variance.
 
 ### Angles of Arrows 
-The arrows for 1Mo, 3Mo, 6Mo, and 1Yr are close together, indicating that these short-term rates are highly correlated, same as arrows of 10Yr, 20Yr, and 30Yr for long-term rates. 
-The arrows for 1Mo and 30Yr point in nearly opposite directions, suggesting a negative correlation between short-term and long-term rates.
-The arrows for 10Yr and 3Yr are nearly perpendicular, which indicates that the variables are uncorrelated.
+The arrows for 1Mo, 3Mo, 6Mo, and 1Yr are close together, indicating that these short-term rates are highly correlated, same as arrows of 10Yr, 20Yr, and 30Yr for long-term rates. The arrows for 1Mo and 30Yr point in nearly opposite directions, suggesting a negative correlation between short-term and long-term rates. The arrows for 10Yr and 3Yr are nearly perpendicular, which indicates that the variables are uncorrelated.
 
 ### Direction of Arrows
 <!-- Bottom axis: PC1 score.

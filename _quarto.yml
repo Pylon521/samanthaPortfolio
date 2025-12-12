@@ -5,9 +5,9 @@ project:
   # files:
   #   - "**.qmd"
   #   - "media/**"
-  #   - "data/**"
+  #   - "data/**"  
   preview:
-  # watch for changes in input files
+   # watch for changes in input files
     watch-inputs: true
     # open brower once complete
     browser: true
@@ -22,12 +22,12 @@ website:
       - text: Projects
         # href: analysis.qmd
         menu: 
-          - href: 03_PCA.qmd
-            text: Treasury Yields PCA
-          - href: 02_invertedYieldCurve.qmd
-            text: Inverted Yield Curve Analysis
-          - href: 01_webScraper.qmd
+          - href: webScraper.qmd
             text: US Treasury Bond Web Scraper
+          - href: invertedYieldCurve.qmd
+            text: Inverted Yield Curve Analysis
+          - href: PCA.qmd
+            text: Treasury Yields PCA
       - href: about.qmd
         text: About
 
@@ -65,9 +65,9 @@ format:
     # code-fold: true
 
 execute:
-# true to disable reruning, use cache file to speed up rendering
-  # cache: true
+# true to disable reruning
+  cache: true
   # show codes in output docs
   echo: true
-  # suppress code warnings in code output
+  # suppress script warnings in output docs
   warning: false
