@@ -1,8 +1,8 @@
 ---
 title: "Samantha Pang"
 about: 
-  template: trestles
-  image: media/PXL_20251016_035631338.jpg
+  template: jolla
+  image: media/PXL_20250505_134003081.jpg
   links:
     - icon: github
       text: Github
@@ -11,16 +11,11 @@ about:
       text: LinkedIn
       href: https://www.linkedin.com/in/samantha-p5221/
 ---
-<!-- [![](media/PXL_20251016_035631338.TS_exported_0~2.jpg "@Garden by the Bay, SG")](about.qmd) -->
 
-##### ***Data Science / Plant Lover / Climber***
-*"The flow state, often called “being in the zone,” is a mental state where you are fully absorbed in an activity,and losing track of time."*
+##### ***Data Analyst***
 
-Glad you are here! This website is to showcase Samantha's skills and passions and ultimately to inspire you to pursue what you love, aka being in the flow! 
+I’m a data analyst with a background in forecasting, replenishment, and operations. My day job involves building analytical tools, dashboards, and frameworks and has contributed to large-scale decision-making, cost savings, and operational stability.
 
-<!-- ##### **You can find me here:**
+I’m passionate about continuous learning and genuinely enjoy logical challenges. One of my greatest joys is simplifying complex topics with structure and creativity. I bring a mix of strong technical skills (Python, SQL, Tableau) and human-centered thinking, shaped by my training in data analytics and applied psychology. I’m motivated by improving processes, building reliable systems, and finding better ways for people to work smarter and stay in flow.
 
-- 💼 [LinkedIn](https://www.linkedin.com/in/samantha-p5221/)
-- 🧑‍💻 [GitHub](https://github.com/Pylon521)
-- 😎 [Instagram](https://www.instagram.com/365bench/) -->
 ✉️ Contact: [theflow365@emailhub.kr](mailto:theflow365@emailhub.kr)

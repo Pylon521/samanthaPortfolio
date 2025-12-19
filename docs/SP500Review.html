@@ -9,7 +9,7 @@
 <meta name="author" content="Samantha Pang">
 <meta name="dcterms.date" content="2025-12-01">
 
-<title>SP500 Review – Sam P</title>
+<title>US Market Trends Analysis – Sam P</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -183,15 +183,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link active" data-scroll-target="#prerequisites">Prerequisites!</a></li>
+  <li><a href="#objective" id="toc-objective" class="nav-link" data-scroll-target="#objective">Objective</a></li>
+  <li><a href="#leading-indicators" id="toc-leading-indicators" class="nav-link" data-scroll-target="#leading-indicators">leading indicators</a>
+  <ul class="collapse">
+  <li><a href="#sp-500" id="toc-sp-500" class="nav-link" data-scroll-target="#sp-500">S&amp;P 500</a></li>
+  <li><a href="#dow-jones" id="toc-dow-jones" class="nav-link" data-scroll-target="#dow-jones">Dow Jones</a></li>
+  <li><a href="#nasdaq" id="toc-nasdaq" class="nav-link" data-scroll-target="#nasdaq">NASDAQ</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">SP500 Review</h1>
+<h1 class="title">US Market Trends Analysis</h1>
 </div>
 
 
@@ -215,7 +228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">December 12, 2025</p>
+      <p class="date-modified">December 15, 2025</p>
     </div>
   </div>
     
@@ -226,30 +239,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="f7ea3838" class="cell" data-execution_count="2">
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites!</h2>
+<p>Libraries needed for this exercise: yfinance, matplotlib, numpy, seaborn</p>
+</section>
+<section id="objective" class="level2">
+<h2 class="anchored" data-anchor-id="objective">Objective</h2>
+<p>This project is to understand the leading indicators of the US stock market by analyzing the S&amp;P500, Dow Jones, and NASDAQ indices. We will explore historical data, visualize trends, and identify patterns that can help be well informed investors.</p>
+</section>
+<section id="leading-indicators" class="level2">
+<h2 class="anchored" data-anchor-id="leading-indicators">leading indicators</h2>
+<section id="sp-500" class="level3">
+<h3 class="anchored" data-anchor-id="sp-500">S&amp;P 500</h3>
+<p>The S&amp;P 500, Standard &amp; Poor’s 500, is a stock market index that measures the stock performance of 500 large companies listed on stock exchanges in the US. It is one of the most commonly followed equity indices and is often considered a benchmark for the overall health of the US stock market.</p>
+</section>
+<section id="dow-jones" class="level3">
+<h3 class="anchored" data-anchor-id="dow-jones">Dow Jones</h3>
+<p>The Dow Jones Industrial Average (DJIA) is a stock market index that measures the stock performance of 30 large, publicly-owned companies based in the US. It is one of the oldest and most widely recognized stock market indices in the world.</p>
+</section>
+<section id="nasdaq" class="level3">
+<h3 class="anchored" data-anchor-id="nasdaq">NASDAQ</h3>
+<p>The NASDAQ Composite is a stock market index that includes almost all stocks listed on the NASDAQ stock exchange. It is heavily weighted towards technology companies and is often used as a benchmark for the performance of the tech sector.</p>
+<div id="f7ea3838" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># SP500 index</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> yf.download(<span class="st">"^GSPC"</span>, period<span class="op">=</span><span class="st">"1y"</span>)[<span class="st">"Close"</span>]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># today/yesterday price ratio / gross return</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># log returns turn multiplicative processes into additive processes, making them easier to analyze statistically</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>returns <span class="op">=</span> np.log(df<span class="op">/</span>df.shift(<span class="dv">1</span>)).dropna()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>startdate <span class="op">=</span> <span class="st">"1990-01-01"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>enddate <span class="op">=</span> <span class="st">"2025-12-31"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>tickers <span class="op">=</span> [<span class="st">"^GSPC"</span>, <span class="st">"^DJI"</span>, <span class="st">"^IXIC"</span>]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># auto_adjust=True to get adjusted close prices (accounting for dividends and stock splits)</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> yf.download(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    tickers,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    start<span class="op">=</span>startdate,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    end<span class="op">=</span>enddate,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    auto_adjust<span class="op">=</span><span class="va">True</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>)[<span class="st">"Close"</span>]</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>sp500, dw30, nasdaq <span class="op">=</span> df[<span class="st">"^GSPC"</span>], df[<span class="st">"^DJI"</span>], df[<span class="st">"^IXIC"</span>]</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># today/yesterday price ratio / gross return</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> returns(prices):</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.log(prices<span class="op">/</span>prices.shift(<span class="dv">1</span>)).dropna()</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>sp500ret, dw30ret, nasdaqret <span class="op">=</span> returns(sp500), returns(dw30), returns(nasdaq)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="6088881b" class="cell" data-execution_count="31">
+<p>Visialing the close price using histogram, we are seeing a non -normal distribution with a right skew, indicating that there are more days with lower closing prices and fewer days with very high closing prices. One of the reasons for the sparsed distribution as the close price is continuously increasing over the years, with a wide range of data point.</p>
+<div id="7b6056b0" class="cell" data-execution_count="51">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>series_list <span class="op">=</span> [sp500, dw30, nasdaq]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>sns.histplot(data<span class="op">=</span>returns, kde<span class="op">=</span><span class="va">True</span>, bins<span class="op">=</span><span class="dv">50</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Histogram of Daily Log Returns"</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Log Return"</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Frequency"</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> series, name, i <span class="kw">in</span> <span class="bu">zip</span>(series_list, [<span class="st">"S&amp;P 500"</span>, <span class="st">"Dow Jones 30"</span>, <span class="st">"Nasdaq Composite"</span>], <span class="bu">range</span>(<span class="dv">3</span>)):</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    sns.histplot(series, kde<span class="op">=</span><span class="va">True</span>, bins<span class="op">=</span><span class="dv">50</span>, ax<span class="op">=</span>axes[i])</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    axes[i].set_title(name)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        ax.set_xlabel(<span class="st">"Close Price"</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        ax.set_ylabel(<span class="st">"Frequency"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -259,23 +314,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Histogram shows a normal distribution of the logarithm return of SP500 over 1 year, which provides an insight into SP500’s performance and volatility. Majority of returns cluster around the mean indicates smaller data movement. probability of extreme returns (both positive and negative) is low, suggesting limited risk of significant losses or gains within this period. Overall, the histogram suggests that SP500 has relatively stable performance with moderate volatility over the year.</p>
-<div id="c2fdf90a" class="cell" data-execution_count="12">
+<p>With log transformation, we can see a more normalized distribution. Log returns turn multiplicative processes into additive processes, making them easier to analyze statistically.</p>
+<p>Histogram shows more symmetric distributions of the logarithm return of all 3 of the indices over the last 30 year, which provides an insight into their performance and volatility. Majority of returns cluster around the mean indicates smaller data movement. probability of extreme returns (both positive and negative) is low, suggesting limited risk of significant losses or gains within this period. Overall, the histogram suggests that all 3 indices has relatively stable performance with moderate volatility over the year.</p>
+<div id="c2fdf90a" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>returns.columns <span class="op">=</span> [<span class="st">"Log Return"</span>]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Approximate total return over past 1 year: '</span>,returns[<span class="st">'Log Return'</span>].<span class="bu">sum</span>().<span class="bu">round</span>(<span class="dv">4</span>))</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Annualizing volatility: '</span>, (returns[<span class="st">'Log Return'</span>].std() <span class="op">*</span> np.sqrt(<span class="dv">252</span>)).<span class="bu">round</span>(<span class="dv">4</span>))  <span class="co"># 252 trading days in a year/ sample size</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>series_list <span class="op">=</span> [sp500ret, dw30ret, nasdaqret]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> series, name, i <span class="kw">in</span> <span class="bu">zip</span>(series_list, [<span class="st">"S&amp;P 500"</span>, <span class="st">"Dow Jones 30"</span>, <span class="st">"Nasdaq Composite"</span>], <span class="bu">range</span>(<span class="dv">3</span>)):</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    sns.histplot(series, kde<span class="op">=</span><span class="va">True</span>, bins<span class="op">=</span><span class="dv">50</span>, ax<span class="op">=</span>axes[i])</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    axes[i].set_title(name)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        ax.set_xlabel(<span class="st">"Log Return"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        ax.set_ylabel(<span class="st">"Frequency"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(name, <span class="st">"'s Total Return Over Past 30 Years: "</span>,series.<span class="bu">sum</span>().<span class="bu">round</span>(<span class="dv">4</span>))</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(name, <span class="st">"'s Daily Volatility: "</span>, series.std().<span class="bu">round</span>(<span class="dv">4</span>)) </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Approximate total return over past 1 year:  0.1239
-Annualizing volatility:  0.1895</code></pre>
+<pre><code>S&amp;P 500 's Total Return Over Past 30 Years:  2.9419
+S&amp;P 500 's Daily Volatility:  0.0114
+Dow Jones 30 's Total Return Over Past 30 Years:  2.7254
+Dow Jones 30 's Daily Volatility:  0.011
+Nasdaq Composite 's Total Return Over Past 30 Years:  3.916
+Nasdaq Composite 's Daily Volatility:  0.0146</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="SP500Review_files/figure-html/cell-4-output-2.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
 </div>
+</div>
+<p>But how do we know if this is a normal distribution? We can use statistical measures to confirm this. Let’s find mean, median, std dev, variance, skewness, kurtosis of log return for all 3 indices. zscore to identify outliers in log return.</p>
 <p>since the distribution appears normal, we can use mean and standard deviation to summarize the data. ~68% of daily returns fall within ±1 × std() of the mean ~95% within ±2 × std() ~99.7% within ±3 × std()</p>
 <p>Annualized volatility (daily × √252) Low: 5–10% → bonds, very stable ETFs Medium: 15–20% → S&amp;P 500 historically High: 30–80% → tech stocks, small-cap, crypto</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

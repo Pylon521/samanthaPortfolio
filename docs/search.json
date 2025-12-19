@@ -79,16 +79,16 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Sam P",
+    "title": "Samantha Pang",
     "section": "",
-    "text": "Samantha’s Latest Projects:\n\n \n\n\nTreasury Yields PCA\n\n\nPublished: Oct 2025\n\n\nApplying Principal Component Analysis (PCA) to treasury yields to identify primary drivers of yield curve movements, such as level, slope, and curvature.\n\n\n\n \n\n\nInverted Yield Curve Analysis\n\n\nPublished: Oct 2025\n\n\nAnalyzing historical inverted yield curve data to explore its correlation with past economic recessions and predict future trends.\n\n\n\n \n\n\nUS Treasury Bond Web Scraper\n\n\nPublished: Oct 2025\n\n\nWeb scraping US Treasury Rate site with step by step ETL."
+    "text": "Data Science / Plant Lover / Climber\n“The flow state, often called “being in the zone,” is a mental state where you are fully absorbed in an activity,and losing track of time.”\nGlad you are here! This website is to showcase Samantha’s skills and passions and ultimately to inspire you to pursue what you love, aka being in the flow!\n\n✉️ Contact: theflow365@emailhub.kr\n\nSamantha’s Latest Projects:\n\n \n\n\nTreasury Yields PCA\n\n\nPublished: Oct 2025\n\n\nApplying Principal Component Analysis (PCA) to treasury yields to identify primary drivers of yield curve movements, such as level, slope, and curvature.\n\n\n\n \n\n\nInverted Yield Curve Analysis\n\n\nPublished: Oct 2025\n\n\nAnalyzing historical inverted yield curve data to explore its correlation with past economic recessions and predict future trends.\n\n\n\n \n\n\nUS Treasury Bond Web Scraper\n\n\nPublished: Oct 2025\n\n\nWeb scraping US Treasury Rate site with step by step ETL."
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "Samantha Pang",
     "section": "",
-    "text": "Data Science / Plant Lover / Climber\n“The flow state, often called “being in the zone,” is a mental state where you are fully absorbed in an activity,and losing track of time.”\nGlad you are here! This website is to showcase Samantha’s skills and passions and ultimately to inspire you to pursue what you love, aka being in the flow!\n\n✉️ Contact: theflow365@emailhub.kr"
+    "text": "Data Analyst\nI’m a data analyst with a background in forecasting, replenishment, and operations. My day job involves building analytical tools, dashboards, and frameworks and has contributed to large-scale decision-making, cost savings, and operational stability.\nI’m passionate about continuous learning and genuinely enjoy logical challenges. One of my greatest joys is simplifying complex topics with structure and creativity. I bring a mix of strong technical skills (Python, SQL, Tableau) and human-centered thinking, shaped by my training in data analytics and applied psychology. I’m motivated by improving processes, building reliable systems, and finding better ways for people to work smarter and stay in flow.\n✉️ Contact: theflow365@emailhub.kr"
   },
   {
     "objectID": "analysis.html",
@@ -107,8 +107,36 @@
   {
     "objectID": "SP500Review.html",
     "href": "SP500Review.html",
-    "title": "SP500 Review",
+    "title": "US Market Trends Analysis",
     "section": "",
-    "text": "Code\nimport yfinance as yf\nimport numpy as np\n\n# SP500 index\ndf = yf.download(\"^GSPC\", period=\"1y\")[\"Close\"]\n# today/yesterday price ratio / gross return\n# log returns turn multiplicative processes into additive processes, making them easier to analyze statistically\nreturns = np.log(df/df.shift(1)).dropna()\n\n\n\n\nCode\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\nsns.histplot(data=returns, kde=True, bins=50)\nplt.title(\"Histogram of Daily Log Returns\")\nplt.xlabel(\"Log Return\")\nplt.ylabel(\"Frequency\")\nplt.show()\n\n\n\n\n\n\n\n\n\nHistogram shows a normal distribution of the logarithm return of SP500 over 1 year, which provides an insight into SP500’s performance and volatility. Majority of returns cluster around the mean indicates smaller data movement. probability of extreme returns (both positive and negative) is low, suggesting limited risk of significant losses or gains within this period. Overall, the histogram suggests that SP500 has relatively stable performance with moderate volatility over the year.\n\n\nCode\nreturns.columns = [\"Log Return\"]\nprint('Approximate total return over past 1 year: ',returns['Log Return'].sum().round(4))\nprint('Annualizing volatility: ', (returns['Log Return'].std() * np.sqrt(252)).round(4))  # 252 trading days in a year/ sample size\n\n\nApproximate total return over past 1 year:  0.1239\nAnnualizing volatility:  0.1895\n\n\nsince the distribution appears normal, we can use mean and standard deviation to summarize the data. ~68% of daily returns fall within ±1 × std() of the mean ~95% within ±2 × std() ~99.7% within ±3 × std()\nAnnualized volatility (daily × √252) Low: 5–10% → bonds, very stable ETFs Medium: 15–20% → S&P 500 historically High: 30–80% → tech stocks, small-cap, crypto"
+    "text": "Libraries needed for this exercise: yfinance, matplotlib, numpy, seaborn"
+  },
+  {
+    "objectID": "SP500Review.html#prerequisites",
+    "href": "SP500Review.html#prerequisites",
+    "title": "US Market Trends Analysis",
+    "section": "",
+    "text": "Libraries needed for this exercise: yfinance, matplotlib, numpy, seaborn"
+  },
+  {
+    "objectID": "SP500Review.html#objective",
+    "href": "SP500Review.html#objective",
+    "title": "US Market Trends Analysis",
+    "section": "Objective",
+    "text": "Objective\nThis project is to understand the leading indicators of the US stock market by analyzing the S&P500, Dow Jones, and NASDAQ indices. We will explore historical data, visualize trends, and identify patterns that can help be well informed investors."
+  },
+  {
+    "objectID": "SP500Review.html#leading-indicators",
+    "href": "SP500Review.html#leading-indicators",
+    "title": "US Market Trends Analysis",
+    "section": "leading indicators",
+    "text": "leading indicators\n\nS&P 500\nThe S&P 500, Standard & Poor’s 500, is a stock market index that measures the stock performance of 500 large companies listed on stock exchanges in the US. It is one of the most commonly followed equity indices and is often considered a benchmark for the overall health of the US stock market.\n\n\nDow Jones\nThe Dow Jones Industrial Average (DJIA) is a stock market index that measures the stock performance of 30 large, publicly-owned companies based in the US. It is one of the oldest and most widely recognized stock market indices in the world.\n\n\nNASDAQ\nThe NASDAQ Composite is a stock market index that includes almost all stocks listed on the NASDAQ stock exchange. It is heavily weighted towards technology companies and is often used as a benchmark for the performance of the tech sector.\n\n\nCode\nimport yfinance as yf\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\nstartdate = \"1990-01-01\"\nenddate = \"2025-12-31\"\ntickers = [\"^GSPC\", \"^DJI\", \"^IXIC\"]\n\n# auto_adjust=True to get adjusted close prices (accounting for dividends and stock splits)\ndf = yf.download(\n    tickers,\n    start=startdate,\n    end=enddate,\n    auto_adjust=True\n)[\"Close\"]\n\nsp500, dw30, nasdaq = df[\"^GSPC\"], df[\"^DJI\"], df[\"^IXIC\"]\n\n# today/yesterday price ratio / gross return\ndef returns(prices):\n    return np.log(prices/prices.shift(1)).dropna()\n\nsp500ret, dw30ret, nasdaqret = returns(sp500), returns(dw30), returns(nasdaq)\n\n\nVisialing the close price using histogram, we are seeing a non -normal distribution with a right skew, indicating that there are more days with lower closing prices and fewer days with very high closing prices. One of the reasons for the sparsed distribution as the close price is continuously increasing over the years, with a wide range of data point.\n\n\nCode\nfig, axes = plt.subplots(3, 1, figsize=(8, 8))\nseries_list = [sp500, dw30, nasdaq]\n\nfor series, name, i in zip(series_list, [\"S&P 500\", \"Dow Jones 30\", \"Nasdaq Composite\"], range(3)):\n    sns.histplot(series, kde=True, bins=50, ax=axes[i])\n    axes[i].set_title(name)\n    for ax in axes:\n        ax.set_xlabel(\"Close Price\")\n        ax.set_ylabel(\"Frequency\")\n\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\nWith log transformation, we can see a more normalized distribution. Log returns turn multiplicative processes into additive processes, making them easier to analyze statistically.\nHistogram shows more symmetric distributions of the logarithm return of all 3 of the indices over the last 30 year, which provides an insight into their performance and volatility. Majority of returns cluster around the mean indicates smaller data movement. probability of extreme returns (both positive and negative) is low, suggesting limited risk of significant losses or gains within this period. Overall, the histogram suggests that all 3 indices has relatively stable performance with moderate volatility over the year.\n\n\nCode\nfig, axes = plt.subplots(3, 1, figsize=(8, 8))\nseries_list = [sp500ret, dw30ret, nasdaqret]\n\nfor series, name, i in zip(series_list, [\"S&P 500\", \"Dow Jones 30\", \"Nasdaq Composite\"], range(3)):\n    sns.histplot(series, kde=True, bins=50, ax=axes[i])\n    axes[i].set_title(name)\n    for ax in axes:\n        ax.set_xlabel(\"Log Return\")\n        ax.set_ylabel(\"Frequency\")\n    print(name, \"'s Total Return Over Past 30 Years: \",series.sum().round(4))\n    print(name, \"'s Daily Volatility: \", series.std().round(4)) \n\nplt.tight_layout()\nplt.show()\n\n\nS&P 500 's Total Return Over Past 30 Years:  2.9419\nS&P 500 's Daily Volatility:  0.0114\nDow Jones 30 's Total Return Over Past 30 Years:  2.7254\nDow Jones 30 's Daily Volatility:  0.011\nNasdaq Composite 's Total Return Over Past 30 Years:  3.916\nNasdaq Composite 's Daily Volatility:  0.0146\n\n\n\n\n\n\n\n\n\nBut how do we know if this is a normal distribution? We can use statistical measures to confirm this. Let’s find mean, median, std dev, variance, skewness, kurtosis of log return for all 3 indices. zscore to identify outliers in log return.\nsince the distribution appears normal, we can use mean and standard deviation to summarize the data. ~68% of daily returns fall within ±1 × std() of the mean ~95% within ±2 × std() ~99.7% within ±3 × std()\nAnnualized volatility (daily × √252) Low: 5–10% → bonds, very stable ETFs Medium: 15–20% → S&P 500 historically High: 30–80% → tech stocks, small-cap, crypto"
+  },
+  {
+    "objectID": "PCA.html#prerequisites",
+    "href": "PCA.html#prerequisites",
+    "title": "US Treasury Par Yield Curve Rates Principal Component Analysis (PCA)",
+    "section": "",
+    "text": "Data was scraped from US Treasury’s Resource Center using BeautifulSoup and Requests, see previous analysis for full ETL code.\n\n\n\n\npandas\nnumpy\nseaborn\nmatplotlib\nsklearn"
   }
 ]
