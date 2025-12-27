@@ -42,6 +42,10 @@ website:
       - icon: github
         href: https://github.com/Pylon521/
         target: _blank
+      - icon: share-fill
+        href: "https://www.linkedin.com/sharing/share-offsite/?url=https://pylon521.github.io/samanthaPortfolio/"
+        target: _blank
+
 
   # sidebar: 
   #   style: "floating"        # or "floating"
@@ -63,6 +67,8 @@ format:
     theme: flatly
     css: styles.css
     output-dir: docs
+    # share: # does not work with flatly
+    #   linkedin: true
     # toc: false
     # code-fold: true
 
