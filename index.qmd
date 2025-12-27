@@ -28,6 +28,15 @@ Glad you are here! This website is to showcase Samantha's skills and passions an
 
 <div class="project-list">
 
+<a href="marketTrendAnalysis.qmd" class="project-item">
+  <img src="media/cell-4-output-2.png" alt="Market Trend project image">
+  <div class="project-content">
+  <div class="project-title">Market Trend Distribution Analysis</div>
+  <div class="project-date">Published: Dec 2025</div>
+  <div class="project-summary"> Analyzing long-term trends, returns, and volatility of major U.S. stock indices: S&P 500, Dow Jones, and NASDAQ.</div>
+  </div>
+</a>
+
 <a href="PCA.qmd" class="project-item">
   <img src="media/cell-9-output-1.png" alt="PCA of Treasury Yields project image">
   <div class="project-content">

@@ -28,6 +28,8 @@ website:
             text: Inverted Yield Curve Analysis
           - href: PCA.qmd
             text: Treasury Yields PCA
+          - href: marketTrendAnalysis.qmd
+            text: Market Trend Analysis
       - href: about.qmd
         text: About
 
