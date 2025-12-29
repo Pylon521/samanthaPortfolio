@@ -60,7 +60,7 @@ sp500ret, dw30ret, nasdaqret = returns(sp500), returns(dw30), returns(nasdaq)
 
 data = df.dropna().reset_index().melt(
     id_vars="Date", var_name="Index", value_name="Close")
-plt.figure(figsize=(12, 6))
+plt.figure(figsize=(8, 6))
 sns.lineplot(data=data, x="Date", y="Close", hue="Index")
 plt.title("Closing Prices of Major US Indices")
 plt.xlabel("Date")
@@ -129,14 +129,20 @@ The means, medians, and mode of the indices are extremely close to each other, i
 ### Standard Deviation and Z-Score
 
 For a normal distribution, about 68% of the data falls within one standard deviation of the mean, about 95% falls within two standard deviations, and about 99.7% falls within three standard deviations. This is known as the empirical rule or the 68-95-99.7 rule.
-
+$$
     μ ± 1σ → 0.68
+$$
+$$
     μ ± 2σ → 0.95
+$$
+$$  
     μ ± 3σ → 0.997
+$$
 
 Z-Score is great for identifying outliers in a dataset. A z-score indicates how many standard deviations a data point is from the mean. Typically, a z-score above 3 or below -3 is considered an outlier.
-
+$$
     z=(x−μ)/σ
+$$
 
     |z| < 1 → normal movements
     |z| ≥ 1 → elevated volatility
