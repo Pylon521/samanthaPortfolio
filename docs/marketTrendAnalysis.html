@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Samantha Pang">
-<meta name="dcterms.date" content="2025-12-26">
+<meta name="dcterms.date" content="2025-12-01">
 
 <title>US Market Trends Analysis – Sam P</title>
 <style>
@@ -212,7 +212,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#log-trasformed-returns" id="toc-log-trasformed-returns" class="nav-link" data-scroll-target="#log-trasformed-returns">Log Trasformed Returns</a></li>
   </ul></li>
   <li><a href="#total-returns-and-annual-volatility" id="toc-total-returns-and-annual-volatility" class="nav-link" data-scroll-target="#total-returns-and-annual-volatility">Total Returns and Annual Volatility</a></li>
-  <li><a href="#statistical-measures-of-log-returns" id="toc-statistical-measures-of-log-returns" class="nav-link" data-scroll-target="#statistical-measures-of-log-returns">Statistical Measures of Log Returns</a></li>
+  <li><a href="#statistical-measures-of-log-returns" id="toc-statistical-measures-of-log-returns" class="nav-link" data-scroll-target="#statistical-measures-of-log-returns">Statistical Measures of Log Returns</a>
+  <ul class="collapse">
+  <li><a href="#mean-median-skewness-kurtosis" id="toc-mean-median-skewness-kurtosis" class="nav-link" data-scroll-target="#mean-median-skewness-kurtosis">Mean, Median, Skewness, Kurtosis</a></li>
+  <li><a href="#standard-deviation-and-z-score" id="toc-standard-deviation-and-z-score" class="nav-link" data-scroll-target="#standard-deviation-and-z-score">Standard Deviation and Z-Score</a></li>
+  </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
@@ -239,14 +243,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 26, 2025</p>
+      <p class="date">December 1, 2025</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">December 26, 2025</p>
+      <p class="date-modified">December 29, 2025</p>
     </div>
   </div>
     
@@ -284,7 +288,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="overall-time-series-trends" class="level2">
 <h2 class="anchored" data-anchor-id="overall-time-series-trends">Overall time Series Trends</h2>
 <p>Line graph below shows the overall upward trends of the S&amp;P 500, Dow Jones, and NASDAQ indices over the past 30 years. The Dow Jones exhibits the highest growth, followed by NASDAQ comes second and then S&amp;P 500. The Dow Jones and NASDAQ display greater volatility compared to the S&amp;P 500, which follows a steadier growth trajectory.</p>
-<div id="20629ac4" class="cell" data-execution_count="2">
+<div id="174081b8" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
@@ -314,7 +318,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> df.dropna().reset_index().melt(</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    id_vars<span class="op">=</span><span class="st">"Date"</span>, var_name<span class="op">=</span><span class="st">"Index"</span>, value_name<span class="op">=</span><span class="st">"Close"</span>)</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>sns.lineplot(data<span class="op">=</span>data, x<span class="op">=</span><span class="st">"Date"</span>, y<span class="op">=</span><span class="st">"Close"</span>, hue<span class="op">=</span><span class="st">"Index"</span>)</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Closing Prices of Major US Indices"</span>)</span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Date"</span>)</span>
@@ -324,7 +328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="marketTrendAnalysis_files/figure-html/cell-2-output-1.png" width="684" height="523" class="figure-img"></p>
+<p><img src="marketTrendAnalysis_files/figure-html/cell-2-output-1.png" width="982" height="523" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -335,7 +339,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="raw-closing-prices" class="level3">
 <h3 class="anchored" data-anchor-id="raw-closing-prices">Raw Closing Prices</h3>
 <p>Visualizing the closing prices using histograms, we see right skewed distributions, indicating that there are more days with lower closing prices and fewer days with very high closing prices. One reason for the sparse distribution is that closing prices have increased continuously over the years, resulting in a wide range of data points.</p>
-<div id="ae2a8e7a" class="cell" data-execution_count="3">
+<div id="7928f4f9" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
@@ -364,7 +368,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="log-trasformed-returns">Log Trasformed Returns</h3>
 <p>With log transformation, we observe more normalized distributions. Log returns convert multiplicative processes into additive ones, making the data easier to analyze statistically.</p>
 <p>Histograms show more symmetric distributions of the logarithm returns of all 3 of the indices over the last 30 years, providing insight into their performance and volatility. The majority of returns clustering around the mean indicates smaller price movements. The probability of extreme returns (both positive and negative) is low, suggesting a limited risk of significant gains or losses during this period. Overall, the histograms suggest that all 3 indices has relatively stable performance with moderate volatility over the year, making them suitable for long-term investment strategies.</p>
-<div id="38dfd601" class="cell" data-execution_count="4">
+<div id="7b082b41" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
@@ -383,11 +387,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>S&amp;P 500 's Total Return Over Past 30 Years:  18.2664
-S&amp;P 500 's Annual Volatility:  0.1808
-Dow Jones 30 's Total Return Over Past 30 Years:  14.3546
+<pre><code>S&amp;P 500 's Total Return Over Past 30 Years:  18.1625
+S&amp;P 500 's Annual Volatility:  0.1807
+Dow Jones 30 's Total Return Over Past 30 Years:  14.2587
 Dow Jones 30 's Annual Volatility:  0.1743
-Nasdaq Composite 's Total Return Over Past 30 Years:  50.3675
+Nasdaq Composite 's Total Return Over Past 30 Years:  49.9893
 Nasdaq Composite 's Annual Volatility:  0.2313</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -406,8 +410,10 @@ Nasdaq Composite 's Annual Volatility:  0.2313</code></pre>
 </section>
 <section id="statistical-measures-of-log-returns" class="level2">
 <h2 class="anchored" data-anchor-id="statistical-measures-of-log-returns">Statistical Measures of Log Returns</h2>
+<section id="mean-median-skewness-kurtosis" class="level3">
+<h3 class="anchored" data-anchor-id="mean-median-skewness-kurtosis">Mean, Median, Skewness, Kurtosis</h3>
 <p>The distributions of the log returns of all 3 indices has a symmetric distribution, but we can also use statistical measures to confirm whether they follow a normal distribution. Let’s find mean, median, skewness, kurtosis of log return for each index.</p>
-<div id="9be08fba" class="cell" data-execution_count="5">
+<div id="08aa2767" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> series, name <span class="kw">in</span> <span class="bu">zip</span>(series_list, [<span class="st">"S&amp;P 500"</span>, <span class="st">"Dow Jones 30"</span>, <span class="st">"Nasdaq Composite"</span>]):</span>
@@ -417,16 +423,52 @@ Nasdaq Composite 's Annual Volatility:  0.2313</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>S&amp;P 500 's mean, median, mode:  0.0003 / 0.0006 / 0    0.0
 Name: ^GSPC, dtype: float64
-S&amp;P 500 's skewness, kurtosis:  -0.3652 / 10.8818
+S&amp;P 500 's skewness, kurtosis:  -0.3651 / 10.8825
 Dow Jones 30 's mean, median, mode:  0.0003 / 0.0006 / 0    0.0
 Name: ^DJI, dtype: float64
-Dow Jones 30 's skewness, kurtosis:  -0.3852 / 13.0141
+Dow Jones 30 's skewness, kurtosis:  -0.3851 / 13.0146
 Nasdaq Composite 's mean, median, mode:  0.0004 / 0.0011 / 0    0.0
 Name: ^IXIC, dtype: float64
-Nasdaq Composite 's skewness, kurtosis:  -0.1798 / 6.8756</code></pre>
+Nasdaq Composite 's skewness, kurtosis:  -0.1797 / 6.876</code></pre>
 </div>
 </div>
 <p>The means, medians, and mode of the indices are extremely close to each other, indicating that the distributions are indeed symmetric and centered around the same value. Skewness explains whether a distribution is left or right leaning; in this case, a minimal left leaning is observed. Kurtosis measures the “tailedness” of the distributions. The high kurtosis values indicates extreme price movements happen frequently.</p>
+</section>
+<section id="standard-deviation-and-z-score" class="level3">
+<h3 class="anchored" data-anchor-id="standard-deviation-and-z-score">Standard Deviation and Z-Score</h3>
+<p>For a normal distribution, about 68% of the data falls within one standard deviation of the mean, about 95% falls within two standard deviations, and about 99.7% falls within three standard deviations. This is known as the empirical rule or the 68-95-99.7 rule.</p>
+<pre><code>μ ± 1σ → 0.68
+μ ± 2σ → 0.95
+μ ± 3σ → 0.997</code></pre>
+<p>Z-Score is great for identifying outliers in a dataset. A z-score indicates how many standard deviations a data point is from the mean. Typically, a z-score above 3 or below -3 is considered an outlier.</p>
+<pre><code>z=(x−μ)/σ
+
+|z| &lt; 1 → normal movements
+|z| ≥ 1 → elevated volatility
+|z| ≥ 2 → unusually volatile
+|z| ≥ 3 → crash / spike territory</code></pre>
+<div id="f7234a3a" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> series, name <span class="kw">in</span> <span class="bu">zip</span>(series_list, [<span class="st">"S&amp;P 500"</span>, <span class="st">"Dow Jones 30"</span>, <span class="st">"Nasdaq Composite"</span>]):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># count the number of observations within 1, 2, and 3 standard deviations from the mean</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># mu-sigma to mu+sigma</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(name, <span class="st">"'s 1,2,3 std away from mean: "</span>,((series <span class="op">&gt;=</span> series.mean()<span class="op">-</span> series.std()) <span class="op">&amp;</span> (series <span class="op">&lt;=</span> series.mean()<span class="op">+</span>series.std())).mean().<span class="bu">round</span>(<span class="dv">4</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        ,((series <span class="op">&gt;=</span> series.mean()<span class="op">-</span><span class="dv">2</span><span class="op">*</span> series.std()) <span class="op">&amp;</span> (series <span class="op">&lt;=</span> series.mean()<span class="op">+</span><span class="dv">2</span><span class="op">*</span>series.std())).mean().<span class="bu">round</span>(<span class="dv">4</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        ,((series <span class="op">&gt;=</span> series.mean()<span class="op">-</span> <span class="dv">3</span><span class="op">*</span>series.std()) <span class="op">&amp;</span> (series <span class="op">&lt;=</span> series.mean()<span class="op">+</span><span class="dv">3</span><span class="op">*</span>series.std())).mean().<span class="bu">round</span>(<span class="dv">4</span>))</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(name, <span class="st">"'s mean and median z-score: "</span>, <span class="bu">abs</span>((series<span class="op">-</span> series.mean())<span class="op">/</span>series.std()).mean().<span class="bu">round</span>(<span class="dv">4</span>), <span class="bu">abs</span>((series<span class="op">-</span> series.mean())<span class="op">/</span>series.std()).median().<span class="bu">round</span>(<span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>S&amp;P 500 's 1,2,3 std away from mean:  0.7906 0.9512 0.9844
+S&amp;P 500 's mean and median z-score:  0.6655 0.4494
+Dow Jones 30 's 1,2,3 std away from mean:  0.7913 0.9542 0.9857
+Dow Jones 30 's mean and median z-score:  0.6638 0.4531
+Nasdaq Composite 's 1,2,3 std away from mean:  0.7836 0.9466 0.9848
+Nasdaq Composite 's mean and median z-score:  0.6798 0.4595</code></pre>
+</div>
+</div>
+<p>Looking at the probabiles of observations within 1, 2, and 3 standard deviations from the mean for all 3 indices, we can see that they have a high percentage of observations within 1 standard deviation (around 78-79%), with normal distibution for 2 and 3 standard deviations. This suggests that leptokurtic distribution. Majority of the data points have low changes in returns, with a few extreme values causing the higher kurtosis. Using Z-score, we can once again confirm that majority of the days fall within normal movements, as mean and median z-scores are less than 1 for all 3 indices.</p>
+</section>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
