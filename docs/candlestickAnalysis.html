@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Samantha Pang">
+<meta name="dcterms.date" content="2025-12-29">
 
-<title>Latest Projects – Sam P</title>
+<title>Candlestick Analysis – Sam P</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,10 +22,45 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -77,12 +114,15 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-SC9L5BGV9Z', { 'anonymize_ip': true});
 </script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -164,21 +204,51 @@ gtag('config', 'G-SC9L5BGV9Z', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#candlestick-analysis" id="toc-candlestick-analysis" class="nav-link active" data-scroll-target="#candlestick-analysis">Candlestick Analysis</a>
+  <ul class="collapse">
+  <li><a href="#key-components-of-a-candlestick" id="toc-key-components-of-a-candlestick" class="nav-link" data-scroll-target="#key-components-of-a-candlestick">Key Components of a Candlestick:</a></li>
+  <li><a href="#bluish-vs-reddish-candlesticks" id="toc-bluish-vs-reddish-candlesticks" class="nav-link" data-scroll-target="#bluish-vs-reddish-candlesticks">bluish vs reddish Candlesticks:</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Latest Projects</h1>
+<h1 class="title">Candlestick Analysis</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Samantha Pang </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 29, 2025</p>
+    </div>
+  </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">December 29, 2025</p>
+    </div>
+  </div>
     
   </div>
   
@@ -187,63 +257,203 @@ gtag('config', 'G-SC9L5BGV9Z', { 'anonymize_ip': true});
 </header>
 
 
-<!-- #### See my latest projects: -->
-<div class="project-list">
-<a href="./webScraper.html" class="project-item"> <img src="media/cell-4-output-1.png" alt="US Treasury Bond Web Scraper project image">
-<div class="project-content">
-<div class="project-title">
-US Treasury Bond Web Scraper
+<section id="candlestick-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="candlestick-analysis">Candlestick Analysis</h2>
+<p>Candlestick charts are widely used in financial markets to represent price movements of securities over time. Each candlestick provides four key pieces of information: the opening price, closing price, high price, and low price (OHLC) for a specific time period (day, hour, minute, etc.).</p>
+<section id="key-components-of-a-candlestick" class="level3">
+<h3 class="anchored" data-anchor-id="key-components-of-a-candlestick">Key Components of a Candlestick:</h3>
+<ul>
+<li><strong>Body</strong>: The rectangular part of the candlestick that shows the range between the opening and closing prices.</li>
+<li><strong>Wicks (Shadows)</strong>: The thin lines above and below the body that represent the high and low prices during the time period.</li>
+<li><strong>Body’s Color</strong>: Indicates whether the closing price was higher or lower than the opening price.</li>
+<li><strong>Volume</strong>: The number of shares or contracts traded during the time period.</li>
+<li><strong>Volume’s Color</strong>: Indicates whether the closing price was increased or decreased comparing to previous closing.</li>
+</ul>
+<div id="88bf476e" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mplfinance <span class="im">as</span> mpf</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> yf.download( [<span class="st">"NVDA"</span>], period <span class="op">=</span> <span class="st">'6mo'</span>, auto_adjust<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>data.columns <span class="op">=</span> [<span class="st">'Close'</span>, <span class="st">'High'</span>, <span class="st">'Low'</span>, <span class="st">'Open'</span>, <span class="st">'Volume'</span>]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>display(data)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>mpf.plot(data, <span class="bu">type</span><span class="op">=</span><span class="st">"candle"</span>, style<span class="op">=</span><span class="st">"yahoo"</span>, volume<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Close</th>
+<th data-quarto-table-cell-role="th">High</th>
+<th data-quarto-table-cell-role="th">Low</th>
+<th data-quarto-table-cell-role="th">Open</th>
+<th data-quarto-table-cell-role="th">Volume</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2025-06-30</th>
+<td>157.972305</td>
+<td>158.642228</td>
+<td>155.942534</td>
+<td>158.382248</td>
+<td>194580300</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2025-07-01</th>
+<td>153.282837</td>
+<td>157.182394</td>
+<td>151.473042</td>
+<td>156.272492</td>
+<td>213143600</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2025-07-02</th>
+<td>157.232376</td>
+<td>157.582343</td>
+<td>152.952857</td>
+<td>152.962850</td>
+<td>171224100</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2025-07-03</th>
+<td>159.322144</td>
+<td>160.961959</td>
+<td>157.752327</td>
+<td>158.352251</td>
+<td>143716100</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2025-07-07</th>
+<td>158.222275</td>
+<td>159.292147</td>
+<td>157.322366</td>
+<td>158.182271</td>
+<td>140139000</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2025-12-22</th>
+<td>183.690002</td>
+<td>184.160004</td>
+<td>182.350006</td>
+<td>183.919998</td>
+<td>129064400</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2025-12-23</th>
+<td>189.210007</td>
+<td>189.330002</td>
+<td>182.899994</td>
+<td>182.970001</td>
+<td>174873600</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2025-12-24</th>
+<td>188.610001</td>
+<td>188.910004</td>
+<td>186.589996</td>
+<td>187.940002</td>
+<td>65528500</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">2025-12-26</th>
+<td>190.529999</td>
+<td>192.690002</td>
+<td>188.000000</td>
+<td>189.919998</td>
+<td>139393400</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2025-12-29</th>
+<td>188.220001</td>
+<td>188.755005</td>
+<td>185.910004</td>
+<td>187.699997</td>
+<td>119188494</td>
+</tr>
+</tbody>
+</table>
+
+<p>127 rows × 5 columns</p>
 </div>
-<div class="project-date">
-Published: Oct 2025
 </div>
-<div class="project-summary">
-Web scraping US Treasury Rate site with step by step ETL.
-</div>
-</div>
-</a><p><a href="./webScraper.html" class="project-item"></a></p>
-<a href="./invertedYieldCurve.html" class="project-item"> <img src="media/cell-3-output-1.png" alt="Inverted Yield Curve Analysis project image">
-<div class="project-content">
-<div class="project-title">
-Inverted Yield Curve Analysis
-</div>
-<div class="project-date">
-Published: Oct 2025
-</div>
-<div class="project-summary">
-Analyzing historical inverted yield curve data to explore its correlation with past economic recessions and predict future trends.
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="candlestickAnalysis_files/figure-html/cell-2-output-2.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
 </div>
-</a><p><a href="./invertedYieldCurve.html" class="project-item"></a></p>
-<a href="./PCA.html" class="project-item"> <img src="media/cell-9-output-1.png" alt="PCA of Treasury Yields project image">
-<div class="project-content">
-<div class="project-title">
-Treasury Yields PCA
 </div>
-<div class="project-date">
-Published: Oct 2025
+</section>
+<section id="bluish-vs-reddish-candlesticks" class="level3">
+<h3 class="anchored" data-anchor-id="bluish-vs-reddish-candlesticks">bluish vs reddish Candlesticks:</h3>
+<ul>
+<li><strong>Bluish Candlestick</strong>: Indicates that the closing price is higher than the opening price, suggesting bullish sentiment.</li>
+<li><strong>Reddish Candlestick</strong>: Indicates that the closing price is lower than the opening price, suggesting bearish sentiment. ### Example of Candlestick Data:</li>
+</ul>
+<p>how to use a candlesticks chart</p>
+<div id="2bdfe372" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># download data</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> yf.download(<span class="st">"NVDA"</span>, start<span class="op">=</span><span class="st">"2023-01-01"</span>, end<span class="op">=</span><span class="st">"2025-12-31"</span>, auto_adjust<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> [<span class="st">"Close"</span>, <span class="st">"High"</span>, <span class="st">"Low"</span>, <span class="st">"Open"</span>, <span class="st">"Volume"</span>]</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># candlestick chart</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>[</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        go.Candlestick(</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>df.index,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            <span class="bu">open</span><span class="op">=</span>df[<span class="st">"Open"</span>],</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>            high<span class="op">=</span>df[<span class="st">"High"</span>],</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            low<span class="op">=</span>df[<span class="st">"Low"</span>],</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            close<span class="op">=</span>df[<span class="st">"Close"</span>],</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>fig.update_layout(</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Nvidia Candlestick Chart"</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    xaxis_title<span class="op">=</span><span class="st">"Date"</span>,</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    yaxis_title<span class="op">=</span><span class="st">"Price"</span>,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    xaxis_rangeslider_visible<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
 </div>
-<div class="project-summary">
-Applying Principal Component Analysis (PCA) to treasury yields to identify primary drivers of yield curve movements, such as level, slope, and curvature.
-</div>
-</div>
-</a><p><a href="./PCA.html" class="project-item"></a></p>
-<a href="./marketTrendAnalysis.html" class="project-item"> <img src="media/cell-4-output-2.png" alt="Market Trend project image">
-<div class="project-content">
-<div class="project-title">
-Market Trend Distribution Analysis
-</div>
-<div class="project-date">
-Published: Dec 2025
-</div>
-<div class="project-summary">
-Analyzing long-term trends, returns, and volatility of major U.S. stock indices: S&amp;P 500, Dow Jones, and NASDAQ.
-</div>
-</div>
-</a><p><a href="./marketTrendAnalysis.html" class="project-item"></a></p>
 </div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -14,6 +14,7 @@ project:
 
 website:
   title: "Sam P"
+  google-analytics: "G-SC9L5BGV9Z"
   navbar:
     search: false
     left:
