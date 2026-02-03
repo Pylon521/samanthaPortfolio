@@ -15,16 +15,13 @@ about:
 #### ***Data Science / Plant Lover / Climber***
 *"The flow state, often called “being in the zone,” is a mental state where you are fully absorbed in an activity,and losing track of time."*
 
-Glad you are here! This website is to showcase Samantha's skills and passions and ultimately to inspire you to pursue what you love, aka being in the flow! 
+Glad you are here! This website is to showcase Samantha's skills and passions and ultimately to inspire you to pursue what you love, aka being in the flow!
 
-<!-- ##### **You can find me here:**
+See all projects on the [Projects](analysis.qmd) 🤓
 
-- 💼 [LinkedIn](https://www.linkedin.com/in/samantha-p5221/)
-- 🧑‍💻 [GitHub](https://github.com/Pylon521)
-- 😎 [Instagram](https://www.instagram.com/365bench/) -->
 ✉️ Contact: [theflow365@emailhub.kr](mailto:theflow365@emailhub.kr)
 
-#### Samantha's Latest Projects:
+#### Samantha's Latest Project:
 
 <div class="project-list">
 
@@ -34,33 +31,6 @@ Glad you are here! This website is to showcase Samantha's skills and passions an
   <div class="project-title">Market Trend Distribution Analysis</div>
   <div class="project-date">Published: Dec 2025</div>
   <div class="project-summary"> Analyzing long-term trends, returns, and volatility of major U.S. stock indices: S&P 500, Dow Jones, and NASDAQ.</div>
-  </div>
-</a>
-
-<a href="PCA.qmd" class="project-item">
-  <img src="media/cell-9-output-1.png" alt="PCA of Treasury Yields project image">
-  <div class="project-content">
-  <div class="project-title">Treasury Yields PCA</div>
-  <div class="project-date">Published: Oct 2025</div>
-  <div class="project-summary">Applying Principal Component Analysis (PCA) to treasury yields to identify primary drivers of yield curve movements, such as level, slope, and curvature.</div>
-  </div>
-</a>
-
-<a href="invertedYieldCurve.qmd" class="project-item">
-  <img src="media/cell-3-output-1.png" alt="Inverted Yield Curve Analysis project image">
-  <div class="project-content">
-  <div class="project-title">Inverted Yield Curve Analysis</div>
-  <div class="project-date">Published: Oct 2025</div>
-  <div class="project-summary">Analyzing historical inverted yield curve data to explore its correlation with past economic recessions and predict future trends.</div>
-  </div>
-</a>
-
-<a href="webScraper.qmd" class="project-item">
-  <img src="media/cell-4-output-1.png" alt="US Treasury Bond Web Scraper project image">
-  <div class="project-content">
-  <div class="project-title">US Treasury Bond Web Scraper</div>
-  <div class="project-date">Published: Oct 2025</div>
-  <div class="project-summary">Web scraping US Treasury Rate site with step by step ETL.</div>
   </div>
 </a>
 

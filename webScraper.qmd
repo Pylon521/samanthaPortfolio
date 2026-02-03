@@ -3,6 +3,8 @@ title: US Treasury Bond Web Scraper
 author: Samantha Pang
 date: 2025-10-01
 date-modified: last-modified 
+description: A web scraper that collects US Treasury Bond Yield data from 1990 to present, performs initial ETL, and reviews data structure and distribution.
+image: media/cell-4-output-1.png
 format: 
     html: 
         toc: true

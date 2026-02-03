@@ -1,0 +1,11 @@
+[
+  {
+    "listing": "/analysis.html",
+    "items": [
+      "/marketTrendAnalysis.html",
+      "/PCA.html",
+      "/invertedYieldCurve.html",
+      "/webScraper.html"
+    ]
+  }
+]

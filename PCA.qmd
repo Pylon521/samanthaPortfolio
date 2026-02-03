@@ -1,8 +1,10 @@
 ---
 title: US Treasury Par Yield Curve Rates Principal Component Analysis (PCA) 
 author: Samantha Pang
-date: 2025-10-01
+date: 2025-10-15
 date-modified: last-modified 
+description: Applying Principal Component Analysis (PCA) to treasury yields to identify primary drivers of yield curve movements, such as level, slope, and curvature.
+image: media/cell-9-output-1.png
 format: 
     html: 
         toc: true

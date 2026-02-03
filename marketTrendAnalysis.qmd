@@ -3,6 +3,8 @@ title: US Market Trends Analysis
 author: Samantha Pang
 date: '2025-12-01'
 date-modified: last-modified
+description: Analyzing long-term trends, returns, and volatility of major U.S. stock indices - S&P 500, Dow Jones, and NASDAQ.
+image: media/cell-4-output-2.png
 format:
   html:
     toc: true

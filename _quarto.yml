@@ -13,7 +13,7 @@ project:
     browser: true
 
 website:
-  title: "Sam P"
+  title: "Samantha P"
   google-analytics: "G-SC9L5BGV9Z"
   navbar:
     search: false
@@ -21,16 +21,7 @@ website:
       - text: Home
         href: index.qmd
       - text: Projects
-        # href: analysis.qmd
-        menu: 
-          - href: webScraper.qmd
-            text: US Treasury Bond Web Scraper
-          - href: invertedYieldCurve.qmd
-            text: Inverted Yield Curve Analysis
-          - href: PCA.qmd
-            text: Treasury Yields PCA
-          - href: marketTrendAnalysis.qmd
-            text: Market Trend Analysis
+        href: analysis.qmd
       - href: about.qmd
         text: About
 
@@ -48,20 +39,28 @@ website:
         target: _blank
 
 
-  # sidebar: 
-  #   style: "floating"        # or "floating"
-  #   logo: media\PXL_20251016_035631338.TS_exported_0~2.jpg
-  #   background: light      # light | dark | auto
-  #   contents:
-  #     - text: |
-  #         Glad you are here! This page is to showcase my skills and passions. Ultimately, I hope to inspire you to pursue what you love, aka being in the flow! 
-  #   tools:
-  #     - icon: github
-  #       href: https://github.com/
+  sidebar: 
+    style: "floating"
+    background: light      # light | dark | auto
+    contents: 
+      - href: index.qmd
+        text: Home
+      - section: "Projects"
+        contents: 
+        - href: marketTrendAnalysis.qmd
+          text: Market Trend Analysis
+        - href: webScraper.qmd
+          text: US Treasury Bond Web Scraper
+        - href: invertedYieldCurve.qmd
+          text: Inverted Yield Curve Analysis
+        - href: PCA.qmd
+          text: Treasury Yields PCA
+      - href: about.qmd
+        text: About
 
   page-footer:
     center:
-      - text: "© 2025 Sam P"
+      - text: "© 2025 Samantha P"
 
 format:
   html:

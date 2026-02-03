@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Latest Projects – Sam P</title>
+<title>Projects – Samantha P</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -40,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ffa9a6279353761231ec249df0a7fdd3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-ddf9649075f89655a02d3a0a2530db34.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-author','listing-title','listing-description','listing-reading-time','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SC9L5BGV9Z"></script>
 
 <script type="text/javascript">
@@ -78,11 +109,40 @@ gtag('js', new Date());
 gtag('config', 'G-SC9L5BGV9Z', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-sidebar floating nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -92,7 +152,7 @@ gtag('config', 'G-SC9L5BGV9Z', { 'anonymize_ip': true});
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Sam P</span>
+    <span class="navbar-title">Samantha P</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -101,32 +161,13 @@ gtag('config', 'G-SC9L5BGV9Z', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Projects</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
-        <li>
-    <a class="dropdown-item" href="./webScraper.html">
- <span class="dropdown-text">US Treasury Bond Web Scraper</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./analysis.html"> 
+<span class="menu-text">Projects</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./invertedYieldCurve.html">
- <span class="dropdown-text">Inverted Yield Curve Analysis</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./PCA.html">
- <span class="dropdown-text">Treasury Yields PCA</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./marketTrendAnalysis.html">
- <span class="dropdown-text">Market Trend Analysis</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
@@ -159,10 +200,78 @@ gtag('config', 'G-SC9L5BGV9Z', { 'anonymize_ip': true});
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Projects</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Projects</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./marketTrendAnalysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Market Trend Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./webScraper.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">US Treasury Bond Web Scraper</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./invertedYieldCurve.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inverted Yield Curve Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./PCA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Treasury Yields PCA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     
 <!-- main -->
@@ -170,7 +279,7 @@ gtag('config', 'G-SC9L5BGV9Z', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Latest Projects</h1>
+<h1 class="title">Projects</h1>
 </div>
 
 
@@ -187,65 +296,119 @@ gtag('config', 'G-SC9L5BGV9Z', { 'anonymize_ip': true});
 </header>
 
 
-<!-- #### See my latest projects: -->
-<div class="project-list">
-<a href="./webScraper.html" class="project-item"> <img src="media/cell-4-output-1.png" alt="US Treasury Bond Web Scraper project image">
-<div class="project-content">
-<div class="project-title">
-US Treasury Bond Web Scraper
-</div>
-<div class="project-date">
-Published: Oct 2025
-</div>
-<div class="project-summary">
-Web scraping US Treasury Rate site with step by step ETL.
-</div>
-</div>
-</a><p><a href="./webScraper.html" class="project-item"></a></p>
-<a href="./invertedYieldCurve.html" class="project-item"> <img src="media/cell-3-output-1.png" alt="Inverted Yield Curve Analysis project image">
-<div class="project-content">
-<div class="project-title">
-Inverted Yield Curve Analysis
-</div>
-<div class="project-date">
-Published: Oct 2025
-</div>
-<div class="project-summary">
-Analyzing historical inverted yield curve data to explore its correlation with past economic recessions and predict future trends.
-</div>
-</div>
-</a><p><a href="./invertedYieldCurve.html" class="project-item"></a></p>
-<a href="./PCA.html" class="project-item"> <img src="media/cell-9-output-1.png" alt="PCA of Treasury Yields project image">
-<div class="project-content">
-<div class="project-title">
-Treasury Yields PCA
-</div>
-<div class="project-date">
-Published: Oct 2025
-</div>
-<div class="project-summary">
-Applying Principal Component Analysis (PCA) to treasury yields to identify primary drivers of yield curve movements, such as level, slope, and curvature.
-</div>
-</div>
-</a><p><a href="./PCA.html" class="project-item"></a></p>
-<a href="./marketTrendAnalysis.html" class="project-item"> <img src="media/cell-4-output-2.png" alt="Market Trend project image">
-<div class="project-content">
-<div class="project-title">
-Market Trend Distribution Analysis
-</div>
-<div class="project-date">
-Published: Dec 2025
-</div>
-<div class="project-summary">
-Analyzing long-term trends, returns, and volatility of major U.S. stock indices: S&amp;P 500, Dow Jones, and NASDAQ.
-</div>
-</div>
-</a><p><a href="./marketTrendAnalysis.html" class="project-item"></a></p>
-</div>
 
 
 
-</main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1764568800000" data-listing-file-modified-sort="1770152409699" data-listing-date-modified-sort="1770152409000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1333">
+<div class="thumbnail"><a href="./marketTrendAnalysis.html" class="no-external">
+
+<img loading="lazy" src="./media/cell-4-output-2.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./marketTrendAnalysis.html" class="no-external">US Market Trends Analysis</a>
+</h3>
+<div class="delink listing-description"><a href="./marketTrendAnalysis.html" class="no-external">
+<p>Analyzing long-term trends, returns, and volatility of major U.S. stock indices - S&amp;P 500, Dow Jones, and NASDAQ.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./marketTrendAnalysis.html" class="no-external">
+<div class="listing-date">
+Dec 1, 2025
+</div>
+<div class="listing-author">
+Samantha Pang
+</div>
+<div class="listing-reading-time">7 min</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1760504400000" data-listing-file-modified-sort="1770156732320" data-listing-date-modified-sort="1770156732000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1026">
+<div class="thumbnail"><a href="./PCA.html" class="no-external">
+
+<img loading="lazy" src="./media/cell-9-output-1.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./PCA.html" class="no-external">US Treasury Par Yield Curve Rates Principal Component Analysis (PCA)</a>
+</h3>
+<div class="delink listing-description"><a href="./PCA.html" class="no-external">
+<p>Applying Principal Component Analysis (PCA) to treasury yields to identify primary drivers of yield curve movements, such as level, slope, and curvature.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./PCA.html" class="no-external">
+<div class="listing-date">
+Oct 15, 2025
+</div>
+<div class="listing-author">
+Samantha Pang
+</div>
+<div class="listing-reading-time">6 min</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1759899600000" data-listing-file-modified-sort="1770156745253" data-listing-date-modified-sort="1770156745000" data-listing-reading-time-sort="3" data-listing-word-count-sort="556">
+<div class="thumbnail"><a href="./invertedYieldCurve.html" class="no-external">
+
+<p class="card-img-top"><img src="invertedYieldCurve_files\figure-html\cell-2-output-1.png"  class="thumbnail-image card-img"/></p>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./invertedYieldCurve.html" class="no-external">US Treasury Par Inverted Yield Curve Analysis</a>
+</h3>
+<div class="delink listing-description"><a href="./invertedYieldCurve.html" class="no-external">
+<p>Analyzing historical inverted yield curve data to explore its correlation with past economic recessions and predict future trends.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./invertedYieldCurve.html" class="no-external">
+<div class="listing-date">
+Oct 8, 2025
+</div>
+<div class="listing-author">
+Samantha Pang
+</div>
+<div class="listing-reading-time">3 min</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1759294800000" data-listing-file-modified-sort="1770152528953" data-listing-date-modified-sort="1770152528000" data-listing-reading-time-sort="4" data-listing-word-count-sort="708">
+<div class="thumbnail"><a href="./webScraper.html" class="no-external">
+
+<img loading="lazy" src="./media/cell-4-output-1.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./webScraper.html" class="no-external">US Treasury Bond Web Scraper</a>
+</h3>
+<div class="delink listing-description"><a href="./webScraper.html" class="no-external">
+<p>A web scraper that collects US Treasury Bond Yield data from 1990 to present, performs initial ETL, and reviews data structure and distribution.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./webScraper.html" class="no-external">
+<div class="listing-date">
+Oct 1, 2025
+</div>
+<div class="listing-author">
+Samantha Pang
+</div>
+<div class="listing-reading-time">4 min</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -655,7 +818,7 @@ Analyzing long-term trends, returns, and volatility of major U.S. stock indices:
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
- © 2025 Sam P
+ © 2025 Samantha P
   </li>  
 </ul>
     </div>
