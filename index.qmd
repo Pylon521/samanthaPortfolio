@@ -2,7 +2,7 @@
 title: "Samantha Pang"
 about: 
   template: marquee
-  image: media/PXL_20251016_035631338.TS_exported_0~2.jpg
+  image: media/index1.jpg
   links:
     - icon: github
       text: Github
@@ -11,13 +11,12 @@ about:
       text: LinkedIn
       href: https://www.linkedin.com/in/samantha-p5221/
 ---
-
-#### ***Data Science / Plant Lover / Climber***
+#### ***Data Science / Plant Lover / Runner***
 *"The flow state, often called “being in the zone,” is a mental state where you are fully absorbed in an activity,and losing track of time."*
 
 Glad you are here! This website is to showcase Samantha's skills and passions and ultimately to inspire you to pursue what you love, aka being in the flow!
 
-See all projects on the [Projects](analysis.qmd) 🤓
+See all projects [here](analysis.qmd) 🤓
 
 ✉️ Contact: [theflow365@emailhub.kr](mailto:theflow365@emailhub.kr)
 

@@ -1,8 +1,8 @@
 ---
 title: "Samantha Pang"
 about: 
-  template: jolla
-  image: media/PXL_20250913_180318063~4.jpg
+  template: trestles
+  image: media/profile1.jpg
   links:
     - icon: github
       text: Github
@@ -24,6 +24,6 @@ University of Illinois at Chicago - B.A., Applied Psychology (Summa Cum Laude, G
 
 **Technical Skills:** 
 
-Python, Tableau, R, SQL, VBA, HTML/CSS, JavaScript, TypeScript, Flutter, Dart, MS Excel
+Python, Tableau, R, SQL, VBA, Git, HTML/CSS, JavaScript, TypeScript, Flutter, Dart, MS Excel
 
 ✉️ Contact: [theflow365@emailhub.kr](mailto:theflow365@emailhub.kr)
