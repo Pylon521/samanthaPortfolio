@@ -39,24 +39,24 @@ website:
         target: _blank
 
 
-  sidebar: 
-    style: "floating"
-    background: light      # light | dark | auto
-    contents: 
-      - href: index.qmd
-        text: Home
-      - section: "Projects"
-        contents: 
-        - href: marketTrendAnalysis.qmd
-          text: Market Trend Analysis
-        - href: webScraper.qmd
-          text: US Treasury Bond Web Scraper
-        - href: invertedYieldCurve.qmd
-          text: Inverted Yield Curve Analysis
-        - href: PCA.qmd
-          text: Treasury Yields PCA
-      - href: about.qmd
-        text: About
+  # sidebar: 
+  #   style: "floating"
+  #   background: light      # light | dark | auto
+  #   contents: 
+  #     - href: index.qmd
+  #       text: Home
+  #     - section: "Projects"
+  #       contents: 
+  #       - href: marketTrendAnalysis.qmd
+  #         text: Market Trend Analysis
+  #       - href: webScraper.qmd
+  #         text: US Treasury Bond Web Scraper
+  #       - href: invertedYieldCurve.qmd
+  #         text: Inverted Yield Curve Analysis
+  #       - href: PCA.qmd
+  #         text: Treasury Yields PCA
+  #     - href: about.qmd
+  #       text: About
 
   page-footer:
     center:

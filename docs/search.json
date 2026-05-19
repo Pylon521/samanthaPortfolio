@@ -162,11 +162,7 @@
     "href": "about.html",
     "title": "Samantha Pang",
     "section": "",
-    "text": "I’m a data analyst with a background in forecasting, replenishment, and operations. My day job involves building analytical tools, dashboards, and frameworks and has contributed to large-scale decision-making, cost savings, and operational stability.\nI’m passionate about continuous learning and genuinely enjoy logical challenges. One of my greatest joys is simplifying complex topics with structure and creativity. I bring a mix of strong technical skills (Python, SQL, Tableau) and human-centered thinking, shaped by my training in data analytics and applied psychology. I’m motivated by improving processes, building reliable systems, and finding better ways for people to work smarter and stay in flow.\nEducation:\nNorthern Illinois University - M.S., Data Analytics (GPA:3.96)\nUniversity of Illinois at Chicago - B.A., Applied Psychology (Summa Cum Laude, GPA:3.90)\nTechnical Skills:\nPython, Tableau, R, SQL, VBA, Git, HTML/CSS, JavaScript, TypeScript, Flutter, Dart, MS Excel\n✉️ Contact: theflow365@emailhub.kr",
-    "crumbs": [
-      "Home",
-      "About"
-    ]
+    "text": "I’m a data analyst with a background in forecasting, replenishment, and operations. My day job involves building analytical tools, dashboards, and frameworks and has contributed to large-scale decision-making, cost savings, and operational stability.\nI’m passionate about continuous learning and genuinely enjoy logical challenges. One of my greatest joys is simplifying complex topics with structure and creativity. I bring a mix of strong technical skills (Python, SQL, Tableau) and human-centered thinking, shaped by my training in data analytics and applied psychology. I’m motivated by improving processes, building reliable systems, and finding better ways for people to work smarter and stay in flow.\nEducation:\nM.S., Data Analytics, Northern Illinois University\nB.A., Applied Psychology, University of Illinois at Chicago (Summa Cum Laude)\nTechnical Skills:\nPython, Tableau, R, SQL, VBA, Git, HTML/CSS, JavaScript, TypeScript, Flutter, Dart, MS Excel\n✉️ Contact: theflow365@emailhub.kr"
   },
   {
     "objectID": "analysis.html",
@@ -180,118 +176,70 @@
     "href": "index.html",
     "title": "Samantha Pang",
     "section": "",
-    "text": "Data Science / Plant Lover / Runner\n“The flow state, often called “being in the zone,” is a mental state where you are fully absorbed in an activity,and losing track of time.”\nGlad you are here! This website is to showcase Samantha’s skills and passions and ultimately to inspire you to pursue what you love, aka being in the flow!\nSee all projects here 🤓\n✉️ Contact: theflow365@emailhub.kr\n\n\nSamantha’s Latest Project:\n\n \n\n\nMarket Trend Distribution Analysis\n\n\nPublished: Dec 2025\n\n\nAnalyzing long-term trends, returns, and volatility of major U.S. stock indices: S&P 500, Dow Jones, and NASDAQ.",
-    "crumbs": [
-      "Home"
-    ]
+    "text": "Data Science / Plant Lover / Runner\n“The flow state, often called “being in the zone,” is a mental state where you are fully absorbed in an activity,and losing track of time.”\nGlad you are here! This website is to showcase Samantha’s skills and passions and ultimately to inspire you to pursue what you love, aka being in the flow!\nSee all projects here 🤓\n✉️ Contact: theflow365@emailhub.kr\n\n\nSamantha’s Latest Project:\n\n \n\n\nMarket Trend Distribution Analysis\n\n\nPublished: Dec 2025\n\n\nAnalyzing long-term trends, returns, and volatility of major U.S. stock indices: S&P 500, Dow Jones, and NASDAQ."
   },
   {
     "objectID": "marketTrendAnalysis.html",
     "href": "marketTrendAnalysis.html",
     "title": "US Market Trends Analysis",
     "section": "",
-    "text": "Libraries needed for this exercise: yfinance, matplotlib, numpy, seaborn.\nyfinance is a Python library that allows you to download historical market data from Yahoo Finance. It is widely used for fetching stock prices (open, close, high, low), dividends, splits, and other financial data.",
-    "crumbs": [
-      "Home",
-      "Projects",
-      "Market Trend Analysis"
-    ]
+    "text": "Libraries needed for this exercise: yfinance, matplotlib, numpy, seaborn.\nyfinance is a Python library that allows you to download historical market data from Yahoo Finance. It is widely used for fetching stock prices (open, close, high, low), dividends, splits, and other financial data."
   },
   {
     "objectID": "marketTrendAnalysis.html#prerequisites",
     "href": "marketTrendAnalysis.html#prerequisites",
     "title": "US Market Trends Analysis",
     "section": "",
-    "text": "Libraries needed for this exercise: yfinance, matplotlib, numpy, seaborn.\nyfinance is a Python library that allows you to download historical market data from Yahoo Finance. It is widely used for fetching stock prices (open, close, high, low), dividends, splits, and other financial data.",
-    "crumbs": [
-      "Home",
-      "Projects",
-      "Market Trend Analysis"
-    ]
+    "text": "Libraries needed for this exercise: yfinance, matplotlib, numpy, seaborn.\nyfinance is a Python library that allows you to download historical market data from Yahoo Finance. It is widely used for fetching stock prices (open, close, high, low), dividends, splits, and other financial data."
   },
   {
     "objectID": "marketTrendAnalysis.html#objective",
     "href": "marketTrendAnalysis.html#objective",
     "title": "US Market Trends Analysis",
     "section": "Objective",
-    "text": "Objective\nThis project aims to understand leading indicators of the U.S. stock market by analyzing the S&P 500, Dow Jones, and NASDAQ indices. We will explore historical data, visualize trends, and identify patterns that helps investors make well-informed decisions.",
-    "crumbs": [
-      "Home",
-      "Projects",
-      "Market Trend Analysis"
-    ]
+    "text": "Objective\nThis project aims to understand leading indicators of the U.S. stock market by analyzing the S&P 500, Dow Jones, and NASDAQ indices. We will explore historical data, visualize trends, and identify patterns that helps investors make well-informed decisions."
   },
   {
     "objectID": "marketTrendAnalysis.html#leading-indicators",
     "href": "marketTrendAnalysis.html#leading-indicators",
     "title": "US Market Trends Analysis",
     "section": "Leading Indicators",
-    "text": "Leading Indicators\n\nS&P 500\nThe S&P 500 (Standard & Poor’s 500) is a stock market index that measures the performance of 500 large companies listed on U.S. stock exchanges. It is one of the most commonly followed equity indices and is often considered a benchmark for the overall health of the US stock market.\n\n\nDow Jones\nThe Dow Jones Industrial Average (DJIA) is a stock market index that measures the stock performance of 30 large, publicly owned companies based in the U.S. It is one of the oldest and most widely recognized stock market indices in the world.\n\n\nNASDAQ\nThe NASDAQ Composite is a stock market index that includes almost all stocks listed on the NASDAQ stock exchange. It is heavily weighted towards technology companies and is often used as a benchmark for the performance of the tech sector.",
-    "crumbs": [
-      "Home",
-      "Projects",
-      "Market Trend Analysis"
-    ]
+    "text": "Leading Indicators\n\nS&P 500\nThe S&P 500 (Standard & Poor’s 500) is a stock market index that measures the performance of 500 large companies listed on U.S. stock exchanges. It is one of the most commonly followed equity indices and is often considered a benchmark for the overall health of the US stock market.\n\n\nDow Jones\nThe Dow Jones Industrial Average (DJIA) is a stock market index that measures the stock performance of 30 large, publicly owned companies based in the U.S. It is one of the oldest and most widely recognized stock market indices in the world.\n\n\nNASDAQ\nThe NASDAQ Composite is a stock market index that includes almost all stocks listed on the NASDAQ stock exchange. It is heavily weighted towards technology companies and is often used as a benchmark for the performance of the tech sector."
   },
   {
     "objectID": "marketTrendAnalysis.html#overall-time-series-trends",
     "href": "marketTrendAnalysis.html#overall-time-series-trends",
     "title": "US Market Trends Analysis",
     "section": "Overall time Series Trends",
-    "text": "Overall time Series Trends\nLine graph below shows the overall upward trends of the S&P 500, Dow Jones, and NASDAQ indices over the past 30 years. The Dow Jones exhibits the highest growth, followed by NASDAQ comes second and then S&P 500. The Dow Jones and NASDAQ display greater volatility compared to the S&P 500, which follows a steadier growth trajectory.\n\n\nCode\nimport yfinance as yf\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\nstartdate = \"1990-01-01\"\nenddate = \"2025-12-31\"\ntickers = [\"^GSPC\", \"^DJI\", \"^IXIC\"]\n\n# auto_adjust=True to get adjusted close prices (accounting for dividends and stock splits)\ndf = yf.download(\n    tickers,\n    start=startdate,\n    end=enddate,\n    auto_adjust=True\n)[\"Close\"]\n\nsp500, dw30, nasdaq = df[\"^GSPC\"], df[\"^DJI\"], df[\"^IXIC\"]\n\n# today/yesterday price ratio / gross return\ndef returns(prices):\n    return np.log(prices/prices.shift(1)).dropna()\n\nsp500ret, dw30ret, nasdaqret = returns(sp500), returns(dw30), returns(nasdaq)\n\ndata = df.dropna().reset_index().melt(\n    id_vars=\"Date\", var_name=\"Index\", value_name=\"Close\")\nplt.figure(figsize=(8, 6))\nsns.lineplot(data=data, x=\"Date\", y=\"Close\", hue=\"Index\")\nplt.title(\"Closing Prices of Major US Indices\")\nplt.xlabel(\"Date\")\nplt.ylabel(\"Adjusted Close Price\")\nplt.show()",
-    "crumbs": [
-      "Home",
-      "Projects",
-      "Market Trend Analysis"
-    ]
+    "text": "Overall time Series Trends\nLine graph below shows the overall upward trends of the S&P 500, Dow Jones, and NASDAQ indices over the past 30 years. The Dow Jones exhibits the highest growth, followed by NASDAQ comes second and then S&P 500. The Dow Jones and NASDAQ display greater volatility compared to the S&P 500, which follows a steadier growth trajectory.\n\n\nCode\nimport yfinance as yf\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\nstartdate = \"1990-01-01\"\nenddate = \"2025-12-31\"\ntickers = [\"^GSPC\", \"^DJI\", \"^IXIC\"]\n\n# auto_adjust=True to get adjusted close prices (accounting for dividends and stock splits)\ndf = yf.download(\n    tickers,\n    start=startdate,\n    end=enddate,\n    auto_adjust=True\n)[\"Close\"]\n\nsp500, dw30, nasdaq = df[\"^GSPC\"], df[\"^DJI\"], df[\"^IXIC\"]\n\n# today/yesterday price ratio / gross return\ndef returns(prices):\n    return np.log(prices/prices.shift(1)).dropna()\n\nsp500ret, dw30ret, nasdaqret = returns(sp500), returns(dw30), returns(nasdaq)\n\ndata = df.dropna().reset_index().melt(\n    id_vars=\"Date\", var_name=\"Index\", value_name=\"Close\")\nplt.figure(figsize=(8, 6))\nsns.lineplot(data=data, x=\"Date\", y=\"Close\", hue=\"Index\")\nplt.title(\"Closing Prices of Major US Indices\")\nplt.xlabel(\"Date\")\nplt.ylabel(\"Adjusted Close Price\")\nplt.show()"
   },
   {
     "objectID": "marketTrendAnalysis.html#histogram-analysis",
     "href": "marketTrendAnalysis.html#histogram-analysis",
     "title": "US Market Trends Analysis",
     "section": "Histogram Analysis",
-    "text": "Histogram Analysis\n\nRaw Closing Prices\nVisualizing the closing prices using histograms, we see right skewed distributions, indicating that there are more days with lower closing prices and fewer days with very high closing prices. One reason for the sparse distribution is that closing prices have increased continuously over the years, resulting in a wide range of data points.\n\n\nCode\nfig, axes = plt.subplots(3, 1, figsize=(8, 8))\nseries_list = [sp500, dw30, nasdaq]\n\nfor series, name, i in zip(series_list, [\"S&P 500\", \"Dow Jones 30\", \"Nasdaq Composite\"], range(3)):\n    sns.histplot(series, kde=True, bins=50, ax=axes[i])\n    axes[i].set_title(name)\n    for ax in axes:\n        ax.set_xlabel(\"Close Price\")\n        ax.set_ylabel(\"Frequency\")\n\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\nLog Trasformed Returns\nWith log transformation, we observe more normalized distributions. Log returns convert multiplicative processes into additive ones, making the data easier to analyze statistically.\nHistograms show more symmetric distributions of the logarithm returns of all 3 of the indices over the last 30 years, providing insight into their performance and volatility. The majority of returns clustering around the mean indicates smaller price movements. The probability of extreme returns (both positive and negative) is low, suggesting a limited risk of significant gains or losses during this period. Overall, the histograms suggest that all 3 indices has relatively stable performance with moderate volatility over the year, making them suitable for long-term investment strategies.\n\n\nCode\nfig, axes = plt.subplots(3, 1, figsize=(8, 8))\nseries_list = [sp500ret, dw30ret, nasdaqret]\n\nfor series, name, i in zip(series_list, [\"S&P 500\", \"Dow Jones 30\", \"Nasdaq Composite\"], range(3)):\n    sns.histplot(series, kde=True, bins=50, ax=axes[i])\n    axes[i].set_title(name)\n    for ax in axes:\n        ax.set_xlabel(\"Log Return\")\n        ax.set_ylabel(\"Frequency\")\n    print(name, \"'s Total Return Over Past 30 Years: \",(np.exp(series.sum())-1).round(4))\n    print(name, \"'s Annual Volatility: \", (series.std()*np.sqrt(252)).round(4)) \n\nplt.tight_layout()\nplt.show()\n\n\nS&P 500 's Total Return Over Past 30 Years:  18.1659\nS&P 500 's Annual Volatility:  0.1807\nDow Jones 30 's Total Return Over Past 30 Years:  14.2647\nDow Jones 30 's Annual Volatility:  0.1743\nNasdaq Composite 's Total Return Over Past 30 Years:  49.9976\nNasdaq Composite 's Annual Volatility:  0.2313",
-    "crumbs": [
-      "Home",
-      "Projects",
-      "Market Trend Analysis"
-    ]
+    "text": "Histogram Analysis\n\nRaw Closing Prices\nVisualizing the closing prices using histograms, we see right skewed distributions, indicating that there are more days with lower closing prices and fewer days with very high closing prices. One reason for the sparse distribution is that closing prices have increased continuously over the years, resulting in a wide range of data points.\n\n\nCode\nfig, axes = plt.subplots(3, 1, figsize=(8, 8))\nseries_list = [sp500, dw30, nasdaq]\n\nfor series, name, i in zip(series_list, [\"S&P 500\", \"Dow Jones 30\", \"Nasdaq Composite\"], range(3)):\n    sns.histplot(series, kde=True, bins=50, ax=axes[i])\n    axes[i].set_title(name)\n    for ax in axes:\n        ax.set_xlabel(\"Close Price\")\n        ax.set_ylabel(\"Frequency\")\n\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\nLog Trasformed Returns\nWith log transformation, we observe more normalized distributions. Log returns convert multiplicative processes into additive ones, making the data easier to analyze statistically.\nHistograms show more symmetric distributions of the logarithm returns of all 3 of the indices over the last 30 years, providing insight into their performance and volatility. The majority of returns clustering around the mean indicates smaller price movements. The probability of extreme returns (both positive and negative) is low, suggesting a limited risk of significant gains or losses during this period. Overall, the histograms suggest that all 3 indices has relatively stable performance with moderate volatility over the year, making them suitable for long-term investment strategies.\n\n\nCode\nfig, axes = plt.subplots(3, 1, figsize=(8, 8))\nseries_list = [sp500ret, dw30ret, nasdaqret]\n\nfor series, name, i in zip(series_list, [\"S&P 500\", \"Dow Jones 30\", \"Nasdaq Composite\"], range(3)):\n    sns.histplot(series, kde=True, bins=50, ax=axes[i])\n    axes[i].set_title(name)\n    for ax in axes:\n        ax.set_xlabel(\"Log Return\")\n        ax.set_ylabel(\"Frequency\")\n    print(name, \"'s Total Return Over Past 30 Years: \",(np.exp(series.sum())-1).round(4))\n    print(name, \"'s Annual Volatility: \", (series.std()*np.sqrt(252)).round(4)) \n\nplt.tight_layout()\nplt.show()\n\n\nS&P 500 's Total Return Over Past 30 Years:  18.1659\nS&P 500 's Annual Volatility:  0.1807\nDow Jones 30 's Total Return Over Past 30 Years:  14.2647\nDow Jones 30 's Annual Volatility:  0.1743\nNasdaq Composite 's Total Return Over Past 30 Years:  49.9976\nNasdaq Composite 's Annual Volatility:  0.2313"
   },
   {
     "objectID": "marketTrendAnalysis.html#total-returns-and-annual-volatility",
     "href": "marketTrendAnalysis.html#total-returns-and-annual-volatility",
     "title": "US Market Trends Analysis",
     "section": "Total Returns and Annual Volatility",
-    "text": "Total Returns and Annual Volatility\nThe total returns of 3 indices show significant growth. NASDAQ has the highest return and volatility, 50.27/ 23%, i.e. $1 invested in NASDAQ would have grown to $50.27 over the past 30 years, with annual fluctuations of 23%. In contrast, the Dow Jones has the lowest returns and volatility, while S&P 500 showing a more stable performance compared to NASDAQ.",
-    "crumbs": [
-      "Home",
-      "Projects",
-      "Market Trend Analysis"
-    ]
+    "text": "Total Returns and Annual Volatility\nThe total returns of 3 indices show significant growth. NASDAQ has the highest return and volatility, 50.27/ 23%, i.e. $1 invested in NASDAQ would have grown to $50.27 over the past 30 years, with annual fluctuations of 23%. In contrast, the Dow Jones has the lowest returns and volatility, while S&P 500 showing a more stable performance compared to NASDAQ."
   },
   {
     "objectID": "marketTrendAnalysis.html#statistical-measures-of-log-returns",
     "href": "marketTrendAnalysis.html#statistical-measures-of-log-returns",
     "title": "US Market Trends Analysis",
     "section": "Statistical Measures of Log Returns",
-    "text": "Statistical Measures of Log Returns\n\nMean, Median, Skewness, Kurtosis\nThe distributions of the log returns of all 3 indices has a symmetric distribution, but we can also use statistical measures to confirm whether they follow a normal distribution. Let’s find mean, median, skewness, kurtosis of log return for each index.\n\n\nCode\nfor series, name in zip(series_list, [\"S&P 500\", \"Dow Jones 30\", \"Nasdaq Composite\"]):\n    print(name, \"'s mean, median, mode: \",series.mean().round(4), \"/\",series.median().round(4),\"/\", series.mode().round(4))\n    print(name, \"'s skewness, kurtosis: \", series.skew().round(4),\"/\", series.kurt().round(4)) \n\n\nS&P 500 's mean, median, mode:  0.0003 / 0.0006 / 0    0.0\nName: ^GSPC, dtype: float64\nS&P 500 's skewness, kurtosis:  -0.3651 / 10.8825\nDow Jones 30 's mean, median, mode:  0.0003 / 0.0006 / 0    0.0\nName: ^DJI, dtype: float64\nDow Jones 30 's skewness, kurtosis:  -0.3851 / 13.0147\nNasdaq Composite 's mean, median, mode:  0.0004 / 0.0011 / 0    0.0\nName: ^IXIC, dtype: float64\nNasdaq Composite 's skewness, kurtosis:  -0.1797 / 6.876\n\n\nThe means, medians, and mode of the indices are extremely close to each other, indicating that the distributions are indeed symmetric and centered around the same value. Skewness explains whether a distribution is left or right leaning; in this case, a minimal left leaning is observed. Kurtosis measures the “tailedness” of the distributions. The high kurtosis values indicates extreme price movements happen frequently.\n\n\nStandard Deviation and Z-Score\nFor a normal distribution, about 68% of the data falls within one standard deviation of the mean, about 95% falls within two standard deviations, and about 99.7% falls within three standard deviations. This is known as the empirical rule or the 68-95-99.7 rule. \\[\n    μ ± 1σ → 0.68\n\\] \\[\n    μ ± 2σ → 0.95\n\\] \\[  \n    μ ± 3σ → 0.997\n\\]\nZ-Score is great for identifying outliers in a dataset. A z-score indicates how many standard deviations a data point is from the mean. Typically, a z-score above 3 or below -3 is considered an outlier. \\[\n    z=(x−μ)/σ\n\\]\n|z| &lt; 1 → normal movements\n|z| ≥ 1 → elevated volatility\n|z| ≥ 2 → unusually volatile\n|z| ≥ 3 → crash / spike territory\n\n\nCode\nfor series, name in zip(series_list, [\"S&P 500\", \"Dow Jones 30\", \"Nasdaq Composite\"]):\n    # count the number of observations within 1, 2, and 3 standard deviations from the mean\n    # mu-sigma to mu+sigma\n    print(name, \"'s 1,2,3 std away from mean: \",((series &gt;= series.mean()- series.std()) & (series &lt;= series.mean()+series.std())).mean().round(4)\n        ,((series &gt;= series.mean()-2* series.std()) & (series &lt;= series.mean()+2*series.std())).mean().round(4)\n        ,((series &gt;= series.mean()- 3*series.std()) & (series &lt;= series.mean()+3*series.std())).mean().round(4))\n    print(name, \"'s mean and median z-score: \", abs((series- series.mean())/series.std()).mean().round(4), abs((series- series.mean())/series.std()).median().round(4))\n\n\nS&P 500 's 1,2,3 std away from mean:  0.7906 0.9512 0.9844\nS&P 500 's mean and median z-score:  0.6655 0.4494\nDow Jones 30 's 1,2,3 std away from mean:  0.7913 0.9542 0.9857\nDow Jones 30 's mean and median z-score:  0.6638 0.4531\nNasdaq Composite 's 1,2,3 std away from mean:  0.7836 0.9466 0.9848\nNasdaq Composite 's mean and median z-score:  0.6798 0.4595\n\n\nLooking at the probabiles of observations within 1, 2, and 3 standard deviations from the mean for all 3 indices, we can see that they have a high percentage of observations within 1 standard deviation (around 78-79%), with normal distibution for 2 and 3 standard deviations. This suggests that leptokurtic distribution. Majority of the data points have low changes in returns, with a few extreme values causing the higher kurtosis. Using Z-score, we can once again confirm that majority of the days fall within normal movements, as mean and median z-scores are less than 1 for all 3 indices.",
-    "crumbs": [
-      "Home",
-      "Projects",
-      "Market Trend Analysis"
-    ]
+    "text": "Statistical Measures of Log Returns\n\nMean, Median, Skewness, Kurtosis\nThe distributions of the log returns of all 3 indices has a symmetric distribution, but we can also use statistical measures to confirm whether they follow a normal distribution. Let’s find mean, median, skewness, kurtosis of log return for each index.\n\n\nCode\nfor series, name in zip(series_list, [\"S&P 500\", \"Dow Jones 30\", \"Nasdaq Composite\"]):\n    print(name, \"'s mean, median, mode: \",series.mean().round(4), \"/\",series.median().round(4),\"/\", series.mode().round(4))\n    print(name, \"'s skewness, kurtosis: \", series.skew().round(4),\"/\", series.kurt().round(4)) \n\n\nS&P 500 's mean, median, mode:  0.0003 / 0.0006 / 0    0.0\nName: ^GSPC, dtype: float64\nS&P 500 's skewness, kurtosis:  -0.3651 / 10.8825\nDow Jones 30 's mean, median, mode:  0.0003 / 0.0006 / 0    0.0\nName: ^DJI, dtype: float64\nDow Jones 30 's skewness, kurtosis:  -0.3851 / 13.0147\nNasdaq Composite 's mean, median, mode:  0.0004 / 0.0011 / 0    0.0\nName: ^IXIC, dtype: float64\nNasdaq Composite 's skewness, kurtosis:  -0.1797 / 6.876\n\n\nThe means, medians, and mode of the indices are extremely close to each other, indicating that the distributions are indeed symmetric and centered around the same value. Skewness explains whether a distribution is left or right leaning; in this case, a minimal left leaning is observed. Kurtosis measures the “tailedness” of the distributions. The high kurtosis values indicates extreme price movements happen frequently.\n\n\nStandard Deviation and Z-Score\nFor a normal distribution, about 68% of the data falls within one standard deviation of the mean, about 95% falls within two standard deviations, and about 99.7% falls within three standard deviations. This is known as the empirical rule or the 68-95-99.7 rule. \\[\n    μ ± 1σ → 0.68\n\\] \\[\n    μ ± 2σ → 0.95\n\\] \\[  \n    μ ± 3σ → 0.997\n\\]\nZ-Score is great for identifying outliers in a dataset. A z-score indicates how many standard deviations a data point is from the mean. Typically, a z-score above 3 or below -3 is considered an outlier. \\[\n    z=(x−μ)/σ\n\\]\n|z| &lt; 1 → normal movements\n|z| ≥ 1 → elevated volatility\n|z| ≥ 2 → unusually volatile\n|z| ≥ 3 → crash / spike territory\n\n\nCode\nfor series, name in zip(series_list, [\"S&P 500\", \"Dow Jones 30\", \"Nasdaq Composite\"]):\n    # count the number of observations within 1, 2, and 3 standard deviations from the mean\n    # mu-sigma to mu+sigma\n    print(name, \"'s 1,2,3 std away from mean: \",((series &gt;= series.mean()- series.std()) & (series &lt;= series.mean()+series.std())).mean().round(4)\n        ,((series &gt;= series.mean()-2* series.std()) & (series &lt;= series.mean()+2*series.std())).mean().round(4)\n        ,((series &gt;= series.mean()- 3*series.std()) & (series &lt;= series.mean()+3*series.std())).mean().round(4))\n    print(name, \"'s mean and median z-score: \", abs((series- series.mean())/series.std()).mean().round(4), abs((series- series.mean())/series.std()).median().round(4))\n\n\nS&P 500 's 1,2,3 std away from mean:  0.7906 0.9512 0.9844\nS&P 500 's mean and median z-score:  0.6655 0.4494\nDow Jones 30 's 1,2,3 std away from mean:  0.7913 0.9542 0.9857\nDow Jones 30 's mean and median z-score:  0.6638 0.4531\nNasdaq Composite 's 1,2,3 std away from mean:  0.7836 0.9466 0.9848\nNasdaq Composite 's mean and median z-score:  0.6798 0.4595\n\n\nLooking at the probabiles of observations within 1, 2, and 3 standard deviations from the mean for all 3 indices, we can see that they have a high percentage of observations within 1 standard deviation (around 78-79%), with normal distibution for 2 and 3 standard deviations. This suggests that leptokurtic distribution. Majority of the data points have low changes in returns, with a few extreme values causing the higher kurtosis. Using Z-score, we can once again confirm that majority of the days fall within normal movements, as mean and median z-scores are less than 1 for all 3 indices."
   },
   {
     "objectID": "marketTrendAnalysis.html#conclusion",
     "href": "marketTrendAnalysis.html#conclusion",
     "title": "US Market Trends Analysis",
     "section": "Conclusion",
-    "text": "Conclusion\nAll 3 indices show relatively stable performance with moderate volatility over time. The S&P 500 and Dow Jones indices demonstrate more stable performance compared to NASDAQ. NASDAQ has the highest return and volatility, making it suitable for investors who can tolerate higher risk in exchange for potentially higher rewards.\nThe distributions of log returns for all 3 indices are symmetric, but the high kurtosis values indicate frequent extreme movements. A friendly advice for investors is to consider long-term investment strategies and be prepared for periods of market volatility. High returns come from surviving drawdowns rather than timing the market.",
-    "crumbs": [
-      "Home",
-      "Projects",
-      "Market Trend Analysis"
-    ]
+    "text": "Conclusion\nAll 3 indices show relatively stable performance with moderate volatility over time. The S&P 500 and Dow Jones indices demonstrate more stable performance compared to NASDAQ. NASDAQ has the highest return and volatility, making it suitable for investors who can tolerate higher risk in exchange for potentially higher rewards.\nThe distributions of log returns for all 3 indices are symmetric, but the high kurtosis values indicate frequent extreme movements. A friendly advice for investors is to consider long-term investment strategies and be prepared for periods of market volatility. High returns come from surviving drawdowns rather than timing the market."
   },
   {
     "objectID": "randomForrest.html",
