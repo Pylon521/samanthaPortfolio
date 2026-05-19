@@ -12,9 +12,9 @@ about:
       href: https://www.linkedin.com/in/samantha-p5221/
 ---
 
-I’m a data analyst with a background in forecasting, replenishment, and operations. My day job involves building analytical tools, dashboards, and frameworks and has contributed to large-scale decision-making, cost savings, and operational stability.
+Hi you! Let me introduce myself. I’m an analyst with a background in supply chain. My day job involves building analytical tools, dashboards, and frameworks and has contributed to large-scale decision-making, cost savings, and operational stability.
 
-I’m passionate about continuous learning and genuinely enjoy logical challenges. One of my greatest joys is simplifying complex topics with structure and creativity. I bring a mix of strong technical skills (Python, SQL, Tableau) and human-centered thinking, shaped by my training in data analytics and applied psychology. I’m motivated by improving processes, building reliable systems, and finding better ways for people to work smarter and stay in flow.
+I’m passionate about continuous learning and enjoy logical challenges. One of my greatest joys is transforming cold data into beautiful visualizations, simplifying complex topics with creativity. I bring a mix of strong technical skills (Python, SQL, Tableau) and human‑centered thinking, shaped by my education in data analytics and applied psychology. It would be a privilege to collaborate with you, and together we can find better ways to work smarter and stay in flow.
 
 **Education:**
 
